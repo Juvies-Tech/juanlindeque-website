@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="ds-colors.css">
+<link rel="stylesheet" href="ds-fonts.css">
+<link rel="stylesheet" href="ds-typography.css">
+<link rel="stylesheet" href="ds-spacing.css">
+<link rel="stylesheet" href="ds-styles.css">
+<script src="ds-bundle.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--surface-page);color:var(--text-primary);font-family:var(--font-sans);-webkit-font-smoothing:antialiased}
+a{color:var(--text-link);text-decoration:none}
+a:hover{color:var(--text-link-hover)}
+[data-l="af"]{display:none}
+@keyframes spf-left{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes spf-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+</style>
+</helmet>
+
+<div style="background:var(--surface-page)">
+
+  <header style="position:sticky;top:0;z-index:40;background:var(--navy-900)">
+    <div style="max-width:var(--container-max);margin:0 auto;padding:14px clamp(16px,4vw,40px);display:flex;align-items:center;gap:var(--space-6);flex-wrap:wrap">
+      <a href="#top" style="display:flex;flex-direction:column;gap:2px;color:var(--white)">
+        <span style="font:600 19px/1.1 var(--font-serif-display)">Juan Lindeque</span>
+        <span style="font:600 10px/1.2 var(--font-sans);letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.6)">Wealth Planner</span>
+      </a>
+      <nav style="display:flex;gap:clamp(14px,2vw,26px);flex-wrap:wrap;margin-left:auto;align-items:center">
+        <a href="#about" style="color:rgba(255,255,255,0.85);font:600 14px/1 var(--font-sans)" style-hover="color:#fff"><span data-l="en">About</span><span data-l="af">Oor My</span></a>
+        <a href="#services" style="color:rgba(255,255,255,0.85);font:600 14px/1 var(--font-sans)" style-hover="color:#fff"><span data-l="en">Services</span><span data-l="af">Dienste</span></a>
+        <a href="#partners" style="color:rgba(255,255,255,0.85);font:600 14px/1 var(--font-sans)" style-hover="color:#fff"><span data-l="en">Partners</span><span data-l="af">Vennote</span></a>
+        <a href="#process" style="color:rgba(255,255,255,0.85);font:600 14px/1 var(--font-sans)" style-hover="color:#fff"><span data-l="en">Process</span><span data-l="af">Proses</span></a>
+        <a href="#enquiry" style="color:rgba(255,255,255,0.85);font:600 14px/1 var(--font-sans)" style-hover="color:#fff"><span data-l="en">Contact</span><span data-l="af">Kontak</span></a>
+        <button type="button" onClick="{{ toggleLang }}" style="background:transparent;border:1px solid rgba(255,255,255,0.35);color:#fff;border-radius:var(--radius-pill);padding:7px 14px;font:700 12px/1 var(--font-sans);letter-spacing:0.06em;cursor:pointer">
+          <span data-l="en">AFRIKAANS</span><span data-l="af">ENGLISH</span>
+        </button>
+        <a href="https://outlook.office.com/bookwithme/user/899d807a52774809841145fc7d7faeb4@springpointfinance.co.za?anonymous&amp;ismsaljsauthenabled&amp;ep=pcard" target="_blank" rel="noopener" style="background:var(--red-600);color:#fff;border-radius:var(--radius-pill);padding:11px 20px;font:700 13px/1 var(--font-sans)" style-hover="background:var(--red-700);color:#fff">
+          <span data-l="en">Book a Call</span><span data-l="af">Bespreek 'n Gesprek</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="top" style="position:relative;background:var(--navy-900);overflow:hidden">
+    <div style="position:absolute;right:-14%;top:-18%;width:52%;aspect-ratio:1/1;border-radius:50%;background:var(--red-600);opacity:0.9"></div>
+    <div style="position:absolute;right:16%;bottom:-30%;width:30%;aspect-ratio:1/1;border-radius:50%;background:var(--red-700);opacity:0.35"></div>
+    <div style="position:relative;max-width:var(--container-max);margin:0 auto;padding:clamp(40px,6vw,80px) clamp(16px,4vw,40px);display:flex;gap:clamp(28px,5vw,56px);align-items:center;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:var(--space-6);max-width:34rem;flex:1 1 320px">
+        <span style="font:var(--text-eyebrow);letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;color:var(--red-400)">
+          <span data-l="en">Wealth Planner &middot; Somerset West</span><span data-l="af">Welvaartbeplanner &middot; Somerset-Wes</span>
+        </span>
+        <h1 style="margin:0;font:var(--text-display-xl);font-size:clamp(34px,5vw,56px);color:var(--white);text-wrap:pretty">
+          <span data-l="en">Independent Wealth Planning, Built on Relationship</span><span data-l="af">Onafhanklike Welvaartbeplanning, Gebou op Verhouding</span>
+        </h1>
+        <p style="margin:0;font:var(--text-body-lg);color:rgba(255,255,255,0.82);text-wrap:pretty">
+          <span data-l="en">Wealth is not only one's finances but how your finances are setup to allow you time with those you love.</span><span data-l="af">Welvaart is nie net jou finansies nie, maar hoe jou finansies opgestel is om jou tyd te gee met di&eacute; vir wie jy lief is.</span>
+        </p>
+        <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;margin-top:var(--space-2)">
+          <a href="https://outlook.office.com/bookwithme/user/899d807a52774809841145fc7d7faeb4@springpointfinance.co.za?anonymous&amp;ismsaljsauthenabled&amp;ep=pcard" target="_blank" rel="noopener" style="background:var(--red-600);color:#fff;border-radius:var(--radius-pill);padding:15px 28px;font:700 15px/1 var(--font-sans);display:inline-flex;align-items:center;gap:8px" style-hover="background:var(--red-700);color:#fff">
+            <span data-l="en">Book a Call</span><span data-l="af">Bespreek 'n Gesprek</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"></path></svg>
+          </a>
+          <a href="#enquiry" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.5);border-radius:var(--radius-pill);padding:15px 28px;font:700 15px/1 var(--font-sans);display:inline-flex;align-items:center;gap:8px" style-hover="background:rgba(255,255,255,0.08);color:#fff">
+            <span data-l="en">Work With Me</span><span data-l="af">Werk Saam Met My</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"></path></svg>
+          </a>
+        </div>
+      </div>
+      <div style="flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:var(--space-5);margin-left:auto;padding-right:clamp(0px,3vw,48px)">
+        <img src="asset-juan-headshot.jpeg" alt="Juan Lindeque, Wealth Planner" style="width:230px;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg)">
+        <div style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.96);border-radius:var(--radius-lg);padding:14px 18px;box-shadow:var(--shadow-md)">
+          <img src="asset-springpoint-logo.jpeg" alt="SpringPoint Finance" style="height:50px;width:auto;object-fit:contain">
+          <span style="width:1px;height:38px;background:var(--border-default)"></span>
+          <img src="asset-star-investment-partners.webp" alt="Star Investment Partners" style="height:32px;width:auto;object-fit:contain">
+          <span style="width:1px;height:38px;background:var(--border-default)"></span>
+          <img src="asset-verifi-logo.jpeg" alt="Verifi" style="height:48px;width:auto;object-fit:contain">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--white);border-top:1px solid var(--border-default);border-bottom:1px solid var(--border-default);overflow:hidden">
+    <div style="max-width:var(--container-max);margin:0 auto;padding:clamp(32px,4vw,56px) clamp(16px,4vw,40px) var(--space-6);display:flex;flex-direction:column;gap:var(--space-2);align-items:center;text-align:center">
+      <span style="font:var(--text-eyebrow);letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;color:var(--red-600)"><span data-l="en">Investment Partners</span><span data-l="af">Beleggingsvennote</span></span>
+      <p style="margin:0;font:var(--text-body-md);color:var(--text-secondary);max-width:44rem"><span data-l="en">Independent access to the platforms and managers I place client investments with.</span><span data-l="af">Onafhanklike toegang tot die platforms en bestuurders waar ek kli&euml;nte se beleggings plaas.</span></p>
+    </div>
+    <div style="padding-bottom:var(--space-10);display:flex;flex-direction:column;gap:var(--space-6)">
+      <div style="overflow:hidden">
+        <div style="display:flex;gap:var(--space-6);width:max-content;animation:spf-left 46s linear infinite;align-items:stretch;padding:0 var(--space-3)">
+          <div style="display:flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 22px;white-space:nowrap">
+            <img src="asset-star-investment-partners.webp" alt="Star Investment Partners" style="height:34px;width:auto;object-fit:contain">
+            <span style="font:600 17px/1.2 var(--font-sans);color:var(--navy-900)">Star Investment Partners</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 22px;white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=allangray.co.za&amp;sz=128" alt="" style="width:32px;height:32px;object-fit:contain">
+            <span style="font:600 17px/1.2 var(--font-sans);color:var(--navy-900)">Allan Gray</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 22px;white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=inn8.co.za&amp;sz=128" alt="" style="width:32px;height:32px;object-fit:contain">
+            <span style="font:600 17px/1.2 var(--font-sans);color:var(--navy-900)">INN8</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 22px;white-space:nowrap">
+            <img src="asset-glacier-logo.png" alt="Glacier by Sanlam" style="height:34px;width:auto;object-fit:contain">
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 22px;white-space:nowrap">
+            <img src="asset-pps-logo.png" alt="PPS" style="height:34px;width:auto;object-fit:contain;border-radius:4px">
+            <span style="font:600 17px/1.2 var(--font-sans);color:var(--navy-900)">PPS Investments</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 22px;white-space:nowrap">
+            <img src="asset-momentum-wealth.png" alt="Momentum Investments Wealth" style="height:34px;width:auto;object-fit:contain">
+            <span style="font:600 17px/1.2 var(--font-sans);color:var(--navy-900)">Momentum Wealth</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 22px;white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=oldmutual.co.za&amp;sz=128" alt="" style="width:32px;height:32px;object-fit:contain">
+            <span style="font:600 17px/1.2 var(--font-sans);color:var(--navy-900)">Old Mutual Wealth</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 22px;white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=discovery.co.za&amp;sz=128" alt="" style="width:32px;height:32px;object-fit:contain">
+            <span style="font:600 17px/1.2 var(--font-sans);color:var(--navy-900)">Discovery Invest</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 22px;white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=newroadcapital.co.za&amp;sz=128" alt="" style="width:32px;height:32px;object-fit:contain">
+            <span style="font:600 17px/1.2 var(--font-sans);color:var(--navy-900)">New Road Capital</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 22px;white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=satrix.co.za&amp;sz=128" alt="" style="width:32px;height:32px;object-fit:contain">
+            <span style="font:600 17px/1.2 var(--font-sans);color:var(--navy-900)">Satrix</span>
+          </div>
+          <div aria-hidden="true" style="display:flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 22px;white-space:nowrap">
+            <img src="asset-star-investment-partners.webp" alt="Star Investment Partners" style="height:34px;width:auto;object-fit:contain">
+            <span style="font:600 17px/1.2 var(--font-sans);color:var(--navy-900)">Star Investment Partners</span>
+          </div>
+          <div aria-hidden="true" style="display:flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 22px;white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=allangray.co.za&amp;sz=128" alt="" style="width:32px;height:32px;object-fit:contain">
+            <span style="font:600 17px/1.2 var(--font-sans);color:var(--navy-900)">Allan Gray</span>
+          </div>
+          <div aria-hidden="true" style="display:flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 22px;white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=inn8.co.za&amp;sz=128" alt="" style="width:32px;height:32px;object-fit:contain">
+            <span style="font:600 17px/1.2 var(--font-sans);color:var(--navy-900)">INN8</span>
+          </div>
+          <div aria-hidden="true" style="display:flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 22px;white-space:nowrap">
+            <img src="asset-glacier-logo.png" alt="Glacier by Sanlam" style="height:34px;width:auto;object-fit:contain">
+          </div>
+          <div aria-hidden="true" style="display:flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 22px;white-space:nowrap">
+            <img src="asset-pps-logo.png" alt="PPS" style="height:34px;width:auto;object-fit:contain;border-radius:4px">
+            <span style="font:600 17px/1.2 var(--font-sans);color:var(--navy-900)">PPS Investments</span>
+          </div>
+          <div aria-hidden="true" style="display:flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 22px;white-space:nowrap">
+            <img src="asset-momentum-wealth.png" alt="Momentum Investments Wealth" style="height:34px;width:auto;object-fit:contain">
+            <span style="font:600 17px/1.2 var(--font-sans);color:var(--navy-900)">Momentum Wealth</span>
+          </div>
+          <div aria-hidden="true" style="display:flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 22px;white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=oldmutual.co.za&amp;sz=128" alt="" style="width:32px;height:32px;object-fit:contain">
+            <span style="font:600 17px/1.2 var(--font-sans);color:var(--navy-900)">Old Mutual Wealth</span>
+          </div>
+          <div aria-hidden="true" style="display:flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 22px;white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=discovery.co.za&amp;sz=128" alt="" style="width:32px;height:32px;object-fit:contain">
+            <span style="font:600 17px/1.2 var(--font-sans);color:var(--navy-900)">Discovery Invest</span>
+          </div>
+          <div aria-hidden="true" style="display:flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 22px;white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=newroadcapital.co.za&amp;sz=128" alt="" style="width:32px;height:32px;object-fit:contain">
+            <span style="font:600 17px/1.2 var(--font-sans);color:var(--navy-900)">New Road Capital</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 22px;white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=satrix.co.za&amp;sz=128" alt="" style="width:32px;height:32px;object-fit:contain">
+            <span style="font:600 17px/1.2 var(--font-sans);color:var(--navy-900)">Satrix</span>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center">
+        <span style="font:var(--text-label);color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em"><span data-l="en">Risk, Medical &amp; Legacy Providers</span><span data-l="af">Risiko-, Mediese &amp; Nalatenskapverskaffers</span></span>
+      </div>
+      <div style="overflow:hidden">
+        <div style="display:flex;gap:var(--space-5);width:max-content;animation:spf-right 52s linear infinite;align-items:center;padding:0 var(--space-3)">
+          <div style="display:flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid var(--border-default);border-radius:var(--radius-pill);white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=discovery.co.za&amp;sz=64" alt="" style="width:22px;height:22px;object-fit:contain">
+            <span style="font:600 14px/1 var(--font-sans);color:var(--gray-700)">Discovery</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid var(--border-default);border-radius:var(--radius-pill);white-space:nowrap">
+            <img src="asset-momentum-logo.png" alt="" style="width:22px;height:22px;object-fit:contain">
+            <span style="font:600 14px/1 var(--font-sans);color:var(--gray-700)">Momentum</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid var(--border-default);border-radius:var(--radius-pill);white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=brightrock.co.za&amp;sz=64" alt="" style="width:22px;height:22px;object-fit:contain">
+            <span style="font:600 14px/1 var(--font-sans);color:var(--gray-700)">BrightRock</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid var(--border-default);border-radius:var(--radius-pill);white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=sanlam.co.za&amp;sz=64" alt="" style="width:22px;height:22px;object-fit:contain">
+            <span style="font:600 14px/1 var(--font-sans);color:var(--gray-700)">Sanlam</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid var(--border-default);border-radius:var(--radius-pill);white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=hollard.co.za&amp;sz=64" alt="" style="width:22px;height:22px;object-fit:contain">
+            <span style="font:600 14px/1 var(--font-sans);color:var(--gray-700)">Hollard</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid var(--border-default);border-radius:var(--radius-pill);white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=liberty.co.za&amp;sz=64" alt="" style="width:22px;height:22px;object-fit:contain">
+            <span style="font:600 14px/1 var(--font-sans);color:var(--gray-700)">Liberty</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid var(--border-default);border-radius:var(--radius-pill);white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=oldmutual.co.za&amp;sz=64" alt="" style="width:22px;height:22px;object-fit:contain">
+            <span style="font:600 14px/1 var(--font-sans);color:var(--gray-700)">Old Mutual</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid var(--border-default);border-radius:var(--radius-pill);white-space:nowrap">
+            <img src="asset-pps-logo.png" alt="" style="width:22px;height:22px;object-fit:contain;border-radius:3px">
+            <span style="font:600 14px/1 var(--font-sans);color:var(--gray-700)">PPS</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid var(--border-default);border-radius:var(--radius-pill);white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=bidvestlife.co.za&amp;sz=64" alt="" style="width:22px;height:22px;object-fit:contain">
+            <span style="font:600 14px/1 var(--font-sans);color:var(--gray-700)">Bidvest Life</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid var(--border-default);border-radius:var(--radius-pill);white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=capitallegacy.co.za&amp;sz=64" alt="" style="width:22px;height:22px;object-fit:contain">
+            <span style="font:600 14px/1 var(--font-sans);color:var(--gray-700)">Capital Legacy</span>
+          </div>
+          <div aria-hidden="true" style="display:flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid var(--border-default);border-radius:var(--radius-pill);white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=discovery.co.za&amp;sz=64" alt="" style="width:22px;height:22px;object-fit:contain">
+            <span style="font:600 14px/1 var(--font-sans);color:var(--gray-700)">Discovery</span>
+          </div>
+          <div aria-hidden="true" style="display:flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid var(--border-default);border-radius:var(--radius-pill);white-space:nowrap">
+            <img src="asset-momentum-logo.png" alt="" style="width:22px;height:22px;object-fit:contain">
+            <span style="font:600 14px/1 var(--font-sans);color:var(--gray-700)">Momentum</span>
+          </div>
+          <div aria-hidden="true" style="display:flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid var(--border-default);border-radius:var(--radius-pill);white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=brightrock.co.za&amp;sz=64" alt="" style="width:22px;height:22px;object-fit:contain">
+            <span style="font:600 14px/1 var(--font-sans);color:var(--gray-700)">BrightRock</span>
+          </div>
+          <div aria-hidden="true" style="display:flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid var(--border-default);border-radius:var(--radius-pill);white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=sanlam.co.za&amp;sz=64" alt="" style="width:22px;height:22px;object-fit:contain">
+            <span style="font:600 14px/1 var(--font-sans);color:var(--gray-700)">Sanlam</span>
+          </div>
+          <div aria-hidden="true" style="display:flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid var(--border-default);border-radius:var(--radius-pill);white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=hollard.co.za&amp;sz=64" alt="" style="width:22px;height:22px;object-fit:contain">
+            <span style="font:600 14px/1 var(--font-sans);color:var(--gray-700)">Hollard</span>
+          </div>
+          <div aria-hidden="true" style="display:flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid var(--border-default);border-radius:var(--radius-pill);white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=liberty.co.za&amp;sz=64" alt="" style="width:22px;height:22px;object-fit:contain">
+            <span style="font:600 14px/1 var(--font-sans);color:var(--gray-700)">Liberty</span>
+          </div>
+          <div aria-hidden="true" style="display:flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid var(--border-default);border-radius:var(--radius-pill);white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=oldmutual.co.za&amp;sz=64" alt="" style="width:22px;height:22px;object-fit:contain">
+            <span style="font:600 14px/1 var(--font-sans);color:var(--gray-700)">Old Mutual</span>
+          </div>
+          <div aria-hidden="true" style="display:flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid var(--border-default);border-radius:var(--radius-pill);white-space:nowrap">
+            <img src="asset-pps-logo.png" alt="" style="width:22px;height:22px;object-fit:contain;border-radius:3px">
+            <span style="font:600 14px/1 var(--font-sans);color:var(--gray-700)">PPS</span>
+          </div>
+          <div aria-hidden="true" style="display:flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid var(--border-default);border-radius:var(--radius-pill);white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=bidvestlife.co.za&amp;sz=64" alt="" style="width:22px;height:22px;object-fit:contain">
+            <span style="font:600 14px/1 var(--font-sans);color:var(--gray-700)">Bidvest Life</span>
+          </div>
+          <div aria-hidden="true" style="display:flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid var(--border-default);border-radius:var(--radius-pill);white-space:nowrap">
+            <img src="https://www.google.com/s2/favicons?domain=capitallegacy.co.za&amp;sz=64" alt="" style="width:22px;height:22px;object-fit:contain">
+            <span style="font:600 14px/1 var(--font-sans);color:var(--gray-700)">Capital Legacy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div style="position:relative;background:var(--navy-900)">
+      <div style="max-width:var(--container-max);margin:0 auto;padding:clamp(36px,5vw,60px) clamp(16px,4vw,40px) clamp(36px,5vw,60px);display:flex;flex-direction:column;gap:var(--space-3)">
+        <span style="font:var(--text-eyebrow);letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;color:var(--red-400)"><span data-l="en">About</span><span data-l="af">Oor My</span></span>
+        <h2 style="margin:0;font:var(--text-display-md);font-size:clamp(26px,3.4vw,32px);color:var(--white)">
+          <span data-l="en">Hello &amp; Welcome</span><span data-l="af">Hallo &amp; Welkom</span>
+        </h2>
+      </div>
+      <div style="position:absolute;left:0;bottom:0;width:100%;height:3px;background:var(--red-600)"></div>
+    </div>
+    <div style="max-width:var(--container-max);margin:0 auto;padding:clamp(40px,5vw,64px) clamp(16px,4vw,40px) clamp(48px,7vw,96px)">
+      <div style="display:flex;flex-direction:column;gap:var(--space-5);max-width:60rem">
+        <p style="margin:0;font:var(--text-body-lg);color:var(--text-secondary);text-wrap:pretty">
+          <span data-l="en">I am an independent wealth manager specialising in investments and life insurance. My focus is on building trust and relationship with my clients in order to implement a holistic financial plan for them to cover all their needs and get them closer to reaching their goals and objectives. Wealth is not only one's finances but how your finances are setup to allow you time with those you love.</span><span data-l="af">Ek is 'n onafhanklike welvaartbestuurder wat spesialiseer in beleggings en lewensversekering. My fokus is om vertroue en 'n verhouding met my kli&euml;nte te bou sodat ek 'n holistiese finansi&euml;le plan kan implementeer wat al hul behoeftes dek en hulle nader bring aan hul doelwitte en oogmerke. Welvaart is nie net jou finansies nie, maar hoe jou finansies opgestel is om jou tyd te gee met di&eacute; vir wie jy lief is.</span>
+        </p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--space-4);border-top:1px solid var(--border-default);padding-top:var(--space-5)">
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <span style="font:var(--text-label);color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em"><span data-l="en">Qualification</span><span data-l="af">Kwalifikasie</span></span>
+            <span style="font:var(--text-body-md);color:var(--navy-900)">BCom Investment Management</span>
+            <span style="font:var(--text-body-sm);color:var(--text-secondary)">PGDip FinPlan &amp; CFP <span style="color:var(--text-muted)">&mdash; <span data-l="en">in progress</span><span data-l="af">in aanleg</span></span></span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <span style="font:var(--text-label);color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em"><span data-l="en">Licensed Through</span><span data-l="af">Gelisensieer Deur</span></span>
+            <span style="font:var(--text-body-md);color:var(--navy-900)">SpringPoint Finance &mdash; FSP 43870</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <span style="font:var(--text-label);color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em"><span data-l="en">Based In</span><span data-l="af">Gebaseer In</span></span>
+            <span style="font:var(--text-body-md);color:var(--navy-900)"><span data-l="en">Somerset West, Western Cape</span><span data-l="af">Somerset-Wes, Wes-Kaap</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" style="background:var(--white);border-bottom:1px solid var(--border-default)">
+    <div style="position:relative;background:var(--navy-900)">
+      <div style="max-width:var(--container-max);margin:0 auto;padding:clamp(36px,5vw,60px) clamp(16px,4vw,40px) clamp(36px,5vw,60px);display:flex;flex-direction:column;gap:var(--space-3)">
+        <span style="font:var(--text-eyebrow);letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;color:var(--red-400)"><span data-l="en">What I Do</span><span data-l="af">Wat Ek Doen</span></span>
+        <h2 style="margin:0;font:var(--text-display-md);font-size:clamp(26px,3.4vw,32px);color:var(--white);max-width:36rem">
+          <span data-l="en">Complete Financial Plan, Covering Every Need</span><span data-l="af">Volledige Finansi&euml;le Plan, Wat Elke Behoefte Dek</span>
+        </h2>
+      </div>
+      <div style="position:absolute;left:0;bottom:0;width:100%;height:3px;background:var(--red-600)"></div>
+    </div>
+    <div style="max-width:var(--container-max);margin:0 auto;padding:clamp(40px,5vw,64px) clamp(16px,4vw,40px) clamp(48px,7vw,96px);display:flex;flex-direction:column;gap:var(--space-8)">
+      <div style="display:flex;flex-direction:column;gap:var(--space-3);max-width:44rem">
+        <p style="margin:0;font:var(--text-body-md);color:var(--text-secondary)">
+          <span data-l="en">Give advice and implement solutions after a full financial needs analysis, risk analysis, and wealth plan. Every recommendation is set out in writing and discussed with the clients before anything gets implemented.</span><span data-l="af">Gee advies en implementeer oplossings n&aacute; 'n volledige finansi&euml;le behoefte-analise, risiko-analise en welvaartplan. Elke aanbeveling word skriftelik uiteengesit en met die kli&euml;nt bespreek voordat enigiets ge&iuml;mplementeer word.</span>
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:var(--space-6)">
+        <div style="display:flex;flex-direction:column;gap:var(--space-2);border-top:2px solid var(--red-600);padding-top:var(--space-4)">
+          <h3 style="margin:0;font:var(--text-heading-md);color:var(--navy-900)"><span data-l="en">Investments</span><span data-l="af">Beleggings</span></h3>
+          <p style="margin:0;font:var(--text-body-md);color:var(--text-secondary)"><span data-l="en">Retirement annuities, tax-free savings, discretionary portfolios and offshore exposure, structured on modern platforms and managed within a model portfolio range.</span><span data-l="af">Uittree-annu&iuml;teite, belastingvrye spaarrekeninge, diskresion&ecirc;re portefeuljes en buitelandse blootstelling, gestruktureer op moderne platforms en bestuur binne 'n modelportefeulje-reeks.</span></p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:var(--space-2);border-top:2px solid var(--red-600);padding-top:var(--space-4)">
+          <h3 style="margin:0;font:var(--text-heading-md);color:var(--navy-900)"><span data-l="en">Life &amp; Risk Cover</span><span data-l="af">Lewens- &amp; Risikodekking</span></h3>
+          <p style="margin:0;font:var(--text-body-md);color:var(--text-secondary)"><span data-l="en">Life, disability, income protection and critical illness cover, quoted across the market so you see what each insurer offers side by side.</span><span data-l="af">Lewens-, ongeskiktheids-, inkomstebeskerming- en gedugte-siektedekking, aangehaal oor die mark sodat u kan sien wat elke versekeraar aanbied.</span></p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:var(--space-2);border-top:2px solid var(--red-600);padding-top:var(--space-4)">
+          <h3 style="margin:0;font:var(--text-heading-md);color:var(--navy-900)"><span data-l="en">Retirement Planning</span><span data-l="af">Aftreebeplanning</span></h3>
+          <p style="margin:0;font:var(--text-body-md);color:var(--text-secondary)"><span data-l="en">Working out what you will need, what you are on track for, and how income is drawn once you retire &mdash; including living annuity structuring.</span><span data-l="af">Om uit te werk wat u sal benodig, waarvoor u op koers is, en hoe inkomste getrek word sodra u aftree &mdash; insluitend die struktuur van 'n lewende annu&iuml;teit.</span></p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:var(--space-2);border-top:2px solid var(--red-600);padding-top:var(--space-4)">
+          <h3 style="margin:0;font:var(--text-heading-md);color:var(--navy-900)"><span data-l="en">Estate Planning &amp; Wills</span><span data-l="af">Boedelbeplanning &amp; Testamente</span></h3>
+          <p style="margin:0;font:var(--text-body-md);color:var(--text-secondary)"><span data-l="en">Making sure what you have built passes on the way you intend, with the liquidity in place to settle costs without forcing a sale.</span><span data-l="af">Om te verseker dat wat u opgebou het oorgaan soos u dit bedoel, met die likiditeit in plek om kostes te dek sonder om 'n verkoping te forseer.</span></p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:var(--space-2);border-top:2px solid var(--red-600);padding-top:var(--space-4)">
+          <h3 style="margin:0;font:var(--text-heading-md);color:var(--navy-900)"><span data-l="en">Business Assurance</span><span data-l="af">Besigheidsversekering</span></h3>
+          <p style="margin:0;font:var(--text-body-md);color:var(--text-secondary)"><span data-l="en">Key person, buy-and-sell and contingent liability cover for business owners, structured with the tax and estate duty treatment in mind.</span><span data-l="af">Sleutelpersoon-, koop-en-verkoop- en voorwaardelike aanspreeklikheidsdekking vir besigheidseienaars, gestruktureer met die belasting- en boedelbelastinghantering in gedagte.</span></p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:var(--space-2);border-top:2px solid var(--red-600);padding-top:var(--space-4)">
+          <h3 style="margin:0;font:var(--text-heading-md);color:var(--navy-900)"><span data-l="en">Medical Aid &amp; Short-Term</span><span data-l="af">Mediese Fonds &amp; Korttermyn</span></h3>
+          <p style="margin:0;font:var(--text-body-md);color:var(--text-secondary)"><span data-l="en">Access to the medical aid and short-term insurance panel through SpringPoint Finance, so the whole picture sits with one adviser.</span><span data-l="af">Toegang tot die mediese fonds- en korttermynversekeringspaneel deur SpringPoint Finance, sodat die hele prentjie by een adviseur sit.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="partners">
+    <div style="position:relative;background:var(--navy-900)">
+      <div style="max-width:var(--container-max);margin:0 auto;padding:clamp(36px,5vw,60px) clamp(16px,4vw,40px) clamp(36px,5vw,60px);display:flex;flex-direction:column;gap:var(--space-3)">
+        <span style="font:var(--text-eyebrow);letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;color:var(--red-400)"><span data-l="en">Powered by</span><span data-l="af">Aangedryf deur</span></span>
+        <h2 style="margin:0;font:var(--text-display-md);font-size:clamp(26px,3.4vw,32px);color:var(--white);max-width:36rem">
+          <span data-l="en">Independent Advice, Institutional Support</span><span data-l="af">Onafhanklike Advies, Institusionele Ondersteuning</span>
+        </h2>
+      </div>
+      <div style="position:absolute;left:0;bottom:0;width:100%;height:3px;background:var(--red-600)"></div>
+    </div>
+    <div style="max-width:var(--container-max);margin:0 auto;padding:clamp(40px,5vw,64px) clamp(16px,4vw,40px) clamp(48px,7vw,96px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--space-6)">
+      <div style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:var(--space-8);display:flex;flex-direction:column;gap:var(--space-4)">
+        <img src="asset-springpoint-logo.jpeg" alt="SpringPoint Finance" style="height:64px;width:auto;object-fit:contain;align-self:flex-start;border-radius:var(--radius-sm)">
+        <h3 style="margin:0;font:var(--text-heading-lg);color:var(--navy-900)">SpringPoint Finance</h3>
+        <p style="margin:0;font:var(--text-body-md);color:var(--text-secondary)">
+          <span data-l="en">I practise under SpringPoint Finance (Pty) Ltd, an authorised Financial Services Provider (FSP 43870) and independent brokerage based in Somerset West. That licence gives me unbiased access to South Africa's leading insurers, investment platforms and medical aid providers &mdash; so the recommendation is chosen for you, not for a single product house.</span><span data-l="af">Ek praktiseer onder SpringPoint Finance (Edms) Bpk, 'n gemagtigde Finansi&euml;le Diensverskaffer (FSP 43870) en onafhanklike makelaar in Somerset-Wes. Daardie lisensie gee my onbevooroordeelde toegang tot Suid-Afrika se voorste versekeraars, beleggingsplatforms en mediese fondse &mdash; sodat die aanbeveling vir u gekies word, en nie vir een produkhuis nie.</span>
+        </p>
+        <a href="https://www.springpointfinance.co.za" target="_blank" rel="noopener" style="font:var(--text-label);color:var(--red-600)">springpointfinance.co.za</a>
+      </div>
+      <div style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:var(--space-8);display:flex;flex-direction:column;gap:var(--space-4)">
+        <div style="display:flex;align-items:center;align-self:flex-start;height:64px">
+          <img src="asset-star-investment-partners.webp" alt="Star Investment Partners" style="height:46px;width:auto;object-fit:contain">
+        </div>
+        <h3 style="margin:0;font:var(--text-heading-lg);color:var(--navy-900)">Star Investment Partners</h3>
+        <p style="margin:0;font:var(--text-body-md);color:var(--text-secondary)">
+          <span data-l="en">Star Investment Partners is SpringPoint Finance's discretionary fund manager. Alongside their own Star fund range, they built a customised set of model portfolios for our clients &mdash; the BAM range, named after our holding company, Berkley Asset Management. It means your investment sits inside a professionally managed mandate with a defined risk profile, rather than a collection of funds picked one at a time.</span><span data-l="af">Star Investment Partners is SpringPoint Finance se diskresion&ecirc;re fondsbestuurder. Naas hul eie Star-fondsreeks het hulle 'n pasgemaakte stel modelportefeuljes vir ons kli&euml;nte gebou &mdash; die BAM-reeks, vernoem na ons houermaatskappy, Berkley Asset Management. Dit beteken u belegging sit binne 'n professioneel bestuurde mandaat met 'n vasgestelde risikoprofiel, eerder as 'n versameling fondse wat een op 'n slag gekies is.</span>
+        </p>
+        <a href="https://www.starip.co.za/" target="_blank" rel="noopener" style="font:var(--text-label);color:var(--red-600)">starip.co.za</a>
+      </div>
+      <div style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:var(--space-8);display:flex;flex-direction:column;gap:var(--space-4)">
+        <img src="asset-verifi-logo.jpeg" alt="Verifi" style="height:64px;width:auto;object-fit:contain;align-self:flex-start;border-radius:var(--radius-sm)">
+        <h3 style="margin:0;font:var(--text-heading-lg);color:var(--navy-900)">Verifi</h3>
+        <p style="margin:0;font:var(--text-body-md);color:var(--text-secondary)">
+          <span data-l="en">Verifi is an online tool that provides you with an up-to-date overview of all your life insurance and investment policies. It does this by sourcing information from all the major life insurance companies. Verifi is also the CRM system we use to best serve our clients.</span><span data-l="af">Verifi is 'n aanlyn hulpmiddel wat aan u 'n bygewerkte oorsig gee van al u lewensversekerings- en beleggingspolisse. Dit doen dit deur inligting van al die groot lewensversekeringsmaatskappye te bekom. Verifi is ook die CRM-stelsel wat ons gebruik om ons kli&euml;nte die beste te dien.</span>
+        </p>
+        <a href="https://www.verifi.co.za" target="_blank" rel="noopener" style="font:var(--text-label);color:var(--red-600)">verifi.co.za</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" style="background:var(--navy-900)">
+    <div style="max-width:var(--container-max);margin:0 auto;padding:clamp(48px,7vw,96px) clamp(16px,4vw,40px);display:flex;flex-direction:column;gap:var(--space-10)">
+      <div style="display:flex;flex-direction:column;gap:var(--space-3);max-width:36rem">
+        <span style="font:var(--text-eyebrow);letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;color:var(--red-400)"><span data-l="en">How We Work Together</span><span data-l="af">Hoe Ons Saamwerk</span></span>
+        <h2 style="margin:0;font:var(--text-display-md);font-size:clamp(26px,3.4vw,32px);color:var(--white)">
+          <span data-l="en">Five Steps, No Surprises</span><span data-l="af">Vyf Stappe, Geen Verrassings</span>
+        </h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:var(--space-6)">
+        <div style="display:flex;flex-direction:column;gap:var(--space-3);border-top:1px solid rgba(255,255,255,0.2);padding-top:var(--space-4)">
+          <span style="font:600 15px/1 var(--font-sans);color:var(--red-400)">01</span>
+          <h3 style="margin:0;font:var(--text-heading-sm);color:var(--white)"><span data-l="en">Introduction</span><span data-l="af">Kennismaking</span></h3>
+          <p style="margin:0;font:var(--text-body-sm);color:rgba(255,255,255,0.72)"><span data-l="en">A short call to understand what brought you here and what you want to solve. No cost, no obligation.</span><span data-l="af">'n Kort gesprek om te verstaan wat u hier gebring het en wat u wil oplos. Geen koste, geen verpligting.</span></p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:var(--space-3);border-top:1px solid rgba(255,255,255,0.2);padding-top:var(--space-4)">
+          <span style="font:600 15px/1 var(--font-sans);color:var(--red-400)">02</span>
+          <h3 style="margin:0;font:var(--text-heading-sm);color:var(--white)"><span data-l="en">Discovery</span><span data-l="af">Ontdekking</span></h3>
+          <p style="margin:0;font:var(--text-body-sm);color:rgba(255,255,255,0.72)"><span data-l="en">We gather your personal and financial position, including existing policies and investments, and set your goals.</span><span data-l="af">Ons versamel u persoonlike en finansi&euml;le posisie, insluitend bestaande polisse en beleggings, en stel u doelwitte.</span></p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:var(--space-3);border-top:1px solid rgba(255,255,255,0.2);padding-top:var(--space-4)">
+          <span style="font:600 15px/1 var(--font-sans);color:var(--red-400)">03</span>
+          <h3 style="margin:0;font:var(--text-heading-sm);color:var(--white)"><span data-l="en">Analysis</span><span data-l="af">Analise</span></h3>
+          <p style="margin:0;font:var(--text-body-sm);color:rgba(255,255,255,0.72)"><span data-l="en">A full needs analysis showing where you are covered, where the gaps are, and what is affordable.</span><span data-l="af">'n Volledige behoefte-analise wat wys waar u gedek is, waar die gapings is, en wat bekostigbaar is.</span></p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:var(--space-3);border-top:1px solid rgba(255,255,255,0.2);padding-top:var(--space-4)">
+          <span style="font:600 15px/1 var(--font-sans);color:var(--red-400)">04</span>
+          <h3 style="margin:0;font:var(--text-heading-sm);color:var(--white)"><span data-l="en">Recommendation</span><span data-l="af">Aanbeveling</span></h3>
+          <p style="margin:0;font:var(--text-body-sm);color:rgba(255,255,255,0.72)"><span data-l="en">Options compared in writing, with the reasoning and the costs set out, and a Record of Advice before implementation.</span><span data-l="af">Opsies word skriftelik vergelyk, met die redenasie en kostes uiteengesit, en 'n Rekord van Advies voor implementering.</span></p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:var(--space-3);border-top:1px solid rgba(255,255,255,0.2);padding-top:var(--space-4)">
+          <span style="font:600 15px/1 var(--font-sans);color:var(--red-400)">05</span>
+          <h3 style="margin:0;font:var(--text-heading-sm);color:var(--white)"><span data-l="en">Review</span><span data-l="af">Hersiening</span></h3>
+          <p style="margin:0;font:var(--text-body-sm);color:rgba(255,255,255,0.72)"><span data-l="en">Ongoing reviews as your life, income and goals change &mdash; the plan is meant to move with you.</span><span data-l="af">Deurlopende hersienings soos u lewe, inkomste en doelwitte verander &mdash; die plan moet saam met u beweeg.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ showTestimonials }}" hint-placeholder-val="{{ true }}">
+  <section style="background:var(--white);border-top:1px solid var(--border-default)">
+    <div style="max-width:var(--container-max);margin:0 auto;padding:clamp(48px,7vw,96px) clamp(16px,4vw,40px);display:flex;flex-direction:column;gap:var(--space-8)">
+      <div style="display:flex;flex-direction:column;gap:var(--space-3);max-width:36rem">
+        <span style="font:var(--text-eyebrow);letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;color:var(--red-600)"><span data-l="en">In Their Words</span><span data-l="af">In Hul Woorde</span></span>
+        <h2 style="margin:0;font:var(--text-display-md);font-size:clamp(26px,3.4vw,32px);color:var(--navy-900)"><span data-l="en">What Clients Say</span><span data-l="af">Wat Kli&euml;nte S&ecirc;</span></h2>
+      </div>
+      <div style="background:var(--red-50);border:1px dashed var(--red-500);border-radius:var(--radius-md);padding:var(--space-4);font:var(--text-body-sm);color:var(--red-700)">
+        Placeholder &mdash; replace the three quotes and names below with real, consented client testimonials before publishing, or switch this section off in Tweaks.
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--space-6)">
+        <div style="border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-4)">
+          <p style="margin:0;font:400 18px/1.55 var(--font-serif-display);color:var(--navy-900)">&ldquo;Client quote one goes here &mdash; two or three sentences on what changed for them.&rdquo;</p>
+          <span style="font:var(--text-label);color:var(--text-muted)">Client name, Somerset West</span>
+        </div>
+        <div style="border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-4)">
+          <p style="margin:0;font:400 18px/1.55 var(--font-serif-display);color:var(--navy-900)">&ldquo;Client quote two goes here &mdash; ideally about the process, or the clarity they got.&rdquo;</p>
+          <span style="font:var(--text-label);color:var(--text-muted)">Client name, occupation</span>
+        </div>
+        <div style="border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-4)">
+          <p style="margin:0;font:400 18px/1.55 var(--font-serif-display);color:var(--navy-900)">&ldquo;Client quote three goes here &mdash; a business owner or a family works well as a third voice.&rdquo;</p>
+          <span style="font:var(--text-label);color:var(--text-muted)">Client name, business owner</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+  <section id="enquiry" style="background:var(--surface-page)">
+    <div style="position:relative;background:var(--navy-900)">
+      <div style="max-width:var(--container-max);margin:0 auto;padding:clamp(36px,5vw,60px) clamp(16px,4vw,40px) clamp(36px,5vw,60px);display:flex;flex-direction:column;gap:var(--space-3)">
+        <span style="font:var(--text-eyebrow);letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;color:var(--red-400)"><span data-l="en">Work With Me</span><span data-l="af">Werk Saam Met My</span></span>
+        <h2 style="margin:0;font:var(--text-display-md);font-size:clamp(26px,3.4vw,32px);color:var(--white);max-width:36rem">
+          <span data-l="en">Start With a Conversation</span><span data-l="af">Begin Met 'n Gesprek</span>
+        </h2>
+      </div>
+      <div style="position:absolute;left:0;bottom:0;width:100%;height:3px;background:var(--red-600)"></div>
+    </div>
+    <div style="max-width:var(--container-max);margin:0 auto;padding:clamp(40px,5vw,64px) clamp(16px,4vw,40px) clamp(48px,7vw,96px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,5vw,64px);align-items:start">
+      <div style="display:flex;flex-direction:column;gap:var(--space-5)">
+        <p style="margin:0;font:var(--text-body-lg);color:var(--text-secondary)">
+          <span data-l="en">A few details is all I need to get started. I will come back to you personally, and we only get into the detail once we have spoken.</span><span data-l="af">'n Paar besonderhede is al wat ek nodig het om te begin. Ek sal persoonlik by u terugkom, en ons kom eers by die detail sodra ons gepraat het.</span>
+        </p>
+        <div style="display:flex;flex-direction:column;gap:var(--space-3);border-top:1px solid var(--border-default);padding-top:var(--space-5)">
+          <a href="tel:+27731187215" style="font:var(--text-body-md);color:var(--navy-900);display:flex;align-items:center;gap:10px" style-hover="color:var(--red-600)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            073 118 7215
+          </a>
+          <a href="mailto:juan@springpointfinance.co.za" style="font:var(--text-body-md);color:var(--navy-900);display:flex;align-items:center;gap:10px" style-hover="color:var(--red-600)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 5L2 7"></path></svg>
+            juan@springpointfinance.co.za
+          </a>
+          <span style="font:var(--text-body-md);color:var(--text-secondary);display:flex;align-items:flex-start;gap:10px">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:4px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            Office F1&ndash;3 Triangle Point, 13 Urtel Crescent, Somerset West, 7130
+          </span>
+        </div>
+      </div>
+
+      <form onSubmit="{{ submit }}" style="background:var(--navy-900);border:1px solid var(--navy-800);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:var(--space-5)">
+        <label style="display:flex;flex-direction:column;gap:6px">
+          <span style="font:var(--text-label);color:rgba(255,255,255,0.85)"><span data-l="en">Full Name</span><span data-l="af">Volle Naam</span></span>
+          <input type="text" name="full_name" required placeholder="Name &amp; surname" style="font:var(--text-body-md);padding:11px 14px;border-radius:var(--radius-md);border:1.5px solid var(--border-default);background:var(--white);color:var(--text-primary);outline:none;width:100%;box-sizing:border-box" style-focus="border-color:var(--navy-700)">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:6px">
+          <span style="font:var(--text-label);color:rgba(255,255,255,0.85)"><span data-l="en">Email Address</span><span data-l="af">E-posadres</span></span>
+          <input type="email" name="email" required placeholder="you@email.com" style="font:var(--text-body-md);padding:11px 14px;border-radius:var(--radius-md);border:1.5px solid var(--border-default);background:var(--white);color:var(--text-primary);outline:none;width:100%;box-sizing:border-box" style-focus="border-color:var(--navy-700)">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:6px">
+          <span style="font:var(--text-label);color:rgba(255,255,255,0.85)"><span data-l="en">Mobile Number</span><span data-l="af">Selfoonnommer</span></span>
+          <input type="tel" name="mobile" placeholder="0XX XXX XXXX" style="font:var(--text-body-md);padding:11px 14px;border-radius:var(--radius-md);border:1.5px solid var(--border-default);background:var(--white);color:var(--text-primary);outline:none;width:100%;box-sizing:border-box" style-focus="border-color:var(--navy-700)">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:6px">
+          <span style="font:var(--text-label);color:rgba(255,255,255,0.85)"><span data-l="en">What would you like help with?</span><span data-l="af">Waarmee kan ek help?</span></span>
+          <select name="need" required style="font:var(--text-body-md);padding:11px 14px;border-radius:var(--radius-md);border:1.5px solid var(--border-default);background:var(--white);color:var(--text-primary);outline:none;width:100%;box-sizing:border-box">
+            <option value="">Select&hellip;</option>
+            <option>Investments</option>
+            <option>Life &amp; risk cover</option>
+            <option>Retirement planning</option>
+            <option>Estate planning &amp; wills</option>
+            <option>Business assurance</option>
+            <option>A review of what I already have</option>
+            <option>Not sure yet</option>
+          </select>
+        </label>
+        <label style="display:flex;flex-direction:column;gap:6px">
+          <span style="font:var(--text-label);color:rgba(255,255,255,0.85)"><span data-l="en">Anything you would like me to know</span><span data-l="af">Enigiets wat ek moet weet</span></span>
+          <textarea name="notes" rows="3" placeholder="Optional &mdash; a sentence or two is plenty." style="font:var(--text-body-md);font-family:var(--font-sans);padding:11px 14px;border-radius:var(--radius-md);border:1.5px solid var(--border-default);background:var(--white);color:var(--text-primary);outline:none;width:100%;box-sizing:border-box;resize:vertical" style-focus="border-color:var(--navy-700)"></textarea>
+        </label>
+        <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer">
+          <input type="checkbox" name="popia_consent" required style="width:18px;height:18px;accent-color:var(--navy-900);margin-top:2px;flex-shrink:0">
+          <span style="font:var(--text-body-sm);color:rgba(255,255,255,0.75)"><span data-l="en">I consent to my details being used to contact me and prepare financial advice, handled in line with POPIA.</span><span data-l="af">Ek stem toe dat my besonderhede gebruik word om my te kontak en finansi&euml;le advies voor te berei, hanteer in ooreenstemming met POPIA.</span></span>
+        </label>
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.25);border-radius:var(--radius-md);padding:var(--space-4);font:var(--text-body-sm);color:var(--white)">
+            <span data-l="en">Thank you &mdash; your enquiry has been received. I will be in touch personally.</span><span data-l="af">Dankie &mdash; u navraag is ontvang. Ek sal persoonlik in kontak wees.</span>
+          </div>
+        </sc-if>
+        <button type="submit" style="background:var(--red-600);color:#fff;border:none;border-radius:var(--radius-pill);padding:15px 28px;font:700 15px/1 var(--font-sans);cursor:pointer;display:inline-flex;align-items:center;gap:8px;align-self:flex-start" style-hover="background:var(--red-700)">
+          <span data-l="en">Send Enquiry</span><span data-l="af">Stuur Navraag</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"></path></svg>
+        </button>
+        <p style="margin:0;font:var(--text-body-sm);color:rgba(255,255,255,0.65)">
+          <span data-l="en">Prefer to book directly?</span><span data-l="af">Verkies u om direk te bespreek?</span>
+          <a href="https://outlook.office.com/bookwithme/user/899d807a52774809841145fc7d7faeb4@springpointfinance.co.za?anonymous&amp;ismsaljsauthenabled&amp;ep=pcard" target="_blank" rel="noopener" style="color:var(--red-400);font-weight:600"><span data-l="en">Pick a time in my diary</span><span data-l="af">Kies 'n tyd in my dagboek</span></a>
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <footer style="background:var(--navy-950);color:rgba(255,255,255,0.7)">
+    <div style="max-width:var(--container-max);margin:0 auto;padding:clamp(32px,5vw,56px) clamp(16px,4vw,40px);display:flex;flex-direction:column;gap:var(--space-6)">
+      <div style="display:flex;gap:var(--space-6);flex-wrap:wrap;align-items:center;justify-content:space-between">
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <span style="font:600 20px/1.1 var(--font-serif-display);color:var(--white)">Juan Lindeque</span>
+          <span style="font:var(--text-body-sm);color:rgba(255,255,255,0.6)">Wealth Planner &middot; BCom Investment Management</span>
+        </div>
+        <div style="display:flex;gap:var(--space-4);align-items:center">
+          <img src="asset-springpoint-logo.jpeg" alt="SpringPoint Finance" style="height:44px;background:#fff;border-radius:var(--radius-sm);padding:5px 9px">
+          <a href="/card.html" style="color:#fff;border:1px solid rgba(255,255,255,0.4);border-radius:var(--radius-pill);padding:10px 18px;font:700 13px/1 var(--font-sans)" style-hover="background:rgba(255,255,255,0.08);color:#fff"><span data-l="en">My Digital Card</span><span data-l="af">My Digitale Kaartjie</span></a>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--space-4);border-top:1px solid rgba(255,255,255,0.12);padding-top:var(--space-5);font:var(--text-body-sm)">
+        <a href="tel:+27731187215" style="color:rgba(255,255,255,0.75)" style-hover="color:#fff">073 118 7215</a>
+        <a href="mailto:juan@springpointfinance.co.za" style="color:rgba(255,255,255,0.75)" style-hover="color:#fff">juan@springpointfinance.co.za</a>
+        <a href="https://www.springpointfinance.co.za" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.75)" style-hover="color:#fff">springpointfinance.co.za</a>
+        <span style="color:rgba(255,255,255,0.75)">Somerset West, 7130</span>
+      </div>
+      <p style="margin:0;font:11.5px/1.6 var(--font-sans);color:rgba(255,255,255,0.5);border-top:1px solid rgba(255,255,255,0.1);padding-top:var(--space-4)">
+        Juan Lindeque is a representative of SpringPoint Finance (Pty) Ltd, an authorised Financial Services Provider &middot; FSP Licence No. 43870 &middot; Registration No. 2011/112373/07 &middot; Directors: P.R.J. Louw, M.Z. Raffee, C.J. Strauss. Nothing on this website constitutes financial advice. Advice is given only after a full financial needs analysis and is recorded in a written Record of Advice. Your information is processed in accordance with POPIA. Product provider names and marks are the property of their respective owners and are shown to indicate the panel accessed through SpringPoint Finance.
+      </p>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showTestimonials&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;formspreeId&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;PASTE_FORMSPREE_ID&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Form&quot;}}">
+class Component extends DCLogic {
+  state = { lang: 'en', sent: false };
+
+  applyLang() {
+    const nodes = document.querySelectorAll('[data-l]');
+    nodes.forEach(n => {
+      n.style.display = n.getAttribute('data-l') === this.state.lang ? 'inline' : 'none';
+    });
+    document.documentElement.setAttribute('lang', this.state.lang);
+  }
+
+  componentDidMount() { this.applyLang(); }
+  componentDidUpdate() { this.applyLang(); }
+
+  renderVals() {
+    return {
+      showTestimonials: this.props.showTestimonials ?? false,
+      sent: this.state.sent,
+      toggleLang: () => this.setState(s => ({ lang: s.lang === 'en' ? 'af' : 'en' })),
+      submit: async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const id = this.props.formspreeId ?? '';
+        if (id && !id.startsWith('PASTE')) {
+          try {
+            const res = await fetch('https://formspree.io/f/' + id, {
+              method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form)
+            });
+            if (!res.ok) { window.alert('Something went wrong sending your enquiry. Please email juan@springpointfinance.co.za.'); return; }
+          } catch (err) {
+            window.alert('Network error. Please email juan@springpointfinance.co.za.'); return;
+          }
+        }
+        form.reset();
+        this.setState({ sent: true });
+      }
+    };
+  }
+}
+
+</script>
+</body>
+</html>

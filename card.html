@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="ds-colors.css">
+<link rel="stylesheet" href="ds-fonts.css">
+<link rel="stylesheet" href="ds-typography.css">
+<link rel="stylesheet" href="ds-spacing.css">
+<link rel="stylesheet" href="ds-styles.css">
+<script src="ds-bundle.js"></script>
+<style>
+body{margin:0;background:var(--navy-950);color:var(--text-primary);font-family:var(--font-sans);-webkit-font-smoothing:antialiased}
+a{color:var(--text-link);text-decoration:none}
+a:hover{color:var(--text-link-hover)}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:var(--navy-950);display:flex;justify-content:center;align-items:flex-start;padding:0">
+  <div style="width:100%;max-width:430px;background:var(--surface-page);min-height:100vh;display:flex;flex-direction:column">
+
+    <div style="position:relative;background:var(--navy-900);overflow:hidden;padding:var(--space-8) var(--space-6) var(--space-6)">
+      <div style="position:absolute;right:-30%;top:-40%;width:80%;aspect-ratio:1/1;border-radius:50%;background:var(--red-600);opacity:0.85"></div>
+      <div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:var(--space-4);text-align:center">
+        <img src="asset-juan-headshot.jpeg" alt="Juan Lindeque" style="width:104px;height:104px;border-radius:50%;object-fit:cover;object-position:50% 18%;border:3px solid rgba(255,255,255,0.9);box-shadow:var(--shadow-lg)">
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <span style="font:600 28px/1.1 var(--font-serif-display);color:var(--white)">Juan Lindeque</span>
+          <span style="font:700 12px/1.3 var(--font-sans);letter-spacing:0.14em;text-transform:uppercase;color:var(--red-400)">Wealth Planner</span>
+          <span style="font:var(--text-body-sm);color:rgba(255,255,255,0.7)">BCom Investment Management</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.97);border-radius:var(--radius-pill);padding:7px 14px 7px 8px;margin-top:var(--space-2)">
+          <img src="asset-springpoint-logo.jpeg" alt="SpringPoint Finance" style="height:26px;width:auto;object-fit:contain;border-radius:3px">
+          <span style="font:600 11.5px/1.2 var(--font-sans);color:var(--navy-900)">Powered by SpringPoint Finance &middot; FSP 43870</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:var(--space-6) var(--space-6) var(--space-4);display:flex;flex-direction:column;gap:var(--space-3)">
+      <p style="margin:0 0 var(--space-2);font:var(--text-body-md);color:var(--text-secondary);text-align:center;text-wrap:pretty">
+        Independent wealth planning &mdash; investments, life cover and retirement, built around your goals.
+      </p>
+
+      <a href="tel:+27731187215" style="display:flex;align-items:center;gap:14px;background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:15px 18px;min-height:56px" style-hover="background:var(--navy-50)">
+        <span style="width:38px;height:38px;border-radius:var(--radius-md);background:var(--navy-50);color:var(--navy-900);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        </span>
+        <span style="display:flex;flex-direction:column;gap:1px">
+          <span style="font:var(--text-label);color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em">Call</span>
+          <span style="font:600 16px/1.3 var(--font-sans);color:var(--navy-900)">073 118 7215</span>
+        </span>
+      </a>
+
+      <a href="https://wa.me/27731187215" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:14px;background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:15px 18px;min-height:56px" style-hover="background:var(--navy-50)">
+        <span style="width:38px;height:38px;border-radius:var(--radius-md);background:var(--navy-50);color:var(--navy-900);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+        </span>
+        <span style="display:flex;flex-direction:column;gap:1px">
+          <span style="font:var(--text-label);color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em">WhatsApp</span>
+          <span style="font:600 16px/1.3 var(--font-sans);color:var(--navy-900)">Send me a message</span>
+        </span>
+      </a>
+
+      <a href="mailto:juan@springpointfinance.co.za" style="display:flex;align-items:center;gap:14px;background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:15px 18px;min-height:56px" style-hover="background:var(--navy-50)">
+        <span style="width:38px;height:38px;border-radius:var(--radius-md);background:var(--navy-50);color:var(--navy-900);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 5L2 7"></path></svg>
+        </span>
+        <span style="display:flex;flex-direction:column;gap:1px;min-width:0">
+          <span style="font:var(--text-label);color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em">Email</span>
+          <span style="font:600 14.5px/1.3 var(--font-sans);color:var(--navy-900);word-break:break-all">juan@springpointfinance.co.za</span>
+        </span>
+      </a>
+
+      <a href="https://outlook.office.com/bookwithme/user/899d807a52774809841145fc7d7faeb4@springpointfinance.co.za?anonymous&amp;ismsaljsauthenabled&amp;ep=pcard" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:14px;background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:15px 18px;min-height:56px" style-hover="background:var(--navy-50)">
+        <span style="width:38px;height:38px;border-radius:var(--radius-md);background:var(--navy-50);color:var(--navy-900);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>
+        </span>
+        <span style="display:flex;flex-direction:column;gap:1px">
+          <span style="font:var(--text-label);color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em">Book a Call</span>
+          <span style="font:600 16px/1.3 var(--font-sans);color:var(--navy-900)">Pick a time in my diary</span>
+        </span>
+      </a>
+
+      <button type="button" onClick="{{ saveContact }}" style="display:flex;align-items:center;gap:14px;background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:15px 18px;min-height:56px;cursor:pointer;text-align:left;font-family:var(--font-sans);width:100%" style-hover="background:var(--navy-50)">
+        <span style="width:38px;height:38px;border-radius:var(--radius-md);background:var(--navy-50);color:var(--navy-900);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M19 8v6M22 11h-6"></path></svg>
+        </span>
+        <span style="display:flex;flex-direction:column;gap:1px">
+          <span style="font:var(--text-label);color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em">Contact Card</span>
+          <span style="font:600 16px/1.3 var(--font-sans);color:var(--navy-900)">Save to my phone</span>
+        </span>
+      </button>
+    </div>
+
+    <div style="padding:var(--space-2) var(--space-6) var(--space-6)">
+      <a href="/" style="display:flex;align-items:center;justify-content:center;gap:9px;background:var(--red-600);color:#fff;border-radius:var(--radius-pill);padding:17px 24px;font:700 15px/1 var(--font-sans);min-height:56px;box-sizing:border-box" style-hover="background:var(--red-700);color:#fff">
+        Visit juanlindeque.co.za
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"></path></svg>
+      </a>
+    </div>
+
+    <div style="padding:0 var(--space-6) var(--space-8);display:flex;flex-direction:column;gap:var(--space-4);margin-top:auto">
+      <div style="border-top:1px solid var(--border-default);padding-top:var(--space-5);display:flex;align-items:flex-start;gap:10px;font:var(--text-body-sm);color:var(--text-secondary)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:4px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        Office F1&ndash;3 Triangle Point, 13 Urtel Crescent, Somerset West, 7130
+      </div>
+      <p style="margin:0;font:11px/1.55 var(--font-sans);color:var(--text-muted)">
+        Juan Lindeque is a representative of SpringPoint Finance (Pty) Ltd, an authorised Financial Services Provider &middot; FSP Licence No. 43870 &middot; Reg. No. 2011/112373/07. Advice is given only after a full financial needs analysis. Information is processed in accordance with POPIA.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:430,&quot;height&quot;:940}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      saveContact: () => {
+        const vcf = [
+          'BEGIN:VCARD',
+          'VERSION:3.0',
+          'N:Lindeque;Juan;;;',
+          'FN:Juan Lindeque',
+          'ORG:SpringPoint Finance (Pty) Ltd',
+          'TITLE:Wealth Planner',
+          'TEL;TYPE=CELL:+27731187215',
+          'EMAIL;TYPE=WORK:juan@springpointfinance.co.za',
+          'URL:https://juanlindeque.co.za',
+          'ADR;TYPE=WORK:;;Office F1-3 Triangle Point, 13 Urtel Crescent;Somerset West;;7130;South Africa',
+          'NOTE:Wealth Planner, BCom Investment Management. SpringPoint Finance FSP 43870.',
+          'END:VCARD'
+        ].join('\r\n');
+        const blob = new Blob([vcf], { type: 'text/vcard;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Juan-Lindeque.vcf';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 2000);
+      }
+    };
+  }
+}
+
+</script>
+</body>
+</html>
