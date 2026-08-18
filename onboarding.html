@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Client Onboarding — Juan Lindeque | SpringPoint Finance</title>
+<meta name="description" content="Secure onboarding form for new SpringPoint Finance clients. Share your details so Juan Lindeque can prepare your financial plan.">
+<meta name="robots" content="noindex">
+
+<link rel="stylesheet" href="/ds-colors.css">
+<link rel="stylesheet" href="/ds-fonts.css">
+<link rel="stylesheet" href="/ds-typography.css">
+<link rel="stylesheet" href="/ds-spacing.css">
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--surface-page);
+  color:var(--text-primary);
+  font-family:var(--font-sans);
+  -webkit-font-smoothing:antialiased;
+}
+[data-l="af"]{display:none}
+a{color:var(--text-link);text-decoration:none}
+a:hover{color:var(--text-link-hover)}
+
+/* ---------- Header ---------- */
+.hdr{position:sticky;top:0;z-index:40;background:var(--navy-900)}
+.hdr-in{
+  max-width:920px;margin:0 auto;
+  padding:14px clamp(16px,4vw,32px);
+  display:flex;align-items:center;gap:var(--space-4);flex-wrap:wrap;
+}
+.brand{display:flex;flex-direction:column;gap:2px;color:var(--white)}
+.brand .nm{font:600 19px/1.1 var(--font-serif-display)}
+.brand .rl{
+  font:600 10px/1.2 var(--font-sans);letter-spacing:0.14em;
+  text-transform:uppercase;color:rgba(255,255,255,0.6);
+}
+.lang{
+  margin-left:auto;background:transparent;color:#fff;cursor:pointer;
+  border:1px solid rgba(255,255,255,0.4);border-radius:var(--radius-pill);
+  padding:8px 16px;font:700 12px/1 var(--font-sans);
+}
+.lang:hover{background:rgba(255,255,255,0.09)}
+
+/* ---------- Hero ---------- */
+.hero{background:var(--navy-900);position:relative}
+.hero-in{
+  max-width:920px;margin:0 auto;
+  padding:clamp(32px,5vw,52px) clamp(16px,4vw,32px) clamp(36px,5vw,56px);
+  display:flex;flex-direction:column;gap:var(--space-3);
+}
+.eyebrow{
+  font:var(--text-eyebrow);letter-spacing:var(--tracking-eyebrow);
+  text-transform:uppercase;color:var(--red-400);
+}
+.hero h1{
+  margin:0;font:var(--text-display-md);
+  font-size:clamp(28px,4vw,40px);color:var(--white);max-width:22ch;
+}
+.hero p{
+  margin:0;font:var(--text-body-lg);
+  color:rgba(255,255,255,0.75);max-width:56ch;
+}
+.hero-rule{position:absolute;left:0;bottom:0;width:100%;height:3px;background:var(--red-600)}
+
+/* ---------- Progress ---------- */
+.prog-wrap{
+  position:sticky;top:62px;z-index:30;
+  background:var(--surface-page);
+  border-bottom:1px solid var(--border-default);
+}
+.prog-in{
+  max-width:920px;margin:0 auto;
+  padding:10px clamp(16px,4vw,32px);
+  display:flex;align-items:center;gap:var(--space-3);
+}
+.prog-track{
+  flex:1;height:6px;border-radius:var(--radius-pill);
+  background:var(--gray-200);overflow:hidden;
+}
+.prog-bar{
+  height:100%;width:0%;border-radius:var(--radius-pill);
+  background:var(--red-600);transition:width .35s ease;
+}
+.prog-lbl{font:var(--text-label);color:var(--text-muted);white-space:nowrap}
+
+/* ---------- Layout ---------- */
+main{max-width:920px;margin:0 auto;padding:clamp(24px,4vw,40px) clamp(16px,4vw,32px) 96px}
+
+.card{
+  background:var(--surface-card);
+  border:1px solid var(--border-default);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-sm);
+  margin-bottom:var(--space-6);
+  overflow:hidden;
+}
+.card-head{
+  display:flex;align-items:flex-start;gap:var(--space-4);
+  padding:var(--space-6) clamp(16px,3vw,28px);
+  cursor:pointer;user-select:none;
+}
+.card-head:hover{background:var(--navy-50)}
+.step-no{
+  flex-shrink:0;width:30px;height:30px;border-radius:50%;
+  background:var(--navy-900);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font:700 13px/1 var(--font-sans);margin-top:2px;
+}
+.card-head h2{margin:0;font:var(--text-heading-lg);color:var(--navy-900)}
+.card-head .sub{margin:4px 0 0;font:var(--text-body-sm);color:var(--text-muted)}
+.opt-tag{
+  display:inline-block;margin-left:8px;vertical-align:2px;
+  background:var(--navy-100);color:var(--navy-700);
+  border-radius:var(--radius-pill);padding:3px 10px;
+  font:700 10px/1.3 var(--font-sans);letter-spacing:.06em;text-transform:uppercase;
+}
+.chev{
+  margin-left:auto;flex-shrink:0;color:var(--text-muted);
+  transition:transform .25s ease;margin-top:4px;
+}
+.card.collapsed .chev{transform:rotate(-90deg)}
+.card-body{padding:0 clamp(16px,3vw,28px) var(--space-8)}
+.card.collapsed .card-body{display:none}
+
+/* ---------- Fields ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--space-5)}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+.field > span.lbl{font:var(--text-label);color:var(--navy-900)}
+.req{color:var(--red-600);margin-left:2px}
+.hint{font:400 12px/1.45 var(--font-sans);color:var(--text-muted)}
+
+input[type=text],input[type=email],input[type=tel],input[type=number],input[type=date],select,textarea{
+  font:var(--text-body-md);font-family:var(--font-sans);
+  padding:11px 14px;border-radius:var(--radius-md);
+  border:1.5px solid var(--border-default);
+  background:var(--white);color:var(--text-primary);
+  outline:none;width:100%;
+}
+textarea{resize:vertical;min-height:96px}
+input:focus,select:focus,textarea:focus{border-color:var(--navy-700)}
+input::placeholder,textarea::placeholder{color:var(--gray-300)}
+.prefix{position:relative}
+.prefix > span{
+  position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  font:var(--text-body-md);color:var(--text-muted);pointer-events:none;
+}
+.prefix input{padding-left:34px}
+
+/* ---------- Pills (multi-select) ---------- */
+.pills{display:flex;flex-wrap:wrap;gap:var(--space-2)}
+.pill{
+  position:relative;
+  display:inline-flex;align-items:center;gap:8px;cursor:pointer;
+  border:1.5px solid var(--border-default);border-radius:var(--radius-pill);
+  padding:9px 16px;font:var(--text-body-sm);background:var(--white);
+  transition:all .15s ease;
+}
+.pill:hover{border-color:var(--navy-600)}
+.pill input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.pill span{pointer-events:none}
+.pill .dot{
+  width:16px;height:16px;border-radius:50%;flex-shrink:0;
+  border:1.5px solid var(--gray-300);transition:all .15s ease;
+}
+.pill.checked{background:var(--navy-900);border-color:var(--navy-900);color:#fff}
+.pill.checked .dot{background:var(--red-500);border-color:var(--red-500)}
+
+/* ---------- Have / Explore matrix ---------- */
+.matrix{border:1px solid var(--border-default);border-radius:var(--radius-md);overflow:hidden}
+.mx-head,.mx-row{display:grid;grid-template-columns:1fr 92px 92px;align-items:center}
+.mx-head{
+  background:var(--navy-900);color:#fff;
+  padding:12px clamp(12px,2vw,18px);
+}
+.mx-head .h{
+  font:700 11px/1.3 var(--font-sans);letter-spacing:.05em;
+  text-transform:uppercase;text-align:center;
+}
+.mx-head .h:first-child{text-align:left;color:rgba(255,255,255,0.7)}
+.mx-row{
+  padding:11px clamp(12px,2vw,18px);
+  border-top:1px solid var(--border-default);
+}
+.mx-row:nth-child(even){background:var(--navy-50)}
+.mx-row .name{font:var(--text-body-sm);color:var(--navy-900);padding-right:10px}
+.mx-row .name small{display:block;font:400 11.5px/1.4 var(--font-sans);color:var(--text-muted);margin-top:2px}
+.mx-cell{display:flex;justify-content:center}
+.cbox{
+  position:relative;
+  cursor:pointer;width:24px;height:24px;border-radius:var(--radius-sm);
+  border:1.5px solid var(--gray-300);background:var(--white);
+  display:flex;align-items:center;justify-content:center;transition:all .15s ease;
+}
+.cbox:hover{border-color:var(--navy-600)}
+.cbox input{position:absolute;inset:-10px;opacity:0;width:calc(100% + 20px);height:calc(100% + 20px);margin:0;cursor:pointer}
+.cbox svg{opacity:0;transition:opacity .15s ease;pointer-events:none}
+.cbox.checked{background:var(--navy-900);border-color:var(--navy-900)}
+.cbox.checked.explore{background:var(--red-600);border-color:var(--red-600)}
+.cbox.checked svg{opacity:1}
+
+/* ---------- Keyboard focus ---------- */
+.cbox:has(input:focus-visible),
+.pill:has(input:focus-visible){outline:3px solid var(--navy-600);outline-offset:2px}
+.lang:focus-visible,.btn:focus-visible,.card-head:focus-visible{outline:3px solid var(--red-500);outline-offset:2px}
+
+/* ---------- Consent ---------- */
+.consent-note{
+  background:var(--navy-50);border:1px solid var(--navy-100);
+  border-radius:var(--radius-md);padding:var(--space-5);
+  font:var(--text-body-sm);color:var(--text-secondary);
+  margin-bottom:var(--space-5);
+}
+.check-line{display:flex;align-items:flex-start;gap:12px;cursor:pointer;margin-bottom:var(--space-4)}
+.check-line input{width:19px;height:19px;accent-color:var(--navy-900);margin:1px 0 0;flex-shrink:0}
+.check-line span{font:var(--text-body-sm);color:var(--text-primary)}
+
+/* ---------- Actions ---------- */
+.actions{display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center;margin-top:var(--space-6)}
+.btn{
+  border:none;cursor:pointer;border-radius:var(--radius-pill);
+  font:700 15px/1 var(--font-sans);padding:15px 30px;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.btn-primary{background:var(--red-600);color:#fff}
+.btn-primary:hover{background:var(--red-700)}
+.btn-primary:disabled{background:var(--gray-300);cursor:not-allowed}
+.btn-ghost{
+  background:transparent;color:var(--navy-900);
+  border:1.5px solid var(--border-default);font-size:14px;padding:13px 22px;
+}
+.btn-ghost:hover{border-color:var(--navy-700)}
+.save-note{font:var(--text-body-sm);color:var(--text-muted);width:100%}
+.err{
+  display:none;background:var(--red-50);border:1px solid var(--red-100);
+  color:var(--red-700);border-radius:var(--radius-md);
+  padding:var(--space-4);font:var(--text-body-sm);margin-top:var(--space-4);
+}
+.err.show{display:block}
+
+/* ---------- Footer ---------- */
+footer{background:var(--navy-950);color:rgba(255,255,255,0.7)}
+.ft-in{max-width:920px;margin:0 auto;padding:clamp(28px,4vw,44px) clamp(16px,4vw,32px)}
+.ft-top{display:flex;gap:var(--space-5);flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:var(--space-5)}
+.ft-top .nm{font:600 19px/1.1 var(--font-serif-display);color:var(--white)}
+.ft-links{display:flex;gap:var(--space-5);flex-wrap:wrap;font:var(--text-body-sm)}
+.ft-links a,.ft-links span{color:rgba(255,255,255,0.75)}
+.ft-links a:hover{color:#fff}
+.legal{
+  margin:var(--space-5) 0 0;font:11.5px/1.6 var(--font-sans);
+  color:rgba(255,255,255,0.5);
+  border-top:1px solid rgba(255,255,255,0.1);padding-top:var(--space-4);
+}
+
+/* ---------- Overlays ---------- */
+.overlay{
+  position:fixed;inset:0;z-index:100;
+  background:rgba(6,14,22,0.72);backdrop-filter:blur(3px);
+  display:none;align-items:center;justify-content:center;padding:var(--space-5);
+}
+.overlay.show{display:flex}
+.ov-card{
+  background:var(--white);border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-lg);padding:clamp(28px,5vw,44px);
+  max-width:460px;text-align:center;
+}
+.tick{
+  width:64px;height:64px;border-radius:50%;background:var(--navy-50);
+  display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-5);
+}
+.ov-card h2{margin:0 0 var(--space-3);font:var(--text-display-md);font-size:28px;color:var(--navy-900)}
+.ov-card p{margin:0 0 var(--space-6);font:var(--text-body-md);color:var(--text-secondary)}
+.toast{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120%);
+  background:var(--navy-900);color:#fff;border-radius:var(--radius-pill);
+  padding:13px 24px;font:var(--text-body-sm);
+  display:flex;align-items:center;gap:9px;z-index:90;
+  transition:transform .3s ease;box-shadow:var(--shadow-lg);
+}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+@media(max-width:560px){
+  .mx-head,.mx-row{grid-template-columns:1fr 62px 62px}
+  .hdr-in{padding:12px 16px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="brand" href="/">
+      <span class="nm">Juan Lindeque</span>
+      <span class="rl">Wealth Planner</span>
+    </a>
+    <button type="button" class="lang" id="langBtn" onclick="toggleLang()">AFRIKAANS</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-in">
+    <span class="eyebrow"><span data-l="en">Client Onboarding</span><span data-l="af">Kliënt Aanboarding</span></span>
+    <h1><span data-l="en">Let's Plan Your Future</span><span data-l="af">Kom Ons Beplan Jou Toekoms</span></h1>
+    <p>
+      <span data-l="en">A few details is all I need to prepare properly for our conversation. Only your name and email are required &mdash; skip anything that doesn't apply, and we'll cover the rest when we speak.</span>
+      <span data-l="af">'n Paar besonderhede is al wat ek nodig het om behoorlik voor te berei vir ons gesprek. Slegs jou naam en e-pos is verpligtend &mdash; slaan enigiets oor wat nie van toepassing is nie, en ons dek die res wanneer ons gesels.</span>
+    </p>
+  </div>
+  <div class="hero-rule"></div>
+</section>
+
+<div class="prog-wrap">
+  <div class="prog-in">
+    <div class="prog-track"><div class="prog-bar" id="progBar"></div></div>
+    <span class="prog-lbl" id="progLbl">0%</span>
+  </div>
+</div>
+
+<main>
+<form id="onboardForm" name="client-onboarding" method="POST" novalidate
+      data-netlify="true" netlify-honeypot="bot-field">
+
+  <input type="hidden" name="form-name" value="client-onboarding">
+  <p style="display:none"><label>Don't fill this in: <input name="bot-field"></label></p>
+
+  <!-- ============ 1. ABOUT YOU ============ -->
+  <section class="card" id="sec1">
+    <div class="card-head" onclick="toggleCard(this)">
+      <div class="step-no">1</div>
+      <div>
+        <h2><span data-l="en">About You</span><span data-l="af">Oor Jou</span></h2>
+        <p class="sub"><span data-l="en">The basics, so I know who I'm helping</span><span data-l="af">Die basiese inligting, sodat ek weet wie ek help</span></p>
+      </div>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+      <div class="grid">
+
+        <label class="field">
+          <span class="lbl"><span data-l="en">Full Name</span><span data-l="af">Volle Naam</span><span class="req">*</span></span>
+          <input type="text" name="full_name" required data-ph-en="Name &amp; surname" data-ph-af="Naam &amp; van" placeholder="Name &amp; surname">
+        </label>
+
+        <label class="field">
+          <span class="lbl"><span data-l="en">Email Address</span><span data-l="af">E-posadres</span><span class="req">*</span></span>
+          <input type="email" name="email" required placeholder="you@email.com">
+        </label>
+
+        <label class="field">
+          <span class="lbl"><span data-l="en">Mobile Number</span><span data-l="af">Selfoonnommer</span></span>
+          <input type="tel" name="mobile" placeholder="0XX XXX XXXX">
+        </label>
+
+        <label class="field">
+          <span class="lbl"><span data-l="en">Date of Birth</span><span data-l="af">Geboortedatum</span></span>
+          <input type="date" name="date_of_birth" id="dob">
+          <span class="hint"><span data-l="en">Needed for any cover or retirement quote.</span><span data-l="af">Benodig vir enige dekkings- of uittredingskwotasie.</span></span>
+        </label>
+
+        <label class="field">
+          <span class="lbl"><span data-l="en">Marital Status</span><span data-l="af">Huwelikstatus</span></span>
+          <select name="marital_status">
+            <option value="" data-en="Select…" data-af="Kies…">Select…</option>
+            <option data-en="Single" data-af="Ongetroud">Single</option>
+            <option data-en="Married — In Community of Property" data-af="Getroud — Binne Gemeenskap van Goedere">Married — In Community of Property</option>
+            <option data-en="Married — Out of Community (with accrual)" data-af="Getroud — Buite Gemeenskap (met aanwas)">Married — Out of Community (with accrual)</option>
+            <option data-en="Married — Out of Community (without accrual)" data-af="Getroud — Buite Gemeenskap (sonder aanwas)">Married — Out of Community (without accrual)</option>
+            <option data-en="Divorced" data-af="Geskei">Divorced</option>
+            <option data-en="Widowed" data-af="Wewenaar / Weduwee">Widowed</option>
+            <option data-en="Life Partner" data-af="Lewensmaat">Life Partner</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span class="lbl"><span data-l="en">Children / Dependants</span><span data-l="af">Kinders / Afhanklikes</span></span>
+          <input type="number" name="dependants" min="0" max="20" placeholder="0">
+        </label>
+
+        <label class="field">
+          <span class="lbl"><span data-l="en">Smoker Status</span><span data-l="af">Rokerstatus</span></span>
+          <select name="smoker">
+            <option value="" data-en="Select…" data-af="Kies…">Select…</option>
+            <option data-en="Non-smoker" data-af="Nie-roker">Non-smoker</option>
+            <option data-en="Smoker" data-af="Roker">Smoker</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span class="lbl"><span data-l="en">Preferred Language</span><span data-l="af">Voorkeurtaal</span></span>
+          <select name="preferred_language" id="prefLang">
+            <option value="" data-en="Select…" data-af="Kies…">Select…</option>
+            <option data-en="English" data-af="Engels">English</option>
+            <option data-en="Afrikaans" data-af="Afrikaans">Afrikaans</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span class="lbl"><span data-l="en">Best Time to Call</span><span data-l="af">Beste Tyd om te Bel</span></span>
+          <select name="best_time_to_call">
+            <option value="" data-en="Select…" data-af="Kies…">Select…</option>
+            <option data-en="Morning (08:00–12:00)" data-af="Oggend (08:00–12:00)">Morning (08:00–12:00)</option>
+            <option data-en="Afternoon (12:00–17:00)" data-af="Middag (12:00–17:00)">Afternoon (12:00–17:00)</option>
+            <option data-en="Early evening (17:00–19:00)" data-af="Vroegaand (17:00–19:00)">Early evening (17:00–19:00)</option>
+            <option data-en="Anytime" data-af="Enige tyd">Anytime</option>
+          </select>
+        </label>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2. FINANCIAL PICTURE ============ -->
+  <section class="card" id="sec2">
+    <div class="card-head" onclick="toggleCard(this)">
+      <div class="step-no">2</div>
+      <div>
+        <h2><span data-l="en">Your Financial Picture</span><span data-l="af">Jou Finansiële Prentjie</span></h2>
+        <p class="sub"><span data-l="en">What you already have &amp; what you'd like to explore</span><span data-l="af">Wat jy reeds het &amp; wat jy graag wil ondersoek</span></p>
+      </div>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+      <p class="hint" style="margin:0 0 var(--space-4)">
+        <span data-l="en">Tick either column &mdash; or both, or neither. There are no wrong answers here.</span>
+        <span data-l="af">Merk enige kolom &mdash; of albei, of nie een nie. Daar is geen verkeerde antwoorde hier nie.</span>
+      </p>
+      <div class="matrix">
+        <div class="mx-head">
+          <div class="h"><span data-l="en">Product</span><span data-l="af">Produk</span></div>
+          <div class="h"><span data-l="en">Have</span><span data-l="af">Het</span></div>
+          <div class="h"><span data-l="en">Explore</span><span data-l="af">Ondersoek</span></div>
+        </div>
+<div id="matrixRows">
+        <div class="mx-row">
+          <div class="name"><span data-l="en">Will &amp; Testament</span><span data-l="af">Testament</span></div>
+          <div class="mx-cell"><label class="cbox"><input type="checkbox" name="already_have" value="Will & Testament"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+          <div class="mx-cell"><label class="cbox explore"><input type="checkbox" name="want_to_explore" value="Will & Testament"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+        </div>
+        <div class="mx-row">
+          <div class="name"><span data-l="en">Tax-Free Savings (TFSA)</span><span data-l="af">Belastingvrye Spaargeld (BVS)</span></div>
+          <div class="mx-cell"><label class="cbox"><input type="checkbox" name="already_have" value="Tax-Free Savings (TFSA)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+          <div class="mx-cell"><label class="cbox explore"><input type="checkbox" name="want_to_explore" value="Tax-Free Savings (TFSA)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+        </div>
+        <div class="mx-row">
+          <div class="name"><span data-l="en">Retirement Annuity (RA)</span><span data-l="af">Uittredingsannuïteit (UA)</span></div>
+          <div class="mx-cell"><label class="cbox"><input type="checkbox" name="already_have" value="Retirement Annuity (RA)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+          <div class="mx-cell"><label class="cbox explore"><input type="checkbox" name="want_to_explore" value="Retirement Annuity (RA)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+        </div>
+        <div class="mx-row">
+          <div class="name"><span data-l="en">Discretionary Investment</span><span data-l="af">Diskresionêre Belegging</span></div>
+          <div class="mx-cell"><label class="cbox"><input type="checkbox" name="already_have" value="Discretionary Investment"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+          <div class="mx-cell"><label class="cbox explore"><input type="checkbox" name="want_to_explore" value="Discretionary Investment"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+        </div>
+        <div class="mx-row">
+          <div class="name"><span data-l="en">Life / Death Cover</span><span data-l="af">Lewens- / Doodsdekking</span></div>
+          <div class="mx-cell"><label class="cbox"><input type="checkbox" name="already_have" value="Life / Death Cover"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+          <div class="mx-cell"><label class="cbox explore"><input type="checkbox" name="want_to_explore" value="Life / Death Cover"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+        </div>
+        <div class="mx-row">
+          <div class="name"><span data-l="en">Disability / Impairment Cover</span><span data-l="af">Ongeskiktheids- / Gestremdheidsdekking</span></div>
+          <div class="mx-cell"><label class="cbox"><input type="checkbox" name="already_have" value="Disability / Impairment Cover"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+          <div class="mx-cell"><label class="cbox explore"><input type="checkbox" name="want_to_explore" value="Disability / Impairment Cover"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+        </div>
+        <div class="mx-row">
+          <div class="name"><span data-l="en">Critical Illness Cover</span><span data-l="af">Gevreesde Siektes Dekking</span></div>
+          <div class="mx-cell"><label class="cbox"><input type="checkbox" name="already_have" value="Critical Illness Cover"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+          <div class="mx-cell"><label class="cbox explore"><input type="checkbox" name="want_to_explore" value="Critical Illness Cover"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+        </div>
+        <div class="mx-row">
+          <div class="name"><span data-l="en">Income Protection</span><span data-l="af">Inkomstebeskerming</span></div>
+          <div class="mx-cell"><label class="cbox"><input type="checkbox" name="already_have" value="Income Protection"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+          <div class="mx-cell"><label class="cbox explore"><input type="checkbox" name="want_to_explore" value="Income Protection"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+        </div>
+        <div class="mx-row">
+          <div class="name"><span data-l="en">Funeral / Final Expense Cover</span><span data-l="af">Begrafnis- / Finale Uitgawes</span></div>
+          <div class="mx-cell"><label class="cbox"><input type="checkbox" name="already_have" value="Funeral / Final Expense Cover"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+          <div class="mx-cell"><label class="cbox explore"><input type="checkbox" name="want_to_explore" value="Funeral / Final Expense Cover"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+        </div>
+        <div class="mx-row">
+          <div class="name"><span data-l="en">Family Cover</span><span data-l="af">Gesinsdekking</span></div>
+          <div class="mx-cell"><label class="cbox"><input type="checkbox" name="already_have" value="Family Cover"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+          <div class="mx-cell"><label class="cbox explore"><input type="checkbox" name="want_to_explore" value="Family Cover"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+        </div>
+        <div class="mx-row">
+          <div class="name"><span data-l="en">Business Assurance</span><span data-l="af">Besigheidsversekering</span></div>
+          <div class="mx-cell"><label class="cbox"><input type="checkbox" name="already_have" value="Business Assurance"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+          <div class="mx-cell"><label class="cbox explore"><input type="checkbox" name="want_to_explore" value="Business Assurance"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+        </div>
+        <div class="mx-row">
+          <div class="name"><span data-l="en">Medical Aid</span><span data-l="af">Mediese Fonds</span></div>
+          <div class="mx-cell"><label class="cbox"><input type="checkbox" name="already_have" value="Medical Aid"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+          <div class="mx-cell"><label class="cbox explore"><input type="checkbox" name="want_to_explore" value="Medical Aid"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+        </div>
+        <div class="mx-row">
+          <div class="name"><span data-l="en">Short-Term Insurance</span><span data-l="af">Korttermynversekering</span><small><span data-l="en">Car, home, contents</span><span data-l="af">Motor, huis, inhoud</span></small></div>
+          <div class="mx-cell"><label class="cbox"><input type="checkbox" name="already_have" value="Short-Term Insurance"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+          <div class="mx-cell"><label class="cbox explore"><input type="checkbox" name="want_to_explore" value="Short-Term Insurance"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+        </div>
+        <div class="mx-row">
+          <div class="name"><span data-l="en">Pension / Employee Benefits</span><span data-l="af">Pensioen / Werknemervoordele</span><small><span data-l="en">Group medical aid, fund benefits</span><span data-l="af">Groep mediese fonds, fondsvoordele</span></small></div>
+          <div class="mx-cell"><label class="cbox"><input type="checkbox" name="already_have" value="Pension / Employee Benefits"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+          <div class="mx-cell"><label class="cbox explore"><input type="checkbox" name="want_to_explore" value="Pension / Employee Benefits"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></label></div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. LIFE & RISK ============ -->
+  <section class="card collapsed" id="sec3">
+    <div class="card-head" onclick="toggleCard(this)">
+      <div class="step-no">3</div>
+      <div>
+        <h2><span data-l="en">Life &amp; Risk Cover</span><span data-l="af">Lewens- &amp; Risikodekking</span><span class="opt-tag"><span data-l="en">Optional</span><span data-l="af">Opsioneel</span></span></h2>
+        <p class="sub"><span data-l="en">Only if you'd like cover quotes &mdash; otherwise skip</span><span data-l="af">Slegs indien jy dekkingskwotasies wil hê &mdash; slaan andersins oor</span></p>
+      </div>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+      <div class="grid">
+
+        <label class="field">
+          <span class="lbl"><span data-l="en">Industry</span><span data-l="af">Bedryf</span></span>
+          <input type="text" name="industry" data-ph-en="e.g. Construction, IT, Finance" data-ph-af="bv. Konstruksie, IT, Finansies" placeholder="e.g. Construction, IT, Finance">
+        </label>
+
+        <label class="field">
+          <span class="lbl"><span data-l="en">Occupation / Job Title</span><span data-l="af">Beroep / Postitel</span></span>
+          <input type="text" name="occupation" data-ph-en="e.g. Site Manager" data-ph-af="bv. Terreinbestuurder" placeholder="e.g. Site Manager">
+        </label>
+
+        <label class="field">
+          <span class="lbl"><span data-l="en">Highest Qualification</span><span data-l="af">Hoogste Kwalifikasie</span></span>
+          <select name="qualification">
+            <option value="" data-en="Select…" data-af="Kies…">Select…</option>
+            <option data-en="Below Matric" data-af="Onder Matriek">Below Matric</option>
+            <option data-en="Matric / Grade 12" data-af="Matriek / Graad 12">Matric / Grade 12</option>
+            <option data-en="Certificate / Diploma" data-af="Sertifikaat / Diploma">Certificate / Diploma</option>
+            <option data-en="Bachelor's Degree" data-af="Baccalaureusgraad">Bachelor's Degree</option>
+            <option data-en="Honours" data-af="Honneurs">Honours</option>
+            <option data-en="Master's / Doctorate" data-af="Meesters / Doktorsgraad">Master's / Doctorate</option>
+            <option data-en="Professional Designation" data-af="Professionele Aanwysing">Professional Designation</option>
+          </select>
+          <span class="hint"><span data-l="en">Insurers price on this &mdash; it can lower your premium.</span><span data-l="af">Versekeraars prys hierop &mdash; dit kan jou premie verlaag.</span></span>
+        </label>
+
+        <label class="field">
+          <span class="lbl"><span data-l="en">Gross Monthly Income</span><span data-l="af">Bruto Maandelikse Inkomste</span></span>
+          <select name="income_band">
+            <option value="" data-en="Select…" data-af="Kies…">Select…</option>
+            <option data-en="Under R20 000" data-af="Onder R20 000">Under R20 000</option>
+            <option data-en="R20 000 – R40 000" data-af="R20 000 – R40 000">R20 000 – R40 000</option>
+            <option data-en="R40 000 – R60 000" data-af="R40 000 – R60 000">R40 000 – R60 000</option>
+            <option data-en="R60 000 – R100 000" data-af="R60 000 – R100 000">R60 000 – R100 000</option>
+            <option data-en="R100 000 – R150 000" data-af="R100 000 – R150 000">R100 000 – R150 000</option>
+            <option data-en="Over R150 000" data-af="Meer as R150 000">Over R150 000</option>
+            <option data-en="Prefer to discuss on the call" data-af="Verkies om op die oproep te bespreek">Prefer to discuss on the call</option>
+          </select>
+          <span class="hint"><span data-l="en">A range is enough to size cover &mdash; we'll confirm exact figures later.</span><span data-l="af">'n Reeks is genoeg om dekking te bepaal &mdash; ons bevestig presiese syfers later.</span></span>
+        </label>
+
+        <div class="field full">
+          <span class="lbl"><span data-l="en">Nature of Work</span><span data-l="af">Aard van Werk</span> <span class="hint" style="font-weight:400">(<span data-l="en">tick all that apply</span><span data-l="af">merk alles wat van toepassing is</span>)</span></span>
+          <div class="pills">
+            <label class="pill"><input type="checkbox" name="nature_of_work" value="Admin / Office"><span class="dot"></span><span data-l="en">Admin / Office</span><span data-l="af">Admin / Kantoor</span></label>
+            <label class="pill"><input type="checkbox" name="nature_of_work" value="Travel"><span class="dot"></span><span data-l="en">Travel</span><span data-l="af">Reis</span></label>
+            <label class="pill"><input type="checkbox" name="nature_of_work" value="Supervision"><span class="dot"></span><span data-l="en">Supervision</span><span data-l="af">Toesig</span></label>
+            <label class="pill"><input type="checkbox" name="nature_of_work" value="Physical / Manual"><span class="dot"></span><span data-l="en">Physical / Manual</span><span data-l="af">Fisies / Handearbeid</span></label>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. INVESTMENTS ============ -->
+  <section class="card collapsed" id="sec4">
+    <div class="card-head" onclick="toggleCard(this)">
+      <div class="step-no">4</div>
+      <div>
+        <h2><span data-l="en">Investments &amp; Savings</span><span data-l="af">Beleggings &amp; Spaargeld</span><span class="opt-tag"><span data-l="en">Optional</span><span data-l="af">Opsioneel</span></span></h2>
+        <p class="sub"><span data-l="en">Only if you'd like investment options &mdash; otherwise skip</span><span data-l="af">Slegs indien jy beleggingsopsies wil hê &mdash; slaan andersins oor</span></p>
+      </div>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+      <div class="grid">
+
+        <div class="field full">
+          <span class="lbl"><span data-l="en">Which investment(s) are you interested in?</span><span data-l="af">In watter belegging(s) stel jy belang?</span></span>
+          <div class="pills">
+            <label class="pill"><input type="checkbox" name="investment_interest" value="Retirement Annuity (RA)"><span class="dot"></span><span data-l="en">Retirement Annuity (RA)</span><span data-l="af">Uittredingsannuïteit (UA)</span></label>
+            <label class="pill"><input type="checkbox" name="investment_interest" value="Tax-Free Savings (TFSA)"><span class="dot"></span><span data-l="en">Tax-Free Savings (TFSA)</span><span data-l="af">Belastingvrye Spaargeld (BVS)</span></label>
+            <label class="pill"><input type="checkbox" name="investment_interest" value="Discretionary Investment"><span class="dot"></span><span data-l="en">Discretionary Investment</span><span data-l="af">Diskresionêre Belegging</span></label>
+            <label class="pill"><input type="checkbox" name="investment_interest" value="Not sure yet"><span class="dot"></span><span data-l="en">Not sure yet</span><span data-l="af">Nog nie seker nie</span></label>
+          </div>
+        </div>
+
+        <label class="field">
+          <span class="lbl"><span data-l="en">Contribution Type</span><span data-l="af">Bydrae Tipe</span></span>
+          <select name="contribution_type">
+            <option value="" data-en="Select…" data-af="Kies…">Select…</option>
+            <option data-en="Monthly (recurring)" data-af="Maandeliks (herhalend)">Monthly (recurring)</option>
+            <option data-en="Lump sum (once-off)" data-af="Enkelbedrag (eenmalig)">Lump sum (once-off)</option>
+            <option data-en="Both" data-af="Beide">Both</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span class="lbl"><span data-l="en">Contribution Amount</span><span data-l="af">Bydrae Bedrag</span></span>
+          <span class="prefix"><span>R</span><input type="number" name="contribution_amount" min="0" placeholder="0"></span>
+        </label>
+
+        <label class="field">
+          <span class="lbl"><span data-l="en">Annual Escalation</span><span data-l="af">Jaarlikse Eskalasie</span></span>
+          <span class="prefix"><span>%</span><input type="number" name="annual_escalation" min="0" max="20" step="0.5" placeholder="0"></span>
+        </label>
+
+        <label class="field">
+          <span class="lbl"><span data-l="en">Risk Tolerance</span><span data-l="af">Risikotoleransie</span></span>
+          <select name="risk_tolerance">
+            <option value="" data-en="Select…" data-af="Kies…">Select…</option>
+            <option data-en="Conservative" data-af="Konserwatief">Conservative</option>
+            <option data-en="Moderate-Conservative" data-af="Matig-Konserwatief">Moderate-Conservative</option>
+            <option data-en="Moderate" data-af="Matig">Moderate</option>
+            <option data-en="Moderate-Aggressive" data-af="Matig-Aggressief">Moderate-Aggressive</option>
+            <option data-en="Aggressive" data-af="Aggressief">Aggressive</option>
+            <option data-en="Not sure — please guide me" data-af="Nie seker nie — lei my asseblief">Not sure — please guide me</option>
+          </select>
+          <span class="hint"><span data-l="en">A formal risk profile is completed together before any advice.</span><span data-l="af">'n Formele risikoprofiel word saam voltooi voor enige advies.</span></span>
+        </label>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. ANYTHING ELSE ============ -->
+  <section class="card" id="sec5">
+    <div class="card-head" onclick="toggleCard(this)">
+      <div class="step-no">5</div>
+      <div>
+        <h2><span data-l="en">Anything Else?</span><span data-l="af">Enigiets Anders?</span><span class="opt-tag"><span data-l="en">Optional</span><span data-l="af">Opsioneel</span></span></h2>
+        <p class="sub"><span data-l="en">The floor is yours</span><span data-l="af">Die woord is joune</span></p>
+      </div>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+      <label class="field full">
+        <span class="lbl"><span data-l="en">Goals, questions, or anything you'd like me to know</span><span data-l="af">Doelwitte, vrae, of enigiets wat ek moet weet</span></span>
+        <textarea name="notes" data-ph-en="e.g. I want to make sure my family is covered, I'd like to consolidate old policies, I'm planning to retire in 10 years…" data-ph-af="bv. Ek wil seker maak my gesin is gedek, ek wil ou polisse konsolideer, ek beplan om oor 10 jaar af te tree…" placeholder="e.g. I want to make sure my family is covered, I'd like to consolidate old policies, I'm planning to retire in 10 years…"></textarea>
+      </label>
+    </div>
+  </section>
+
+  <!-- ============ CONSENT ============ -->
+  <section class="card" id="sec6">
+    <div class="card-head" style="cursor:default">
+      <div class="step-no">6</div>
+      <div>
+        <h2><span data-l="en">Consent &amp; Disclosure</span><span data-l="af">Toestemming &amp; Bekendmaking</span></h2>
+        <p class="sub"><span data-l="en">Required before I can act on your information</span><span data-l="af">Verpligtend voordat ek op jou inligting kan optree</span></p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="consent-note">
+        <span data-l="en">I consent to my information being used to provide more accurate financial planning, quote requests and investment analysis. My data will be handled in line with <strong>POPIA</strong>, and AI tools may be used to assist with calculations, analysis and proposals. My data will not be shared with any third party that is not POPIA-compliant or not part of the services being rendered to me.</span>
+        <span data-l="af">Ek gee toestemming dat my inligting gebruik word om meer akkurate finansiële beplanning, kwotasieversoeke en beleggingsanalise te lewer. My data sal hanteer word in ooreenstemming met <strong>POPIA</strong>, en KI-hulpmiddels mag gebruik word om te help met berekeninge, analise en voorstelle. My data sal nie gedeel word met enige derde party wat nie POPIA-voldoenend is of nie deel is van die dienste wat aan my gelewer word nie.</span>
+      </div>
+
+      <label class="check-line">
+        <input type="checkbox" name="consent_popia" value="Yes" required id="c1">
+        <span><span data-l="en">I have read and agree to the above.</span><span data-l="af">Ek het bogenoemde gelees en stem daarmee saam.</span><span class="req">*</span></span>
+      </label>
+
+      <label class="check-line">
+        <input type="checkbox" name="disclosure_received" value="Yes" required id="c2">
+        <span><span data-l="en">I confirm I have received the SpringPoint Finance disclosure document.</span><span data-l="af">Ek bevestig dat ek die SpringPoint Finance bekendmakingsdokument ontvang het.</span><span class="req">*</span></span>
+      </label>
+
+      <div class="actions">
+        <button type="submit" class="btn btn-primary" id="submitBtn">
+          <span data-l="en">Submit</span><span data-l="af">Dien In</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <button type="button" class="btn btn-ghost" onclick="saveProgress(true)">
+          <span data-l="en">Save &amp; continue later</span><span data-l="af">Stoor &amp; gaan later voort</span>
+        </button>
+        <span class="save-note"><span data-l="en">Your progress saves automatically on this device.</span><span data-l="af">Jou vordering word outomaties op hierdie toestel gestoor.</span></span>
+      </div>
+
+      <div class="err" id="errBox"></div>
+    </div>
+  </section>
+
+</form>
+</main>
+
+<footer>
+  <div class="ft-in">
+    <div class="ft-top">
+      <div>
+        <div class="nm">Juan Lindeque</div>
+        <div style="font:var(--text-body-sm);color:rgba(255,255,255,0.6)">Wealth Planner &middot; BCom Investment Management</div>
+      </div>
+      <a href="/" style="color:#fff;border:1px solid rgba(255,255,255,0.4);border-radius:var(--radius-pill);padding:10px 18px;font:700 13px/1 var(--font-sans)">
+        <span data-l="en">Back to site</span><span data-l="af">Terug na webwerf</span>
+      </a>
+    </div>
+    <div class="ft-links">
+      <a href="tel:+27731187215">073 118 7215</a>
+      <a href="mailto:juan@springpointfinance.co.za">juan@springpointfinance.co.za</a>
+      <span>Somerset West, 7130</span>
+    </div>
+    <p class="legal">
+      Juan Lindeque is a representative of SpringPoint Finance (Pty) Ltd, an authorised Financial Services Provider &middot; FSP Licence No. 43870 &middot; Registration No. 2011/112373/07 &middot; Directors: P.R.J. Louw, M.Z. Raffee, C.J. Strauss. Nothing on this page constitutes financial advice. Advice is given only after a full financial needs analysis and is recorded in a written Record of Advice. Your information is processed in accordance with POPIA.
+    </p>
+  </div>
+</footer>
+
+<div class="overlay" id="successOverlay">
+  <div class="ov-card">
+    <div class="tick">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--green-600)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+    </div>
+    <h2><span data-l="en">Thank you!</span><span data-l="af">Dankie!</span></h2>
+    <p>
+      <span data-l="en">Your details have been received. I'll be in touch personally to take the next step on your financial plan.</span>
+      <span data-l="af">Jou besonderhede is ontvang. Ek sal persoonlik in kontak wees om die volgende stap in jou finansiële plan te neem.</span>
+    </p>
+    <a href="/" class="btn btn-primary" style="text-decoration:none">
+      <span data-l="en">Back to site</span><span data-l="af">Terug na webwerf</span>
+    </a>
+  </div>
+</div>
+
+<div class="toast" id="toast">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+  <span id="toastMsg">Progress saved</span>
+</div>
+
+<script>
+/* ---------- Language ---------- */
+var lang = 'en';
+function applyLang(){
+  document.querySelectorAll('[data-l]').forEach(function(n){
+    n.style.display = (n.getAttribute('data-l') === lang) ? 'inline' : 'none';
+  });
+  document.querySelectorAll('option[data-en]').forEach(function(o){
+    o.textContent = (lang === 'af') ? o.getAttribute('data-af') : o.getAttribute('data-en');
+  });
+  document.querySelectorAll('[data-ph-en]').forEach(function(el){
+    el.placeholder = (lang === 'af') ? el.getAttribute('data-ph-af') : el.getAttribute('data-ph-en');
+  });
+  document.getElementById('langBtn').textContent = (lang === 'af') ? 'ENGLISH' : 'AFRIKAANS';
+  document.documentElement.setAttribute('lang', lang);
+}
+function toggleLang(){
+  lang = (lang === 'en') ? 'af' : 'en';
+  applyLang();
+  try{ localStorage.setItem('spf_lang', lang); }catch(e){}
+  var pl = document.getElementById('prefLang');
+  if(pl && !pl.value){ pl.value = (lang === 'af') ? 'Afrikaans' : 'English'; }
+}
+
+/* ---------- Collapsible cards ---------- */
+function toggleCard(head){ head.parentElement.classList.toggle('collapsed'); }
+
+/* ---------- Custom control visuals ---------- */
+function wireControls(){
+  document.querySelectorAll('.cbox').forEach(function(box){
+    var input = box.querySelector('input');
+    if(!input || input.dataset.wired) return;
+    input.dataset.wired = '1';
+    input.addEventListener('change', function(){
+      box.classList.toggle('checked', input.checked);
+      updateProgress(); saveProgress(false);
+    });
+  });
+  document.querySelectorAll('.pill').forEach(function(pill){
+    var input = pill.querySelector('input');
+    if(!input || input.dataset.wired) return;
+    input.dataset.wired = '1';
+    input.addEventListener('change', function(){
+      pill.classList.toggle('checked', input.checked);
+      updateProgress(); saveProgress(false);
+    });
+  });
+}
+
+/* ---------- Progress ---------- */
+var form = document.getElementById('onboardForm');
+function updateProgress(){
+  var fields = form.querySelectorAll('input:not([type=hidden]):not([name=bot-field]), select, textarea');
+  var total = 0, done = 0;
+  var groupsSeen = {};
+  fields.forEach(function(f){
+    if(f.type === 'checkbox'){
+      if(groupsSeen[f.name]) return;
+      groupsSeen[f.name] = true;
+      total++;
+      if(form.querySelector('input[name="'+f.name+'"]:checked')) done++;
+    } else {
+      total++;
+      if(f.value && f.value.trim() !== '') done++;
+    }
+  });
+  var pct = total ? Math.round(done / total * 100) : 0;
+  document.getElementById('progBar').style.width = pct + '%';
+  document.getElementById('progLbl').textContent = pct + '%';
+}
+
+/* ---------- Save / restore ---------- */
+var KEY = 'spf_onboarding_v2';
+function saveProgress(showToast){
+  try{
+    var data = {};
+    form.querySelectorAll('input:not([type=hidden]):not([name=bot-field]), select, textarea').forEach(function(f){
+      if(f.type === 'checkbox'){
+        if(!data[f.name]) data[f.name] = [];
+        if(f.checked) data[f.name].push(f.value);
+      } else {
+        data[f.name] = f.value;
+      }
+    });
+    localStorage.setItem(KEY, JSON.stringify(data));
+    if(showToast) toast(lang === 'af' ? 'Vordering gestoor' : 'Progress saved');
+  }catch(e){
+    if(showToast) toast(lang === 'af' ? 'Kon nie stoor nie' : 'Could not save');
+  }
+}
+function restoreProgress(){
+  try{
+    var raw = localStorage.getItem(KEY);
+    if(!raw) return;
+    var data = JSON.parse(raw);
+    Object.keys(data).forEach(function(name){
+      var els = form.querySelectorAll('[name="'+name+'"]');
+      if(!els.length) return;
+      if(els[0].type === 'checkbox'){
+        var vals = data[name] || [];
+        els.forEach(function(el){
+          el.checked = vals.indexOf(el.value) !== -1;
+          var wrap = el.closest('.cbox') || el.closest('.pill');
+          if(wrap) wrap.classList.toggle('checked', el.checked);
+        });
+      } else {
+        els[0].value = data[name];
+      }
+    });
+  }catch(e){}
+}
+function toast(msg){
+  var t = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 2600);
+}
+
+/* ---------- Submit (Netlify Forms, AJAX) ---------- */
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  var errBox = document.getElementById('errBox');
+  errBox.classList.remove('show');
+
+  var invalid = [];
+  form.querySelectorAll('input, select, textarea').forEach(function(f){
+    if(f.name === 'bot-field') return;
+    if(!f.checkValidity()) invalid.push(f);
+  });
+
+  if(invalid.length){
+    // Reveal any collapsed section holding an invalid field, else it can't be focused
+    invalid.forEach(function(f){
+      var card = f.closest('.card');
+      if(card) card.classList.remove('collapsed');
+    });
+    var first = invalid[0];
+    setTimeout(function(){
+      first.scrollIntoView({behavior:'smooth', block:'center'});
+      form.reportValidity();
+    }, 60);
+    errBox.innerHTML = (lang === 'af')
+      ? 'Vul asseblief die gemerkte verpligte velde in.'
+      : 'Please complete the highlighted required fields.';
+    errBox.classList.add('show');
+    return;
+  }
+
+  var btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = (lang === 'af') ? 'Stuur tans…' : 'Sending…';
+
+  var body = new URLSearchParams(new FormData(form)).toString();
+
+  fetch('/', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    body: body
+  })
+  .then(function(res){
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    try{ localStorage.removeItem(KEY); }catch(e){}
+    document.getElementById('successOverlay').classList.add('show');
+  })
+  .catch(function(){
+    btn.disabled = false;
+    btn.innerHTML = (lang === 'af') ? 'Dien In' : 'Submit';
+    errBox.innerHTML = (lang === 'af')
+      ? "Ons kon jou vorm nie stuur nie. Kontroleer asseblief jou internetverbinding en probeer weer, of e-pos my direk by <a href='mailto:juan@springpointfinance.co.za'>juan@springpointfinance.co.za</a>."
+      : "We couldn't send your form. Please check your connection and try again, or email me directly at <a href='mailto:juan@springpointfinance.co.za'>juan@springpointfinance.co.za</a>.";
+    errBox.classList.add('show');
+  });
+});
+
+/* ---------- Init ---------- */
+(function init(){
+  var dob = document.getElementById('dob');
+  if(dob) dob.max = new Date().toISOString().split('T')[0];
+
+  try{
+    var saved = localStorage.getItem('spf_lang');
+    if(saved === 'af') lang = 'af';
+  }catch(e){}
+
+  wireControls();
+  restoreProgress();
+  applyLang();
+  updateProgress();
+
+  form.addEventListener('input', function(){ updateProgress(); });
+  form.addEventListener('change', function(){ updateProgress(); saveProgress(false); });
+})();
+</script>
+
+</body>
+</html>
