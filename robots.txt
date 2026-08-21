@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /onboarding
+Disallow: /onboarding.html
+
+Sitemap: https://juanlindeque.co.za/sitemap.xml
