@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FNA Information — Juan Lindeque | SpringPoint Finance</title>
+<meta name="description" content="Secure information form for your financial needs analysis. Share your figures so Juan Lindeque can prepare your plan before we meet.">
+<meta name="robots" content="noindex">
+
+<link rel="stylesheet" href="/ds-colors.css">
+<link rel="stylesheet" href="/ds-fonts.css">
+<link rel="stylesheet" href="/ds-typography.css">
+<link rel="stylesheet" href="/ds-spacing.css">
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--surface-page);
+  color:var(--text-primary);
+  font-family:var(--font-sans);
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--text-link);text-decoration:none}
+a:hover{color:var(--text-link-hover)}
+
+/* ---------- Header ---------- */
+.hdr{position:sticky;top:0;z-index:40;background:var(--navy-900)}
+.hdr-in{
+  max-width:920px;margin:0 auto;
+  padding:14px clamp(16px,4vw,32px);
+  display:flex;align-items:center;gap:var(--space-4);flex-wrap:wrap;
+}
+.brand{display:flex;flex-direction:column;gap:2px;color:var(--white)}
+.brand .nm{font:600 19px/1.1 var(--font-serif-display)}
+.brand .rl{
+  font:600 10px/1.2 var(--font-sans);letter-spacing:0.14em;
+  text-transform:uppercase;color:rgba(255,255,255,0.6);
+}
+.lang{
+  margin-left:auto;background:transparent;color:#fff;cursor:pointer;
+  border:1px solid rgba(255,255,255,0.4);border-radius:var(--radius-pill);
+  padding:8px 16px;font:700 12px/1 var(--font-sans);
+}
+.lang:hover{background:rgba(255,255,255,0.09)}
+
+/* ---------- Hero ---------- */
+.hero{background:var(--navy-900);position:relative}
+.hero-in{
+  max-width:920px;margin:0 auto;
+  padding:clamp(32px,5vw,52px) clamp(16px,4vw,32px) clamp(36px,5vw,56px);
+  display:flex;flex-direction:column;gap:var(--space-3);
+}
+.eyebrow{
+  font:var(--text-eyebrow);letter-spacing:var(--tracking-eyebrow);
+  text-transform:uppercase;color:var(--red-400);
+}
+.hero h1{
+  margin:0;font:var(--text-display-md);
+  font-size:clamp(28px,4vw,40px);color:var(--white);max-width:22ch;
+}
+.hero p{
+  margin:0;font:var(--text-body-lg);
+  color:rgba(255,255,255,0.75);max-width:56ch;
+}
+.hero-rule{position:absolute;left:0;bottom:0;width:100%;height:3px;background:var(--red-600)}
+
+/* ---------- Progress ---------- */
+.prog-wrap{
+  position:sticky;top:62px;z-index:30;
+  background:var(--surface-page);
+  border-bottom:1px solid var(--border-default);
+}
+.prog-in{
+  max-width:920px;margin:0 auto;
+  padding:10px clamp(16px,4vw,32px);
+  display:flex;align-items:center;gap:var(--space-3);
+}
+.prog-track{
+  flex:1;height:6px;border-radius:var(--radius-pill);
+  background:var(--gray-200);overflow:hidden;
+}
+.prog-bar{
+  height:100%;width:0%;border-radius:var(--radius-pill);
+  background:var(--red-600);transition:width .35s ease;
+}
+.prog-lbl{font:var(--text-label);color:var(--text-muted);white-space:nowrap}
+
+/* ---------- Layout ---------- */
+main{max-width:920px;margin:0 auto;padding:clamp(24px,4vw,40px) clamp(16px,4vw,32px) 96px}
+
+.card{
+  background:var(--surface-card);
+  border:1px solid var(--border-default);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-sm);
+  margin-bottom:var(--space-6);
+  overflow:hidden;
+}
+.card-head{
+  display:flex;align-items:flex-start;gap:var(--space-4);
+  padding:var(--space-6) clamp(16px,3vw,28px);
+  cursor:pointer;user-select:none;
+}
+.card-head:hover{background:var(--navy-50)}
+.step-no{
+  flex-shrink:0;width:30px;height:30px;border-radius:50%;
+  background:var(--navy-900);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font:700 13px/1 var(--font-sans);margin-top:2px;
+}
+.card-head h2{margin:0;font:var(--text-heading-lg);color:var(--navy-900)}
+.card-head .sub{margin:4px 0 0;font:var(--text-body-sm);color:var(--text-muted)}
+.opt-tag{
+  display:inline-block;margin-left:8px;vertical-align:2px;
+  background:var(--navy-100);color:var(--navy-700);
+  border-radius:var(--radius-pill);padding:3px 10px;
+  font:700 10px/1.3 var(--font-sans);letter-spacing:.06em;text-transform:uppercase;
+}
+.chev{
+  margin-left:auto;flex-shrink:0;color:var(--text-muted);
+  transition:transform .25s ease;margin-top:4px;
+}
+.card.collapsed .chev{transform:rotate(-90deg)}
+.card-body{padding:0 clamp(16px,3vw,28px) var(--space-8)}
+.card.collapsed .card-body{display:none}
+
+/* ---------- Fields ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--space-5)}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+.field > span.lbl{font:var(--text-label);color:var(--navy-900)}
+.req{color:var(--red-600);margin-left:2px}
+.hint{font:400 12px/1.45 var(--font-sans);color:var(--text-muted)}
+
+input[type=text],input[type=email],input[type=tel],input[type=number],input[type=date],select,textarea{
+  font:var(--text-body-md);font-family:var(--font-sans);
+  padding:11px 14px;border-radius:var(--radius-md);
+  border:1.5px solid var(--border-default);
+  background:var(--white);color:var(--text-primary);
+  outline:none;width:100%;
+}
+textarea{resize:vertical;min-height:96px}
+input:focus,select:focus,textarea:focus{border-color:var(--navy-700)}
+input::placeholder,textarea::placeholder{color:var(--gray-300)}
+.prefix{position:relative}
+.prefix > span{
+  position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  font:var(--text-body-md);color:var(--text-muted);pointer-events:none;
+}
+.prefix input{padding-left:34px}
+
+/* ---------- Pills (multi-select) ---------- */
+.pills{display:flex;flex-wrap:wrap;gap:var(--space-2)}
+.pill{
+  position:relative;
+  display:inline-flex;align-items:center;gap:8px;cursor:pointer;
+  border:1.5px solid var(--border-default);border-radius:var(--radius-pill);
+  padding:9px 16px;font:var(--text-body-sm);background:var(--white);
+  transition:all .15s ease;
+}
+.pill:hover{border-color:var(--navy-600)}
+.pill input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.pill span{pointer-events:none}
+.pill .dot{
+  width:16px;height:16px;border-radius:50%;flex-shrink:0;
+  border:1.5px solid var(--gray-300);transition:all .15s ease;
+}
+.pill.checked{background:var(--navy-900);border-color:var(--navy-900);color:#fff}
+.pill.checked .dot{background:var(--red-500);border-color:var(--red-500)}
+
+/* ---------- Have / Explore matrix ---------- */
+.matrix{border:1px solid var(--border-default);border-radius:var(--radius-md);overflow:hidden}
+.mx-head,.mx-row{display:grid;grid-template-columns:1fr 92px 92px;align-items:center}
+.mx-head{
+  background:var(--navy-900);color:#fff;
+  padding:12px clamp(12px,2vw,18px);
+}
+.mx-head .h{
+  font:700 11px/1.3 var(--font-sans);letter-spacing:.05em;
+  text-transform:uppercase;text-align:center;
+}
+.mx-head .h:first-child{text-align:left;color:rgba(255,255,255,0.7)}
+.mx-row{
+  padding:11px clamp(12px,2vw,18px);
+  border-top:1px solid var(--border-default);
+}
+.mx-row:nth-child(even){background:var(--navy-50)}
+.mx-row .name{font:var(--text-body-sm);color:var(--navy-900);padding-right:10px}
+.mx-row .name small{display:block;font:400 11.5px/1.4 var(--font-sans);color:var(--text-muted);margin-top:2px}
+.mx-cell{display:flex;justify-content:center}
+.cbox{
+  position:relative;
+  cursor:pointer;width:24px;height:24px;border-radius:var(--radius-sm);
+  border:1.5px solid var(--gray-300);background:var(--white);
+  display:flex;align-items:center;justify-content:center;transition:all .15s ease;
+}
+.cbox:hover{border-color:var(--navy-600)}
+.cbox input{position:absolute;inset:-10px;opacity:0;width:calc(100% + 20px);height:calc(100% + 20px);margin:0;cursor:pointer}
+.cbox svg{opacity:0;transition:opacity .15s ease;pointer-events:none}
+.cbox.checked{background:var(--navy-900);border-color:var(--navy-900)}
+.cbox.checked.explore{background:var(--red-600);border-color:var(--red-600)}
+.cbox.checked svg{opacity:1}
+
+/* ---------- Keyboard focus ---------- */
+.cbox:has(input:focus-visible),
+.pill:has(input:focus-visible){outline:3px solid var(--navy-600);outline-offset:2px}
+.lang:focus-visible,.btn:focus-visible,.card-head:focus-visible{outline:3px solid var(--red-500);outline-offset:2px}
+
+/* ---------- Consent ---------- */
+.consent-note{
+  background:var(--navy-50);border:1px solid var(--navy-100);
+  border-radius:var(--radius-md);padding:var(--space-5);
+  font:var(--text-body-sm);color:var(--text-secondary);
+  margin-bottom:var(--space-5);
+}
+.check-line{display:flex;align-items:flex-start;gap:12px;cursor:pointer;margin-bottom:var(--space-4)}
+.check-line input{width:19px;height:19px;accent-color:var(--navy-900);margin:1px 0 0;flex-shrink:0}
+.check-line span{font:var(--text-body-sm);color:var(--text-primary)}
+
+/* ---------- Actions ---------- */
+.actions{display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center;margin-top:var(--space-6)}
+.btn{
+  border:none;cursor:pointer;border-radius:var(--radius-pill);
+  font:700 15px/1 var(--font-sans);padding:15px 30px;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.btn-primary{background:var(--red-600);color:#fff}
+.btn-primary:hover{background:var(--red-700)}
+.btn-primary:disabled{background:var(--gray-300);cursor:not-allowed}
+.btn-ghost{
+  background:transparent;color:var(--navy-900);
+  border:1.5px solid var(--border-default);font-size:14px;padding:13px 22px;
+}
+.btn-ghost:hover{border-color:var(--navy-700)}
+.save-note{font:var(--text-body-sm);color:var(--text-muted);width:100%}
+.err{
+  display:none;background:var(--red-50);border:1px solid var(--red-100);
+  color:var(--red-700);border-radius:var(--radius-md);
+  padding:var(--space-4);font:var(--text-body-sm);margin-top:var(--space-4);
+}
+.err.show{display:block}
+
+/* ---------- Footer ---------- */
+footer{background:var(--navy-950);color:rgba(255,255,255,0.7)}
+.ft-in{max-width:920px;margin:0 auto;padding:clamp(28px,4vw,44px) clamp(16px,4vw,32px)}
+.ft-top{display:flex;gap:var(--space-5);flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:var(--space-5)}
+.ft-top .nm{font:600 19px/1.1 var(--font-serif-display);color:var(--white)}
+.ft-links{display:flex;gap:var(--space-5);flex-wrap:wrap;font:var(--text-body-sm)}
+.ft-links a,.ft-links span{color:rgba(255,255,255,0.75)}
+.ft-links a:hover{color:#fff}
+.legal{
+  margin:var(--space-5) 0 0;font:11.5px/1.6 var(--font-sans);
+  color:rgba(255,255,255,0.5);
+  border-top:1px solid rgba(255,255,255,0.1);padding-top:var(--space-4);
+}
+
+/* ---------- Overlays ---------- */
+.overlay{
+  position:fixed;inset:0;z-index:100;
+  background:rgba(6,14,22,0.72);backdrop-filter:blur(3px);
+  display:none;align-items:center;justify-content:center;padding:var(--space-5);
+}
+.overlay.show{display:flex}
+.ov-card{
+  background:var(--white);border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-lg);padding:clamp(28px,5vw,44px);
+  max-width:460px;text-align:center;
+}
+.tick{
+  width:64px;height:64px;border-radius:50%;background:var(--navy-50);
+  display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-5);
+}
+.ov-card h2{margin:0 0 var(--space-3);font:var(--text-display-md);font-size:28px;color:var(--navy-900)}
+.ov-card p{margin:0 0 var(--space-6);font:var(--text-body-md);color:var(--text-secondary)}
+.toast{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120%);
+  background:var(--navy-900);color:#fff;border-radius:var(--radius-pill);
+  padding:13px 24px;font:var(--text-body-sm);
+  display:flex;align-items:center;gap:9px;z-index:90;
+  transition:transform .3s ease;box-shadow:var(--shadow-lg);
+}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+@media(max-width:560px){
+  .mx-head,.mx-row{grid-template-columns:1fr 62px 62px}
+  .hdr-in{padding:12px 16px}
+}
+
+/* ---------- Repeating rows ---------- */
+.rep{display:grid;gap:var(--space-4)}
+.rep-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:var(--space-4);
+  padding:var(--space-4);border:1px solid var(--border-default);border-radius:var(--radius-md);
+  background:var(--navy-50);position:relative}
+.rep-row[hidden]{display:none}
+.rep-row .field.wide{grid-column:span 2}
+@media(max-width:560px){.rep-row .field.wide{grid-column:1/-1}}
+.rep-add{align-self:start;justify-self:start}
+.rep-drop{position:absolute;top:6px;right:8px;border:none;background:none;cursor:pointer;
+  color:var(--text-muted);font:700 15px/1 var(--font-sans);padding:4px 6px;border-radius:var(--radius-sm)}
+.rep-drop:hover{color:var(--red-600);background:var(--white)}
+.rep-drop:focus-visible{outline:2px solid var(--red-500);outline-offset:1px}
+/* ---------- Section intro note ---------- */
+.note{background:var(--navy-50);border-left:3px solid var(--navy-700);
+  border-radius:0 var(--radius-md) var(--radius-md) 0;padding:var(--space-4) var(--space-5);
+  font:var(--text-body-sm);color:var(--text-secondary);margin-bottom:var(--space-5)}
+.note b{color:var(--navy-900)}
+.note.soft{border-left-color:var(--gray-300)}
+/* ---------- Estimate hint ---------- */
+.est{display:inline-block;background:var(--white);border:1px solid var(--border-default);
+  border-radius:var(--radius-pill);padding:3px 11px;font:600 11px/1.4 var(--font-sans);
+  color:var(--navy-700);margin-left:8px;vertical-align:1px}
+/* ---------- Sub-heading inside a card ---------- */
+.sub-h{font:700 11px/1.3 var(--font-sans);letter-spacing:.07em;text-transform:uppercase;
+  color:var(--navy-800);margin:var(--space-6) 0 var(--space-3);
+  display:flex;align-items:center;gap:var(--space-3)}
+.sub-h::after{content:"";flex:1;height:1px;background:var(--border-default)}
+.sub-h:first-child{margin-top:0}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="brand" href="/">
+      <span class="nm">Juan Lindeque</span>
+      <span class="rl">Wealth Planner</span>
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-in">
+    <span class="eyebrow">Financial Needs Analysis</span>
+    <h1>Tell Me Where You Stand</h1>
+    <p>
+      This is the groundwork for your financial needs analysis &mdash; the picture I build your plan on. Only your name,
+      email, income and expenses are required; everything else is optional and we can fill the gaps together. It saves
+      as you go, so you can stop and come back to it.
+    </p>
+  </div>
+  <div class="hero-rule"></div>
+</section>
+
+<div class="prog-wrap">
+  <div class="prog-in">
+    <div class="prog-track"><div class="prog-bar" id="progBar"></div></div>
+    <span class="prog-lbl" id="progLbl">0%</span>
+  </div>
+</div>
+
+<main>
+<form id="fnaForm" name="fna-information" method="POST" novalidate
+      data-netlify="true" netlify-honeypot="bot-field">
+
+  <input type="hidden" name="form-name" value="fna-information">
+  <input type="hidden" name="fna_json" id="fna_json">
+  <p style="display:none"><label>Don't fill this in: <input name="bot-field"></label></p>
+
+  <section class="card" id="sec1">
+    <div class="card-head" onclick="toggleCard(this)" tabindex="0" role="button" aria-expanded="true"
+         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this);}">
+      <div class="step-no">1</div>
+      <div>
+        <h2>About You</h2>
+        <p class="sub">The basics, so I know who I'm planning for</p>
+      </div>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+
+      <div class="grid">
+        <label class="field"><span class="lbl">Full name<span class="req">*</span></span><input type="text" name="full_name" id="full_name" placeholder="Name &amp; surname" required></label>
+        <label class="field"><span class="lbl">Email address<span class="req">*</span></span><input type="email" name="email" id="email" placeholder="you@example.com" required></label>
+        <label class="field"><span class="lbl">Mobile number</span><input type="tel" name="mobile" id="mobile" placeholder="082 000 0000"></label>
+        <label class="field"><span class="lbl">Date of birth</span><input type="date" name="dob" id="dob"><span class="hint">Your age drives every projection in the analysis.</span></label>
+        <label class="field"><span class="lbl">Occupation</span><input type="text" name="occupation" id="occupation" placeholder="What you do for a living"></label>
+        <label class="field"><span class="lbl">Gender</span><select name="gender" id="gender"><option value="" selected>Select…</option><option value="F">Female</option><option value="M">Male</option></select><span class="hint">For insurer quotes only — it does not affect the analysis.</span></label>
+        <label class="field"><span class="lbl">Smoker status</span><select name="smoker" id="smoker"><option value="" selected>Select…</option><option value="N">Non-smoker</option><option value="Y">Smoker</option></select><span class="hint">Also quotes only. Be straight with me here; insurers check.</span></label>
+        <label class="field"><span class="lbl">Marital status</span><select name="marital" id="marital"><option value="" selected>Select…</option><option value="single">Single</option><option value="married">Married</option><option value="divorced">Divorced</option><option value="widowed">Widowed</option><option value="partner">Life partner</option></select></label>
+        <label class="field"><span class="lbl">Marital regime</span><select name="regime" id="regime"><option value="" selected>Select…</option><option value="n/a">Not applicable</option><option value="cop">In community of property</option><option value="anc">Out of community, without accrual</option><option value="accrual">Out of community, with accrual</option></select><span class="hint">On your antenuptial contract, if you have one.</span></label>
+        <label class="field"><span class="lbl">Valid will in place</span><select name="will" id="will"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option><option value="unsure">I'm not sure</option></select></label>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="sec2">
+    <div class="card-head" onclick="toggleCard(this)" tabindex="0" role="button" aria-expanded="true"
+         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this);}">
+      <div class="step-no">2</div>
+      <div>
+        <h2>Who Depends On You</h2>
+        <p class="sub">The people who would feel it financially if you weren't here</p>
+      </div>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+
+      <div class="note">This is the single biggest driver of how much life cover you need. If nobody relies on your
+        income, say so &mdash; it changes the answer a great deal, and usually in your favour. Leave it blank if that's you.</div>
+      <div class="grid" style="margin-bottom:var(--space-5)">
+        <label class="field"><span class="lbl">Partner's name</span><input type="text" name="partner_name" id="partner_name" placeholder="If you're planning as a couple"></label>
+        <label class="field"><span class="lbl">Partner's age</span><input type="number" name="partner_age" id="partner_age" min="0" max="120"></label>
+      </div>
+      <div class="sub-h">Dependants</div>
+    <div class="rep" id="rep-dep">
+      <div class="rep-row" data-rep="dep" data-i="1">
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row" hidden>&#10005;</button>
+<label class="field"><span class="lbl">Name</span><input type="text" name="dep_1_name" id="dep_1_name" placeholder="Who they are"></label><label class="field"><span class="lbl">Age</span><input type="number" name="dep_1_age" id="dep_1_age" min="0" max="120"></label><label class="field"><span class="lbl">You'd support them with</span><span class="prefix"><span>R</span><input type="number" name="dep_1_support" id="dep_1_support" placeholder="per month"></span></label><label class="field"><span class="lbl">For how many years</span><input type="number" name="dep_1_years" id="dep_1_years" min="0" max="80"><span class="hint">To 21 for a child still at school.</span></label>
+      </div>
+      <div class="rep-row" data-rep="dep" data-i="2" hidden>
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
+<label class="field"><span class="lbl">Name</span><input type="text" name="dep_2_name" id="dep_2_name" placeholder="Who they are"></label><label class="field"><span class="lbl">Age</span><input type="number" name="dep_2_age" id="dep_2_age" min="0" max="120"></label><label class="field"><span class="lbl">You'd support them with</span><span class="prefix"><span>R</span><input type="number" name="dep_2_support" id="dep_2_support" placeholder="per month"></span></label><label class="field"><span class="lbl">For how many years</span><input type="number" name="dep_2_years" id="dep_2_years" min="0" max="80"></label>
+      </div>
+      <div class="rep-row" data-rep="dep" data-i="3" hidden>
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
+<label class="field"><span class="lbl">Name</span><input type="text" name="dep_3_name" id="dep_3_name" placeholder="Who they are"></label><label class="field"><span class="lbl">Age</span><input type="number" name="dep_3_age" id="dep_3_age" min="0" max="120"></label><label class="field"><span class="lbl">You'd support them with</span><span class="prefix"><span>R</span><input type="number" name="dep_3_support" id="dep_3_support" placeholder="per month"></span></label><label class="field"><span class="lbl">For how many years</span><input type="number" name="dep_3_years" id="dep_3_years" min="0" max="80"></label>
+      </div>
+      <div class="rep-row" data-rep="dep" data-i="4" hidden>
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
+<label class="field"><span class="lbl">Name</span><input type="text" name="dep_4_name" id="dep_4_name" placeholder="Who they are"></label><label class="field"><span class="lbl">Age</span><input type="number" name="dep_4_age" id="dep_4_age" min="0" max="120"></label><label class="field"><span class="lbl">You'd support them with</span><span class="prefix"><span>R</span><input type="number" name="dep_4_support" id="dep_4_support" placeholder="per month"></span></label><label class="field"><span class="lbl">For how many years</span><input type="number" name="dep_4_years" id="dep_4_years" min="0" max="80"></label>
+      </div>
+    </div>
+    <button type="button" class="btn btn-ghost rep-add" data-add="dep" onclick="addRow('dep')" style="margin-top:var(--space-4)">+ Add another dependant</button>
+    </div>
+  </section>
+
+  <section class="card" id="sec3">
+    <div class="card-head" onclick="toggleCard(this)" tabindex="0" role="button" aria-expanded="true"
+         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this);}">
+      <div class="step-no">3</div>
+      <div>
+        <h2>Money In, Money Out</h2>
+        <p class="sub">What you earn and what it costs you to live</p>
+      </div>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+
+      <div class="note"><b>Be honest rather than optimistic about the outgoings.</b> The surplus we land on is the
+        number I hold every recommendation against &mdash; I'd rather recommend less and have it stick than more and
+        have you cancel it in six months. Round figures are completely fine.</div>
+      <div class="sub-h">Coming in, monthly</div>
+      <div class="grid">
+        <label class="field"><span class="lbl">Gross salary or drawings<span class="req">*</span></span><span class="prefix"><span>R</span><input type="number" name="gross_income" id="gross_income" required></span><span class="hint">Before tax and deductions.</span></label>
+        <label class="field"><span class="lbl">Other regular income</span><span class="prefix"><span>R</span><input type="number" name="other_income" id="other_income"></span><span class="hint">Rental, a second job, maintenance received.</span></label>
+      </div>
+      <div class="sub-h">Going out, monthly</div>
+      <div class="grid">
+        <label class="field"><span class="lbl">Essential expenses<span class="req">*</span></span><span class="prefix"><span>R</span><input type="number" name="exp_essential" id="exp_essential" required></span><span class="hint">Home, food, transport, school fees, medical aid.</span></label>
+        <label class="field"><span class="lbl">Discretionary spending</span><span class="prefix"><span>R</span><input type="number" name="exp_discretionary" id="exp_discretionary"></span><span class="hint">Eating out, subscriptions, the nice-to-haves.</span></label>
+        <label class="field"><span class="lbl">Insurance premiums</span><span class="prefix"><span>R</span><input type="number" name="premiums" id="premiums"></span><span class="hint">Everything you pay across all your policies.</span></label>
+        <label class="field"><span class="lbl">Retirement contributions</span><span class="prefix"><span>R</span><input type="number" name="retirement_contrib" id="retirement_contrib"></span><span class="hint">Your own share, excluding your employer's.</span></label>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="sec4">
+    <div class="card-head" onclick="toggleCard(this)" tabindex="0" role="button" aria-expanded="true"
+         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this);}">
+      <div class="step-no">4</div>
+      <div>
+        <h2>What You're Planning For</h2>
+        <p class="sub">The things you actually want, not just the things that could go wrong</p>
+      </div>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+
+      <div class="note">A plan that only covers disaster isn't a plan. Tell me what you're saving towards and I'll cost
+        each one properly &mdash; what it'll take, whether you're on track, and what to put away each month if you're not.
+        <b>Everything in today's money</b>; I handle the inflation.</div>
+      <div class="sub-h">Emergency savings</div>
+      <div class="grid">
+        <label class="field"><span class="lbl">Money you could reach this week</span><span class="prefix"><span>R</span><input type="number" name="emergency_fund" id="emergency_fund"></span><span class="hint">Cash or a notice account — not your retirement fund or your house.</span></label>
+      </div>
+      <div class="sub-h">Your goals</div>
+    <div class="rep" id="rep-goal">
+      <div class="rep-row" data-rep="goal" data-i="1">
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row" hidden>&#10005;</button>
+<label class="field"><span class="lbl">What is it</span><select name="goal_1_type" id="goal_1_type"><option value="" selected>Select…</option><option value="education">Education</option><option value="holiday">Holiday or travel</option><option value="vehicle">Vehicle</option><option value="property">Property deposit</option><option value="other">Something else</option></select></label><label class="field wide"><span class="lbl">Describe it</span><input type="text" name="goal_1_name" id="goal_1_name" placeholder="e.g. Anke's degree"></label><label class="field"><span class="lbl">Years away</span><input type="number" name="goal_1_years_to" id="goal_1_years_to" min="0" max="60"></label><label class="field"><span class="lbl">Years of study</span><input type="number" name="goal_1_duration" id="goal_1_duration" min="0" max="10"><span class="hint">Education only.</span></label><label class="field"><span class="lbl">Cost in today's money</span><span class="prefix"><span>R</span><input type="number" name="goal_1_cost" id="goal_1_cost"></span><span class="hint">Per year, for education.</span></label><label class="field"><span class="lbl">Saved so far</span><span class="prefix"><span>R</span><input type="number" name="goal_1_saved" id="goal_1_saved"></span></label><label class="field"><span class="lbl">Saving per month</span><span class="prefix"><span>R</span><input type="number" name="goal_1_monthly" id="goal_1_monthly"></span></label>
+      </div>
+      <div class="rep-row" data-rep="goal" data-i="2" hidden>
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
+<label class="field"><span class="lbl">What is it</span><select name="goal_2_type" id="goal_2_type"><option value="" selected>Select…</option><option value="education">Education</option><option value="holiday">Holiday or travel</option><option value="vehicle">Vehicle</option><option value="property">Property deposit</option><option value="other">Something else</option></select></label><label class="field wide"><span class="lbl">Describe it</span><input type="text" name="goal_2_name" id="goal_2_name" placeholder="e.g. Anke's degree"></label><label class="field"><span class="lbl">Years away</span><input type="number" name="goal_2_years_to" id="goal_2_years_to" min="0" max="60"></label><label class="field"><span class="lbl">Years of study</span><input type="number" name="goal_2_duration" id="goal_2_duration" min="0" max="10"></label><label class="field"><span class="lbl">Cost in today's money</span><span class="prefix"><span>R</span><input type="number" name="goal_2_cost" id="goal_2_cost"></span></label><label class="field"><span class="lbl">Saved so far</span><span class="prefix"><span>R</span><input type="number" name="goal_2_saved" id="goal_2_saved"></span></label><label class="field"><span class="lbl">Saving per month</span><span class="prefix"><span>R</span><input type="number" name="goal_2_monthly" id="goal_2_monthly"></span></label>
+      </div>
+      <div class="rep-row" data-rep="goal" data-i="3" hidden>
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
+<label class="field"><span class="lbl">What is it</span><select name="goal_3_type" id="goal_3_type"><option value="" selected>Select…</option><option value="education">Education</option><option value="holiday">Holiday or travel</option><option value="vehicle">Vehicle</option><option value="property">Property deposit</option><option value="other">Something else</option></select></label><label class="field wide"><span class="lbl">Describe it</span><input type="text" name="goal_3_name" id="goal_3_name" placeholder="e.g. Anke's degree"></label><label class="field"><span class="lbl">Years away</span><input type="number" name="goal_3_years_to" id="goal_3_years_to" min="0" max="60"></label><label class="field"><span class="lbl">Years of study</span><input type="number" name="goal_3_duration" id="goal_3_duration" min="0" max="10"></label><label class="field"><span class="lbl">Cost in today's money</span><span class="prefix"><span>R</span><input type="number" name="goal_3_cost" id="goal_3_cost"></span></label><label class="field"><span class="lbl">Saved so far</span><span class="prefix"><span>R</span><input type="number" name="goal_3_saved" id="goal_3_saved"></span></label><label class="field"><span class="lbl">Saving per month</span><span class="prefix"><span>R</span><input type="number" name="goal_3_monthly" id="goal_3_monthly"></span></label>
+      </div>
+      <div class="rep-row" data-rep="goal" data-i="4" hidden>
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
+<label class="field"><span class="lbl">What is it</span><select name="goal_4_type" id="goal_4_type"><option value="" selected>Select…</option><option value="education">Education</option><option value="holiday">Holiday or travel</option><option value="vehicle">Vehicle</option><option value="property">Property deposit</option><option value="other">Something else</option></select></label><label class="field wide"><span class="lbl">Describe it</span><input type="text" name="goal_4_name" id="goal_4_name" placeholder="e.g. Anke's degree"></label><label class="field"><span class="lbl">Years away</span><input type="number" name="goal_4_years_to" id="goal_4_years_to" min="0" max="60"></label><label class="field"><span class="lbl">Years of study</span><input type="number" name="goal_4_duration" id="goal_4_duration" min="0" max="10"></label><label class="field"><span class="lbl">Cost in today's money</span><span class="prefix"><span>R</span><input type="number" name="goal_4_cost" id="goal_4_cost"></span></label><label class="field"><span class="lbl">Saved so far</span><span class="prefix"><span>R</span><input type="number" name="goal_4_saved" id="goal_4_saved"></span></label><label class="field"><span class="lbl">Saving per month</span><span class="prefix"><span>R</span><input type="number" name="goal_4_monthly" id="goal_4_monthly"></span></label>
+      </div>
+      <div class="rep-row" data-rep="goal" data-i="5" hidden>
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
+<label class="field"><span class="lbl">What is it</span><select name="goal_5_type" id="goal_5_type"><option value="" selected>Select…</option><option value="education">Education</option><option value="holiday">Holiday or travel</option><option value="vehicle">Vehicle</option><option value="property">Property deposit</option><option value="other">Something else</option></select></label><label class="field wide"><span class="lbl">Describe it</span><input type="text" name="goal_5_name" id="goal_5_name" placeholder="e.g. Anke's degree"></label><label class="field"><span class="lbl">Years away</span><input type="number" name="goal_5_years_to" id="goal_5_years_to" min="0" max="60"></label><label class="field"><span class="lbl">Years of study</span><input type="number" name="goal_5_duration" id="goal_5_duration" min="0" max="10"></label><label class="field"><span class="lbl">Cost in today's money</span><span class="prefix"><span>R</span><input type="number" name="goal_5_cost" id="goal_5_cost"></span></label><label class="field"><span class="lbl">Saved so far</span><span class="prefix"><span>R</span><input type="number" name="goal_5_saved" id="goal_5_saved"></span></label><label class="field"><span class="lbl">Saving per month</span><span class="prefix"><span>R</span><input type="number" name="goal_5_monthly" id="goal_5_monthly"></span></label>
+      </div>
+      <div class="rep-row" data-rep="goal" data-i="6" hidden>
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
+<label class="field"><span class="lbl">What is it</span><select name="goal_6_type" id="goal_6_type"><option value="" selected>Select…</option><option value="education">Education</option><option value="holiday">Holiday or travel</option><option value="vehicle">Vehicle</option><option value="property">Property deposit</option><option value="other">Something else</option></select></label><label class="field wide"><span class="lbl">Describe it</span><input type="text" name="goal_6_name" id="goal_6_name" placeholder="e.g. Anke's degree"></label><label class="field"><span class="lbl">Years away</span><input type="number" name="goal_6_years_to" id="goal_6_years_to" min="0" max="60"></label><label class="field"><span class="lbl">Years of study</span><input type="number" name="goal_6_duration" id="goal_6_duration" min="0" max="10"></label><label class="field"><span class="lbl">Cost in today's money</span><span class="prefix"><span>R</span><input type="number" name="goal_6_cost" id="goal_6_cost"></span></label><label class="field"><span class="lbl">Saved so far</span><span class="prefix"><span>R</span><input type="number" name="goal_6_saved" id="goal_6_saved"></span></label><label class="field"><span class="lbl">Saving per month</span><span class="prefix"><span>R</span><input type="number" name="goal_6_monthly" id="goal_6_monthly"></span></label>
+      </div>
+    </div>
+    <button type="button" class="btn btn-ghost rep-add" data-add="goal" onclick="addRow('goal')" style="margin-top:var(--space-4)">+ Add another goal</button>
+    </div>
+  </section>
+
+  <section class="card collapsed" id="sec5">
+    <div class="card-head" onclick="toggleCard(this)" tabindex="0" role="button" aria-expanded="false"
+         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this);}">
+      <div class="step-no">5</div>
+      <div>
+        <h2>Retirement<span class="opt-tag">Optional</span></h2>
+        <p class="sub">Where your retirement savings stand today</p>
+      </div>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+
+      <div class="note soft">If you're not sure of the exact balances, a recent statement or even a close estimate is
+        plenty &mdash; we'll firm it up together. Leave anything blank that you'd rather look up.</div>
+      <div class="grid">
+        <label class="field"><span class="lbl">Age you'd like to retire</span><input type="number" name="retire_age" id="retire_age" placeholder="65" min="45" max="85"></label>
+        <label class="field"><span class="lbl">Retirement savings today</span><span class="prefix"><span>R</span><input type="number" name="retire_current" id="retire_current"></span><span class="hint">Pension, provident, RA and preservation funds combined.</span></label>
+        <label class="field"><span class="lbl">Your contribution</span><span class="prefix"><span>R</span><input type="number" name="retire_monthly" id="retire_monthly"></span><span class="hint">Per month.</span></label>
+        <label class="field"><span class="lbl">Employer's contribution</span><span class="prefix"><span>R</span><input type="number" name="retire_employer" id="retire_employer"></span><span class="hint">Per month, if any.</span></label>
+        <label class="field"><span class="lbl">Income you'd want in retirement</span><span class="prefix"><span>R</span><input type="number" name="retire_target" id="retire_target"></span><span class="hint">Per month, in today's money. Leave blank and I'll use 75% of what you earn now.</span></label>
+      </div>
+    </div>
+  </section>
+
+  <section class="card collapsed" id="sec6">
+    <div class="card-head" onclick="toggleCard(this)" tabindex="0" role="button" aria-expanded="false"
+         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this);}">
+      <div class="step-no">6</div>
+      <div>
+        <h2>What You Own And What You Owe<span class="opt-tag">Optional</span></h2>
+        <p class="sub">Your net worth, and how much of it you could reach in a hurry</p>
+      </div>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+
+      <div class="note soft">Round numbers are fine. What matters most is which assets you could turn into cash
+        quickly &mdash; that's what decides whether your family would have to sell something at the wrong moment.</div>
+      <div class="sub-h">What you own</div>
+    <div class="rep" id="rep-asset">
+      <div class="rep-row" data-rep="asset" data-i="1">
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row" hidden>&#10005;</button>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_1_name" id="asset_1_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" name="asset_1_value" id="asset_1_value"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_1_liquid" id="asset_1_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
+      </div>
+      <div class="rep-row" data-rep="asset" data-i="2" hidden>
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_2_name" id="asset_2_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" name="asset_2_value" id="asset_2_value"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_2_liquid" id="asset_2_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
+      </div>
+      <div class="rep-row" data-rep="asset" data-i="3" hidden>
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_3_name" id="asset_3_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" name="asset_3_value" id="asset_3_value"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_3_liquid" id="asset_3_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
+      </div>
+      <div class="rep-row" data-rep="asset" data-i="4" hidden>
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_4_name" id="asset_4_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" name="asset_4_value" id="asset_4_value"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_4_liquid" id="asset_4_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
+      </div>
+      <div class="rep-row" data-rep="asset" data-i="5" hidden>
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_5_name" id="asset_5_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" name="asset_5_value" id="asset_5_value"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_5_liquid" id="asset_5_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
+      </div>
+      <div class="rep-row" data-rep="asset" data-i="6" hidden>
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_6_name" id="asset_6_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" name="asset_6_value" id="asset_6_value"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_6_liquid" id="asset_6_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
+      </div>
+      <div class="rep-row" data-rep="asset" data-i="7" hidden>
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_7_name" id="asset_7_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" name="asset_7_value" id="asset_7_value"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_7_liquid" id="asset_7_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
+      </div>
+      <div class="rep-row" data-rep="asset" data-i="8" hidden>
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_8_name" id="asset_8_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" name="asset_8_value" id="asset_8_value"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_8_liquid" id="asset_8_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
+      </div>
+    </div>
+    <button type="button" class="btn btn-ghost rep-add" data-add="asset" onclick="addRow('asset')" style="margin-top:var(--space-4)">+ Add another asset</button>
+      <div class="sub-h">What you owe</div>
+    <div class="rep" id="rep-liab">
+      <div class="rep-row" data-rep="liab" data-i="1">
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row" hidden>&#10005;</button>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="liab_1_name" id="liab_1_name" placeholder="e.g. Bond on the house"></label><label class="field"><span class="lbl">Still outstanding</span><span class="prefix"><span>R</span><input type="number" name="liab_1_value" id="liab_1_value"></span></label>
+      </div>
+      <div class="rep-row" data-rep="liab" data-i="2" hidden>
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="liab_2_name" id="liab_2_name" placeholder="e.g. Bond on the house"></label><label class="field"><span class="lbl">Still outstanding</span><span class="prefix"><span>R</span><input type="number" name="liab_2_value" id="liab_2_value"></span></label>
+      </div>
+      <div class="rep-row" data-rep="liab" data-i="3" hidden>
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="liab_3_name" id="liab_3_name" placeholder="e.g. Bond on the house"></label><label class="field"><span class="lbl">Still outstanding</span><span class="prefix"><span>R</span><input type="number" name="liab_3_value" id="liab_3_value"></span></label>
+      </div>
+      <div class="rep-row" data-rep="liab" data-i="4" hidden>
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="liab_4_name" id="liab_4_name" placeholder="e.g. Bond on the house"></label><label class="field"><span class="lbl">Still outstanding</span><span class="prefix"><span>R</span><input type="number" name="liab_4_value" id="liab_4_value"></span></label>
+      </div>
+      <div class="rep-row" data-rep="liab" data-i="5" hidden>
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="liab_5_name" id="liab_5_name" placeholder="e.g. Bond on the house"></label><label class="field"><span class="lbl">Still outstanding</span><span class="prefix"><span>R</span><input type="number" name="liab_5_value" id="liab_5_value"></span></label>
+      </div>
+    </div>
+    <button type="button" class="btn btn-ghost rep-add" data-add="liab" onclick="addRow('liab')" style="margin-top:var(--space-4)">+ Add another debt</button>
+    </div>
+  </section>
+
+  <section class="card collapsed" id="sec7">
+    <div class="card-head" onclick="toggleCard(this)" tabindex="0" role="button" aria-expanded="false"
+         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this);}">
+      <div class="step-no">7</div>
+      <div>
+        <h2>Cover You Already Have<span class="opt-tag">Optional</span></h2>
+        <p class="sub">Your existing life, disability and illness policies</p>
+      </div>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+
+      <div class="note soft"><b>Personal policies only here</b> &mdash; if a policy exists to buy out a business
+        partner or cover a business loan, put it in the business section instead. Mixing the two is the most common way
+        these analyses go wrong. If you're not sure what you have, skip this and I'll pull your portfolio report.</div>
+      <div class="sub-h">Your own policies</div>
+      <div class="grid">
+        <label class="field"><span class="lbl">Life cover</span><span class="prefix"><span>R</span><input type="number" name="cover_life" id="cover_life"></span><span class="hint">Total amount payable on death.</span></label>
+        <label class="field"><span class="lbl">Disability lump sum</span><span class="prefix"><span>R</span><input type="number" name="cover_disability" id="cover_disability"></span></label>
+        <label class="field"><span class="lbl">Severe illness or dread disease</span><span class="prefix"><span>R</span><input type="number" name="cover_dread" id="cover_dread"></span></label>
+        <label class="field"><span class="lbl">Income protection</span><span class="prefix"><span>R</span><input type="number" name="cover_ip" id="cover_ip"></span><span class="hint">The monthly benefit, not the lump sum.</span></label>
+        <label class="field"><span class="lbl">Total monthly premium</span><span class="prefix"><span>R</span><input type="number" name="cover_premium" id="cover_premium"></span><span class="hint">Across all your policies.</span></label>
+      </div>
+      <div class="sub-h">Cover through your employer</div>
+      <div class="grid">
+        <label class="field"><span class="lbl">Group life</span><span class="prefix"><span>R</span><input type="number" name="cover_group_life" id="cover_group_life"></span></label>
+        <label class="field"><span class="lbl">Group disability lump sum</span><span class="prefix"><span>R</span><input type="number" name="cover_group_disability" id="cover_group_disability"></span></label>
+        <label class="field"><span class="lbl">Group income protection</span><span class="prefix"><span>R</span><input type="number" name="cover_group_ip" id="cover_group_ip"></span><span class="hint">Monthly benefit.</span></label>
+      </div>
+      <p class="hint" style="margin-top:var(--space-4)">Employer cover almost always falls away when you leave the
+        job, so I treat it differently from cover you own yourself.</p>
+    </div>
+  </section>
+
+  <section class="card collapsed" id="sec8">
+    <div class="card-head" onclick="toggleCard(this)" tabindex="0" role="button" aria-expanded="false"
+         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this);}">
+      <div class="step-no">8</div>
+      <div>
+        <h2>Medical And Short-Term<span class="opt-tag">Optional</span></h2>
+        <p class="sub">Your medical scheme, gap cover and short-term insurance</p>
+      </div>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+
+      <div class="grid">
+        <label class="field wide"><span class="lbl">Medical scheme and plan</span><input type="text" name="medical_scheme" id="medical_scheme" placeholder="e.g. Discovery Classic Saver"></label>
+        <label class="field"><span class="lbl">Beneficiaries on the plan</span><input type="number" name="medical_members" id="medical_members" min="0" max="20"><span class="hint">Including you — so a family of four is 4.</span></label>
+        <label class="field"><span class="lbl">Gap cover in place</span><select name="gap_cover" id="gap_cover"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option><option value="unsure">I'm not sure</option></select></label>
+        <label class="field"><span class="lbl">Short-term insurance reviewed in the last year</span><select name="short_term" id="short_term"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option><option value="unsure">I'm not sure</option></select><span class="hint">Car, home, contents, personal liability.</span></label>
+        <label class="field wide"><span class="lbl">Short-term insurer</span><input type="text" name="short_term_insurer" id="short_term_insurer" placeholder="Who it's with"></label>
+      </div>
+    </div>
+  </section>
+
+  <section class="card collapsed" id="sec9">
+    <div class="card-head" onclick="toggleCard(this)" tabindex="0" role="button" aria-expanded="false"
+         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this);}">
+      <div class="step-no">9</div>
+      <div>
+        <h2>Business Interests<span class="opt-tag">Optional</span></h2>
+        <p class="sub">Only if you own a share of a business</p>
+      </div>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+
+      <div class="note soft">Business cover protects the business, not your household, so I assess it entirely
+        separately and it never counts towards your personal needs.</div>
+      <div class="grid">
+        <label class="field wide"><span class="lbl">Business name</span><input type="text" name="business_name" id="business_name"></label>
+        <label class="field"><span class="lbl">What the business is worth</span><span class="prefix"><span>R</span><input type="number" name="business_value" id="business_value"></span></label>
+        <label class="field"><span class="lbl">Your shareholding</span><input type="number" name="business_share" id="business_share" min="0" max="100"><span class="hint">As a percentage.</span></label>
+        <label class="field"><span class="lbl">Buy-and-sell cover in place</span><span class="prefix"><span>R</span><input type="number" name="business_buysell" id="business_buysell"></span></label>
+        <label class="field"><span class="lbl">Key person cover in place</span><span class="prefix"><span>R</span><input type="number" name="business_keyperson" id="business_keyperson"></span></label>
+        <label class="field"><span class="lbl">Surety you've signed personally</span><span class="prefix"><span>R</span><input type="number" name="business_surety" id="business_surety"></span><span class="hint">Sureties follow you into your estate — worth capturing even when the business is healthy.</span></label>
+      </div>
+    </div>
+  </section>
+
+  <section class="card collapsed" id="sec10">
+    <div class="card-head" onclick="toggleCard(this)" tabindex="0" role="button" aria-expanded="false"
+         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this);}">
+      <div class="step-no">10</div>
+      <div>
+        <h2>Your Estate<span class="opt-tag">Optional</span></h2>
+        <p class="sub">What would need settling, and whether the cash would be there</p>
+      </div>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+
+      <div class="note soft">The question isn't only what your estate is worth. It's whether there'd be enough
+        <b>cash</b> to settle it &mdash; because if there isn't, something gets sold, usually in a hurry and usually at
+        the wrong price.</div>
+      <div class="grid">
+        <label class="field"><span class="lbl">Value of fixed property</span><span class="prefix"><span>R</span><input type="number" name="estate_property" id="estate_property"></span><span class="hint">Your home and any other property.</span></label>
+        <label class="field"><span class="lbl">Cash bequests in your will</span><span class="prefix"><span>R</span><input type="number" name="estate_bequests" id="estate_bequests"></span><span class="hint">Specific cash amounts left to anyone.</span></label>
+        <label class="field"><span class="lbl">When your will was last reviewed</span><input type="date" name="will_date" id="will_date"></label>
+        <label class="field wide"><span class="lbl">Executor named in your will</span><input type="text" name="estate_executor" id="estate_executor" placeholder="If you know who it is"></label>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="sec11">
+    <div class="card-head" onclick="toggleCard(this)" tabindex="0" role="button" aria-expanded="true"
+         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this);}">
+      <div class="step-no">11</div>
+      <div>
+        <h2>Anything Else<span class="opt-tag">Optional</span></h2>
+        <p class="sub">The floor is yours</p>
+      </div>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+
+      <div class="grid">
+        <label class="field full"><span class="lbl">What's on your mind</span><textarea name="other_notes" id="other_notes" placeholder="What you're hoping to get out of this, anything worrying you, questions you'd like answered, or anything above that needs explaining."></textarea></label>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="sec12">
+    <div class="card-head" onclick="toggleCard(this)" tabindex="0" role="button" aria-expanded="true"
+         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this);}">
+      <div class="step-no">12</div>
+      <div>
+        <h2>Consent And Disclosure</h2>
+        <p class="sub">Required before I can use any of this</p>
+      </div>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+
+      <div class="consent-note">
+        <p style="margin:0 0 var(--space-3)"><b>What you've shared here is sensitive, and I treat it that way.</b></p>
+        <p style="margin:0 0 var(--space-3)">I use this information to prepare your financial needs analysis, request
+          quotes on your behalf where you've asked me to, and build recommendations for you. It is processed in line with
+          the Protection of Personal Information Act. AI tools may assist with the calculations, analysis and drafting.</p>
+        <p style="margin:0 0 var(--space-3)">Your information is not shared with any third party that is not POPIA-compliant
+          or not part of the service being rendered to you. This form is delivered and stored through my website host,
+          which may process it outside South Africa; by submitting you consent to that transfer under section 72 of POPIA.</p>
+        <p style="margin:0">You can ask me at any time to show you what I hold, correct it, or delete it.</p>
+      </div>
+      <label class="check-line">
+        <input type="checkbox" name="consent_popia" value="Yes" required>
+        <span>I have read the above and consent to my information being processed on this basis.<span class="req">*</span></span>
+      </label>
+      <label class="check-line">
+        <input type="checkbox" name="consent_disclosure" value="Yes" required>
+        <span>I confirm I have received the SpringPoint Finance disclosure document.<span class="req">*</span></span>
+      </label>
+      <label class="check-line">
+        <input type="checkbox" name="consent_accuracy" value="Yes" required>
+        <span>The figures I've given are accurate to the best of my knowledge. I understand the analysis is only as
+          good as what goes into it, and that nothing here is advice until I receive a written Record of Advice.<span class="req">*</span></span>
+      </label>
+      <div class="actions">
+        <button type="submit" class="btn btn-primary" id="submitBtn">Send To Juan</button>
+        <button type="button" class="btn btn-ghost" onclick="saveProgress(true)">Save &amp; continue later</button>
+        <p class="save-note">Your progress saves automatically on this device, so you can close this and come back to it.</p>
+      </div>
+      <div class="err" id="errBox"></div>
+    </div>
+  </section>
+</form>
+</main>
+
+<footer>
+  <div class="ft-in">
+    <div class="ft-top">
+      <div>
+        <div class="nm">Juan Lindeque</div>
+        <div style="font:var(--text-body-sm);color:rgba(255,255,255,0.6)">Wealth Planner &middot; BCom Investment Management</div>
+      </div>
+      <a href="/" style="color:#fff;border:1px solid rgba(255,255,255,0.4);border-radius:var(--radius-pill);padding:10px 18px;font:700 13px/1 var(--font-sans)">Back to site</a>
+    </div>
+    <div class="ft-links">
+      <a href="tel:+27731187215">073 118 7215</a>
+      <a href="mailto:juan@springpointfinance.co.za">juan@springpointfinance.co.za</a>
+      <span>Somerset West, 7130</span>
+    </div>
+    <p class="legal">
+      Juan Lindeque is a representative of SpringPoint Finance (Pty) Ltd, an authorised Financial Services Provider &middot; FSP Licence No. 43870 &middot; Registration No. 2011/112373/07 &middot; Directors: P.R.J. Louw, M.Z. Raffee, C.J. Strauss. Nothing on this page constitutes financial advice. Advice is given only after a full financial needs analysis and is recorded in a written Record of Advice. Your information is processed in accordance with POPIA.
+    </p>
+  </div>
+</footer>
+
+<div class="overlay" id="successOverlay">
+  <div class="ov-card">
+    <div class="tick">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--green-600)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+    </div>
+    <h2>Thank you</h2>
+    <p>
+      That's everything I need to start. I'll work through it before we meet and come back to you with the gaps I
+      still need to fill &mdash; and with what the numbers are telling me.
+    </p>
+    <a href="/" class="btn btn-primary" style="text-decoration:none">Back to site</a>
+  </div>
+</div>
+
+<div class="toast" id="toast">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+  <span id="toastMsg">Progress saved</span>
+</div>
+<script>
+"use strict";
+var form = document.getElementById('fnaForm');
+var KEY  = 'spf_fna_info_v1';
+var val  = function(n){ var e=form.elements[n]; return e ? String(e.value||'').trim() : ''; };
+var numv = function(n){ var v=parseFloat(val(n).replace(/[^\d.-]/g,'')); return isNaN(v)?0:v; };
+
+/* ---------- Collapsible cards ---------- */
+function toggleCard(head){
+  var card = head.parentElement;
+  card.classList.toggle('collapsed');
+  head.setAttribute('aria-expanded', String(!card.classList.contains('collapsed')));
+}
+
+/* ---------- Repeating rows ----------
+   Every row exists in the HTML from the start so Netlify registers each field at
+   build time; "add" simply reveals the next one. */
+function addRow(kind){
+  var rows = document.querySelectorAll('[data-rep="'+kind+'"]');
+  for(var i=0;i<rows.length;i++){
+    if(rows[i].hidden){
+      rows[i].hidden = false;
+      var btn = document.querySelector('[data-add="'+kind+'"]');
+      if(i === rows.length-1 && btn) btn.hidden = true;
+      var first = rows[i].querySelector('input,select');
+      if(first) first.focus();
+      saveProgress(false);
+      return;
+    }
+  }
+}
+function dropRow(btn){
+  var row = btn.closest('.rep-row');
+  row.querySelectorAll('input,select,textarea').forEach(function(f){ f.value=''; });
+  row.hidden = true;
+  var kind = row.getAttribute('data-rep');
+  var add = document.querySelector('[data-add="'+kind+'"]');
+  if(add) add.hidden = false;
+  updateProgress(); saveProgress(false);
+}
+
+/* ---------- Progress ----------
+   Counts only what is actually asked of this client: visible rows, required first. */
+function updateProgress(){
+  var total=0, done=0;
+  form.querySelectorAll('input:not([type=hidden]):not([name=bot-field]), select, textarea').forEach(function(f){
+    var row = f.closest('.rep-row');
+    if(row && row.hidden) return;
+    total++;
+    if(f.type === 'checkbox'){ if(f.checked) done++; }
+    else if(f.value && f.value.trim() !== '') done++;
+  });
+  var pct = total ? Math.round(done/total*100) : 0;
+  document.getElementById('progBar').style.width = pct+'%';
+  document.getElementById('progLbl').textContent = pct+'%';
+}
+
+/* ---------- Save / restore ---------- */
+function saveProgress(showToast){
+  try{
+    var data={_shown:{}};
+    form.querySelectorAll('input:not([type=hidden]):not([name=bot-field]), select, textarea').forEach(function(f){
+      data[f.name] = (f.type==='checkbox') ? (f.checked?'Yes':'') : f.value;
+    });
+    document.querySelectorAll('.rep-row').forEach(function(r){
+      if(!r.hidden) data._shown[r.getAttribute('data-rep')+'-'+r.getAttribute('data-i')] = 1;
+    });
+    localStorage.setItem(KEY, JSON.stringify(data));
+    if(showToast) toast('Progress saved on this device');
+  }catch(e){ if(showToast) toast('Could not save on this device'); }
+}
+function restoreProgress(){
+  try{
+    var raw = localStorage.getItem(KEY); if(!raw) return;
+    var data = JSON.parse(raw);
+    Object.keys(data._shown||{}).forEach(function(k){
+      var p=k.split('-'), row=document.querySelector('[data-rep="'+p[0]+'"][data-i="'+p[1]+'"]');
+      if(row) row.hidden=false;
+    });
+    Object.keys(data).forEach(function(name){
+      if(name === '_shown') return;
+      var els = form.querySelectorAll('[name="'+name+'"]');
+      if(!els.length) return;
+      if(els[0].type === 'checkbox') els[0].checked = !!data[name];
+      else els[0].value = data[name];
+    });
+    document.querySelectorAll('[data-add]').forEach(function(btn){
+      var kind=btn.getAttribute('data-add');
+      var rows=document.querySelectorAll('[data-rep="'+kind+'"]');
+      btn.hidden = rows.length && !rows[rows.length-1].hidden;
+    });
+  }catch(e){}
+}
+function toast(msg){
+  var t=document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 2600);
+}
+
+/* =====================================================================
+   Build the client file the FNA Calculation tool loads directly.
+   Shape must match the tool's state schema — see DEFAULTS in that file.
+   ===================================================================== */
+function ageFrom(dob){
+  if(!dob) return 0;
+  var d=new Date(dob); if(isNaN(d)) return 0;
+  var t=new Date(), a=t.getFullYear()-d.getFullYear();
+  var m=t.getMonth()-d.getMonth();
+  if(m<0 || (m===0 && t.getDate()<d.getDate())) a--;
+  return a>0 && a<120 ? a : 0;
+}
+/* mirrors defaultGoalReturn() in the calculator */
+function goalReturn(y){ y=+y||0; return y<=3 ? 1.0 : (y<=7 ? 4.0 : 7.0); }
+function goalInfl(type){ return type==='education' ? 3.0 : (type==='property' ? 1.0 : 0); }
+
+function buildPayload(){
+  var deps=[], goals=[], assets=[], liabs=[];
+  document.querySelectorAll('[data-rep="dep"]').forEach(function(r){
+    if(r.hidden) return; var i=r.getAttribute('data-i');
+    var n=val('dep_'+i+'_name');
+    if(n || numv('dep_'+i+'_support'))
+      deps.push({name:n, age:numv('dep_'+i+'_age'), support:numv('dep_'+i+'_support'), years:numv('dep_'+i+'_years')});
+  });
+  document.querySelectorAll('[data-rep="goal"]').forEach(function(r){
+    if(r.hidden) return; var i=r.getAttribute('data-i');
+    var t=val('goal_'+i+'_type'); if(!t) return;
+    var yrsTo=numv('goal_'+i+'_years_to');
+    var dur=numv('goal_'+i+'_duration');
+    goals.push({type:t, n:val('goal_'+i+'_name'), target:numv('goal_'+i+'_cost'), yrsTo:yrsTo,
+      years: t==='education' ? (dur>0?dur:3) : 0,
+      saved:numv('goal_'+i+'_saved'), monthly:numv('goal_'+i+'_monthly'),
+      infl:goalInfl(t), ret:goalReturn(yrsTo), pri:2});
+  });
+  document.querySelectorAll('[data-rep="asset"]').forEach(function(r){
+    if(r.hidden) return; var i=r.getAttribute('data-i');
+    var n=val('asset_'+i+'_name'), v=numv('asset_'+i+'_value');
+    if(n||v) assets.push({n:n, v:v, base:0, liquid: val('asset_'+i+'_liquid')==='Y', cgt:true});
+  });
+  document.querySelectorAll('[data-rep="liab"]').forEach(function(r){
+    if(r.hidden) return; var i=r.getAttribute('data-i');
+    var n=val('liab_'+i+'_name'), v=numv('liab_'+i+'_value');
+    if(n||v) liabs.push({n:n, v:v});
+  });
+  var bizVal=numv('business_value');
+  return {
+    meta:{adviser:"Juan Lindeque", fsp:"43870", date:new Date().toISOString().slice(0,10),
+          ref:"", ver:"2.0", source:"fna-info web form"},
+    c:{ name:val('full_name'), age:ageFrom(val('dob')), gender:val('gender')||"F",
+        smoker:val('smoker')||"N", occupation:val('occupation'),
+        marital:val('marital')||"single", regime:val('regime')||"n/a",
+        will:val('will')||"unsure", willDate:val('will_date'),
+        couple: !!val('partner_name'), p2name:val('partner_name'), p2age:numv('partner_age'), deps:deps },
+    inc:{ gross:numv('gross_income'), other:numv('other_income'), expEss:numv('exp_essential'),
+          expDisc:numv('exp_discretionary'), premiums:numv('premiums'), contrib:numv('retirement_contrib') },
+    bal:{ assets:assets, liabs:liabs },
+    cov:{ life:numv('cover_life'), disLump:numv('cover_disability'), dread:numv('cover_dread'),
+          ipMonthly:numv('cover_ip'), premium:numv('cover_premium'),
+          grpLife:numv('cover_group_life'), grpDis:numv('cover_group_disability'), grpIp:numv('cover_group_ip') },
+    biz:{ has: bizVal>0 || !!val('business_name'), value:bizVal, share:numv('business_share'),
+          buysell:0, keyPerson:0, contingent:numv('business_surety'),
+          bsCover:numv('business_buysell'), kpCover:numv('business_keyperson') },
+    est:{ propValue:numv('estate_property'), cashBequests:numv('estate_bequests'),
+          taxDue:0, spouseAccrual:0, abatementCarried:0 },
+    ret:{ age:numv('retire_age')||65, current:numv('retire_current'), monthly:numv('retire_monthly'),
+          employer:numv('retire_employer'), targetIncome:numv('retire_target'), priorLump:0 },
+    goals:goals,
+    oth:{ medScheme:val('medical_scheme'), medMembers:numv('medical_members')||1, medDeps:0,
+          gapCover: val('gap_cover')==='Y', sti: val('short_term')==='Y',
+          stiNotes:val('short_term_insurer'), emergency:numv('emergency_fund') },
+    _review:["Asset CGT flags default to yes — untick cash and retirement funds.",
+             "Asset base costs are not collected on the form; capture before relying on the estate CGT figure.",
+             "Confirm dependant support years and the client's will status."]
+  };
+}
+
+/* ---------- Submit (Netlify Forms, AJAX) ---------- */
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  var errBox = document.getElementById('errBox');
+  errBox.classList.remove('show');
+
+  var invalid = [];
+  form.querySelectorAll('input, select, textarea').forEach(function(f){
+    if(f.name === 'bot-field') return;
+    var row = f.closest('.rep-row');
+    if(row && row.hidden) return;
+    if(!f.checkValidity()) invalid.push(f);
+  });
+  if(invalid.length){
+    invalid.forEach(function(f){
+      var card = f.closest('.card'); if(card) card.classList.remove('collapsed');
+    });
+    var first = invalid[0];
+    setTimeout(function(){
+      first.scrollIntoView({behavior:'smooth', block:'center'});
+      form.reportValidity();
+    }, 60);
+    errBox.innerHTML = 'Please complete the highlighted required fields.';
+    errBox.classList.add('show');
+    return;
+  }
+
+  try{ document.getElementById('fna_json').value = JSON.stringify(buildPayload()); }catch(err){}
+
+  var btn = document.getElementById('submitBtn');
+  btn.disabled = true; btn.textContent = 'Sending…';
+
+  fetch('/', {
+    method:'POST',
+    headers:{'Content-Type':'application/x-www-form-urlencoded'},
+    body:new URLSearchParams(new FormData(form)).toString()
+  })
+  .then(function(res){
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    try{ localStorage.removeItem(KEY); }catch(e){}
+    document.getElementById('successOverlay').classList.add('show');
+  })
+  .catch(function(){
+    btn.disabled = false; btn.textContent = 'Send To Juan';
+    errBox.innerHTML = "I couldn't send your form. Please check your connection and try again, or email it to me "
+      + "directly at <a href='mailto:juan@springpointfinance.co.za'>juan@springpointfinance.co.za</a>.";
+    errBox.classList.add('show');
+  });
+});
+
+/* ---------- Init ---------- */
+(function init(){
+  var dob = document.getElementById('dob');
+  if(dob) dob.max = new Date().toISOString().split('T')[0];
+  restoreProgress();
+  updateProgress();
+  form.addEventListener('input',  function(){ updateProgress(); });
+  form.addEventListener('change', function(){ updateProgress(); saveProgress(false); });
+})();
+</script>
+</body>
+</html>
