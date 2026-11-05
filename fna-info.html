@@ -879,6 +879,8 @@ function dropRow(btn){
   row.querySelectorAll('input,select,textarea').forEach(function(f){ f.value=''; });
   row.hidden = true;
   var kind = row.getAttribute('data-rep');
+  if(kind==='asset') document.querySelectorAll('.sec-sel').forEach(function(s){
+    if(s.value===row.getAttribute('data-i')) s.value=''; });
   var add = document.querySelector('[data-add="'+kind+'"]');
   if(add) add.hidden = false;
   updateProgress(); refreshSecured(); saveProgress(false);
@@ -919,6 +921,10 @@ function restoreProgress(){
     var raw = localStorage.getItem(KEY); if(!raw) return;
     var data = JSON.parse(raw);
     if(data.retirement_contrib && !data.retire_monthly) data.retire_monthly = data.retirement_contrib;
+    for(var k=1;k<=4;k++){
+      var yy=parseFloat(data['dep_'+k+'_years']), aa=parseFloat(data['dep_'+k+'_age']);
+      if(yy>0 && !data['dep_'+k+'_to_age']) data['dep_'+k+'_to_age'] = String((aa>0?aa:0)+yy);
+    }
     Object.keys(data._shown||{}).forEach(function(k){
       var p=k.split('-'), row=document.querySelector('[data-rep="'+p[0]+'"][data-i="'+p[1]+'"]');
       if(row) row.hidden=false;
@@ -998,7 +1004,9 @@ function buildPayload(){
     var life = val('dep_'+i+'_lifelong')==='Y';
     var d={name:n, age:numv('dep_'+i+'_age'), support:numv('dep_'+i+'_support'),
            toAge:numv('dep_'+i+'_to_age'), lifelong:life};
+    if(d.toAge>0) d.years=Math.max(0, d.toAge-d.age);
     if(!life && !d.toAge && d.support>0) review.push('How long '+(n||'dependant '+i)+' needs support was not given.');
+    if(!has('dep_'+i+'_age') && d.support>0) review.push('Age not given for '+(n||'dependant '+i)+' — support years assume a newborn.');
     deps.push(d);
   });
 
@@ -1048,9 +1056,16 @@ function buildPayload(){
     if(!(n||v)) return;
     var l={n:n, v:v};
     if(has('liab_'+i+'_term')) l.term=numv('liab_'+i+'_term');
-    var sec=val('liab_'+i+'_asset');
-    /* only an asset that passes through the executor can secure a debt (s37A PFA) */
-    if(sec && rowToAsset[sec]!==undefined && assets[rowToAsset[sec]].kind==='estate') l.asset=String(rowToAsset[sec]);
+    var sec=val('liab_'+i+'_asset'), sa = sec && rowToAsset[sec]!==undefined ? assets[rowToAsset[sec]] : null;
+    /* Only an asset that passes through the executor can secure the client's own debt (s37A PFA bars
+       a retirement fund). A debt over a trust asset is normally the trust's: it is left out of the
+       client's liabilities and listed for checking, rather than inflating the estate's debts. */
+    if(sa && sa.kind!=='estate'){
+      review.push((n||'A debt')+' (R'+Math.round(v).toLocaleString('en-ZA')+') is secured against '+(sa.n||'a '+sa.kind+' asset')
+        +' ('+(sa.kind==='trust'?'owned by a trust':sa.kind)+') — left out of the client\'s debts. Check whose debt it is and any surety.');
+      return;
+    }
+    if(sa) l.asset=String(rowToAsset[sec]);
     liabs.push(l);
   });
 
