@@ -401,25 +401,25 @@ footer{background:var(--navy-950);color:rgba(255,255,255,0.7)}
         income, say so &mdash; it changes the answer a great deal, and usually in your favour. Leave it blank if that's you.</div>
       <div class="grid" style="margin-bottom:var(--space-5)">
         <label class="field"><span class="lbl">Partner's name</span><input type="text" name="partner_name" id="partner_name" placeholder="If you're planning as a couple"></label>
-        <label class="field"><span class="lbl">Partner's age</span><input type="number" name="partner_age" id="partner_age" min="0" max="120"></label>
+        <label class="field"><span class="lbl">Partner's age</span><input type="number" step="any" name="partner_age" id="partner_age" min="0" max="120"></label>
       </div>
       <div class="sub-h">Dependants</div>
     <div class="rep" id="rep-dep">
       <div class="rep-row" data-rep="dep" data-i="1">
         <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row" hidden>&#10005;</button>
-<label class="field"><span class="lbl">Name</span><input type="text" name="dep_1_name" id="dep_1_name" placeholder="Who they are"></label><label class="field"><span class="lbl">Age</span><input type="number" name="dep_1_age" id="dep_1_age" min="0" max="120"></label><label class="field"><span class="lbl">You'd support them with</span><span class="prefix"><span>R</span><input type="number" name="dep_1_support" id="dep_1_support" placeholder="per month"></span></label><label class="field"><span class="lbl">For how many years</span><input type="number" name="dep_1_years" id="dep_1_years" min="0" max="80"><span class="hint">To 21 for a child still at school.</span></label>
+<label class="field"><span class="lbl">Name</span><input type="text" name="dep_1_name" id="dep_1_name" placeholder="Who they are"></label><label class="field"><span class="lbl">Age</span><input type="number" step="any" name="dep_1_age" id="dep_1_age" min="0" max="120"></label><label class="field"><span class="lbl">You'd support them with</span><span class="prefix"><span>R</span><input type="number" step="any" name="dep_1_support" id="dep_1_support" placeholder="per month"></span></label><label class="field"><span class="lbl">Until they are</span><input type="number" step="any" name="dep_1_to_age" id="dep_1_to_age" min="0" max="120" placeholder="age"><span class="hint">21 for school, 23 through university.</span></label><label class="field"><span class="lbl">Support for life</span><select name="dep_1_lifelong" id="dep_1_lifelong"><option value="" selected>No</option><option value="Y">Yes</option></select><span class="hint">For someone who will always need your support.</span></label>
       </div>
       <div class="rep-row" data-rep="dep" data-i="2" hidden>
         <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
-<label class="field"><span class="lbl">Name</span><input type="text" name="dep_2_name" id="dep_2_name" placeholder="Who they are"></label><label class="field"><span class="lbl">Age</span><input type="number" name="dep_2_age" id="dep_2_age" min="0" max="120"></label><label class="field"><span class="lbl">You'd support them with</span><span class="prefix"><span>R</span><input type="number" name="dep_2_support" id="dep_2_support" placeholder="per month"></span></label><label class="field"><span class="lbl">For how many years</span><input type="number" name="dep_2_years" id="dep_2_years" min="0" max="80"></label>
+<label class="field"><span class="lbl">Name</span><input type="text" name="dep_2_name" id="dep_2_name" placeholder="Who they are"></label><label class="field"><span class="lbl">Age</span><input type="number" step="any" name="dep_2_age" id="dep_2_age" min="0" max="120"></label><label class="field"><span class="lbl">You'd support them with</span><span class="prefix"><span>R</span><input type="number" step="any" name="dep_2_support" id="dep_2_support" placeholder="per month"></span></label><label class="field"><span class="lbl">Until they are</span><input type="number" step="any" name="dep_2_to_age" id="dep_2_to_age" min="0" max="120" placeholder="age"></label><label class="field"><span class="lbl">Support for life</span><select name="dep_2_lifelong" id="dep_2_lifelong"><option value="" selected>No</option><option value="Y">Yes</option></select></label>
       </div>
       <div class="rep-row" data-rep="dep" data-i="3" hidden>
         <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
-<label class="field"><span class="lbl">Name</span><input type="text" name="dep_3_name" id="dep_3_name" placeholder="Who they are"></label><label class="field"><span class="lbl">Age</span><input type="number" name="dep_3_age" id="dep_3_age" min="0" max="120"></label><label class="field"><span class="lbl">You'd support them with</span><span class="prefix"><span>R</span><input type="number" name="dep_3_support" id="dep_3_support" placeholder="per month"></span></label><label class="field"><span class="lbl">For how many years</span><input type="number" name="dep_3_years" id="dep_3_years" min="0" max="80"></label>
+<label class="field"><span class="lbl">Name</span><input type="text" name="dep_3_name" id="dep_3_name" placeholder="Who they are"></label><label class="field"><span class="lbl">Age</span><input type="number" step="any" name="dep_3_age" id="dep_3_age" min="0" max="120"></label><label class="field"><span class="lbl">You'd support them with</span><span class="prefix"><span>R</span><input type="number" step="any" name="dep_3_support" id="dep_3_support" placeholder="per month"></span></label><label class="field"><span class="lbl">Until they are</span><input type="number" step="any" name="dep_3_to_age" id="dep_3_to_age" min="0" max="120" placeholder="age"></label><label class="field"><span class="lbl">Support for life</span><select name="dep_3_lifelong" id="dep_3_lifelong"><option value="" selected>No</option><option value="Y">Yes</option></select></label>
       </div>
       <div class="rep-row" data-rep="dep" data-i="4" hidden>
         <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
-<label class="field"><span class="lbl">Name</span><input type="text" name="dep_4_name" id="dep_4_name" placeholder="Who they are"></label><label class="field"><span class="lbl">Age</span><input type="number" name="dep_4_age" id="dep_4_age" min="0" max="120"></label><label class="field"><span class="lbl">You'd support them with</span><span class="prefix"><span>R</span><input type="number" name="dep_4_support" id="dep_4_support" placeholder="per month"></span></label><label class="field"><span class="lbl">For how many years</span><input type="number" name="dep_4_years" id="dep_4_years" min="0" max="80"></label>
+<label class="field"><span class="lbl">Name</span><input type="text" name="dep_4_name" id="dep_4_name" placeholder="Who they are"></label><label class="field"><span class="lbl">Age</span><input type="number" step="any" name="dep_4_age" id="dep_4_age" min="0" max="120"></label><label class="field"><span class="lbl">You'd support them with</span><span class="prefix"><span>R</span><input type="number" step="any" name="dep_4_support" id="dep_4_support" placeholder="per month"></span></label><label class="field"><span class="lbl">Until they are</span><input type="number" step="any" name="dep_4_to_age" id="dep_4_to_age" min="0" max="120" placeholder="age"></label><label class="field"><span class="lbl">Support for life</span><select name="dep_4_lifelong" id="dep_4_lifelong"><option value="" selected>No</option><option value="Y">Yes</option></select></label>
       </div>
     </div>
     <button type="button" class="btn btn-ghost rep-add" data-add="dep" onclick="addRow('dep')" style="margin-top:var(--space-4)">+ Add another dependant</button>
@@ -443,15 +443,19 @@ footer{background:var(--navy-950);color:rgba(255,255,255,0.7)}
         have you cancel it in six months. Round figures are completely fine.</div>
       <div class="sub-h">Coming in, monthly</div>
       <div class="grid">
-        <label class="field"><span class="lbl">Gross salary or drawings<span class="req">*</span></span><span class="prefix"><span>R</span><input type="number" name="gross_income" id="gross_income" required></span><span class="hint">Before tax and deductions.</span></label>
-        <label class="field"><span class="lbl">Other regular income</span><span class="prefix"><span>R</span><input type="number" name="other_income" id="other_income"></span><span class="hint">Rental, a second job, maintenance received.</span></label>
+        <label class="field"><span class="lbl">Gross monthly package<span class="req">*</span></span><span class="prefix"><span>R</span><input type="number" step="any" name="gross_income" id="gross_income" required></span><span class="hint">Cost to company, before tax &mdash; the full package, including what your employer pays into your retirement fund. If you run your own business, your monthly drawings.</span></label>
+        <label class="field"><span class="lbl">Does that include your employer's retirement contribution?</span><select name="gross_includes_employer" id="gross_includes_employer"><option value="" selected>Select…</option><option value="Y">Yes, it's part of the package</option><option value="N">No, it's paid on top</option><option value="none">My employer doesn't contribute</option><option value="unsure">I'm not sure</option></select><span class="hint">Your payslip usually shows it as a company contribution.</span></label>
+        <label class="field"><span class="lbl">Other taxable income</span><span class="prefix"><span>R</span><input type="number" step="any" name="other_income" id="other_income"></span><span class="hint">A second job, freelance work, a pension or annuity.</span></label>
+        <label class="field"><span class="lbl">Rental income</span><span class="prefix"><span>R</span><input type="number" step="any" name="rental_income" id="rental_income"></span><span class="hint">Net of the costs of letting, per month.</span></label>
+        <label class="field"><span class="lbl">Interest earned</span><span class="prefix"><span>R</span><input type="number" step="any" name="interest_income" id="interest_income"></span><span class="hint">Roughly, per month.</span></label>
+        <label class="field"><span class="lbl">Dividends</span><span class="prefix"><span>R</span><input type="number" step="any" name="dividend_income" id="dividend_income"></span><span class="hint">From South African shares, per month.</span></label>
       </div>
       <div class="sub-h">Going out, monthly</div>
       <div class="grid">
-        <label class="field"><span class="lbl">Essential expenses<span class="req">*</span></span><span class="prefix"><span>R</span><input type="number" name="exp_essential" id="exp_essential" required></span><span class="hint">Home, food, transport, school fees, medical aid.</span></label>
-        <label class="field"><span class="lbl">Discretionary spending</span><span class="prefix"><span>R</span><input type="number" name="exp_discretionary" id="exp_discretionary"></span><span class="hint">Eating out, subscriptions, the nice-to-haves.</span></label>
-        <label class="field"><span class="lbl">Insurance premiums</span><span class="prefix"><span>R</span><input type="number" name="premiums" id="premiums"></span><span class="hint">Everything you pay across all your policies.</span></label>
-        <label class="field"><span class="lbl">Retirement contributions</span><span class="prefix"><span>R</span><input type="number" name="retirement_contrib" id="retirement_contrib"></span><span class="hint">Your own share, excluding your employer's.</span></label>
+        <label class="field"><span class="lbl">Essential expenses<span class="req">*</span></span><span class="prefix"><span>R</span><input type="number" step="any" name="exp_essential" id="exp_essential" required></span><span class="hint">Home, food, transport, school fees, medical aid.</span></label>
+        <label class="field"><span class="lbl">Discretionary spending</span><span class="prefix"><span>R</span><input type="number" step="any" name="exp_discretionary" id="exp_discretionary"></span><span class="hint">Eating out, subscriptions, the nice-to-haves.</span></label>
+        <label class="field"><span class="lbl">Insurance premiums</span><span class="prefix"><span>R</span><input type="number" step="any" name="premiums" id="premiums"></span><span class="hint">Everything you pay across all your policies.</span></label>
+        <label class="field"><span class="lbl">Your retirement contributions</span><span class="prefix"><span>R</span><input type="number" step="any" name="retire_monthly" id="retire_monthly"></span><span class="hint">Your own share to pension, provident and RA funds &mdash; not your employer's.</span></label>
       </div>
     </div>
   </section>
@@ -473,33 +477,33 @@ footer{background:var(--navy-950);color:rgba(255,255,255,0.7)}
         <b>Everything in today's money</b>; I handle the inflation.</div>
       <div class="sub-h">Emergency savings</div>
       <div class="grid">
-        <label class="field"><span class="lbl">Money you could reach this week</span><span class="prefix"><span>R</span><input type="number" name="emergency_fund" id="emergency_fund"></span><span class="hint">Cash or a notice account — not your retirement fund or your house.</span></label>
+        <label class="field"><span class="lbl">Money you could reach this week</span><span class="prefix"><span>R</span><input type="number" step="any" name="emergency_fund" id="emergency_fund"></span><span class="hint">Cash or a notice account — not your retirement fund or your house.</span></label>
       </div>
       <div class="sub-h">Your goals</div>
     <div class="rep" id="rep-goal">
       <div class="rep-row" data-rep="goal" data-i="1">
         <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row" hidden>&#10005;</button>
-<label class="field"><span class="lbl">What is it</span><select name="goal_1_type" id="goal_1_type"><option value="" selected>Select…</option><option value="education">Education</option><option value="holiday">Holiday or travel</option><option value="vehicle">Vehicle</option><option value="property">Property deposit</option><option value="other">Something else</option></select></label><label class="field wide"><span class="lbl">Describe it</span><input type="text" name="goal_1_name" id="goal_1_name" placeholder="e.g. Anke's degree"></label><label class="field"><span class="lbl">Years away</span><input type="number" name="goal_1_years_to" id="goal_1_years_to" min="0" max="60"></label><label class="field"><span class="lbl">Years of study</span><input type="number" name="goal_1_duration" id="goal_1_duration" min="0" max="10"><span class="hint">Education only.</span></label><label class="field"><span class="lbl">Cost in today's money</span><span class="prefix"><span>R</span><input type="number" name="goal_1_cost" id="goal_1_cost"></span><span class="hint">Per year, for education.</span></label><label class="field"><span class="lbl">Saved so far</span><span class="prefix"><span>R</span><input type="number" name="goal_1_saved" id="goal_1_saved"></span></label><label class="field"><span class="lbl">Saving per month</span><span class="prefix"><span>R</span><input type="number" name="goal_1_monthly" id="goal_1_monthly"></span></label>
+<label class="field"><span class="lbl">What is it</span><select name="goal_1_type" id="goal_1_type"><option value="" selected>Select…</option><option value="education">Education</option><option value="holiday">Holiday or travel</option><option value="vehicle">Vehicle</option><option value="property">Property deposit</option><option value="other">Something else</option></select></label><label class="field wide"><span class="lbl">Describe it</span><input type="text" name="goal_1_name" id="goal_1_name" placeholder="e.g. Anke's degree"></label><label class="field"><span class="lbl">Years away</span><input type="number" step="any" name="goal_1_years_to" id="goal_1_years_to" min="0" max="60"></label><label class="field"><span class="lbl">Years of study</span><input type="number" step="any" name="goal_1_duration" id="goal_1_duration" min="0" max="10"><span class="hint">Education only.</span></label><label class="field"><span class="lbl">Cost in today's money</span><span class="prefix"><span>R</span><input type="number" step="any" name="goal_1_cost" id="goal_1_cost"></span><span class="hint">Per year, for education.</span></label><label class="field"><span class="lbl">Saved so far</span><span class="prefix"><span>R</span><input type="number" step="any" name="goal_1_saved" id="goal_1_saved"></span></label><label class="field"><span class="lbl">Saving per month</span><span class="prefix"><span>R</span><input type="number" step="any" name="goal_1_monthly" id="goal_1_monthly"></span></label>
       </div>
       <div class="rep-row" data-rep="goal" data-i="2" hidden>
         <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
-<label class="field"><span class="lbl">What is it</span><select name="goal_2_type" id="goal_2_type"><option value="" selected>Select…</option><option value="education">Education</option><option value="holiday">Holiday or travel</option><option value="vehicle">Vehicle</option><option value="property">Property deposit</option><option value="other">Something else</option></select></label><label class="field wide"><span class="lbl">Describe it</span><input type="text" name="goal_2_name" id="goal_2_name" placeholder="e.g. Anke's degree"></label><label class="field"><span class="lbl">Years away</span><input type="number" name="goal_2_years_to" id="goal_2_years_to" min="0" max="60"></label><label class="field"><span class="lbl">Years of study</span><input type="number" name="goal_2_duration" id="goal_2_duration" min="0" max="10"></label><label class="field"><span class="lbl">Cost in today's money</span><span class="prefix"><span>R</span><input type="number" name="goal_2_cost" id="goal_2_cost"></span></label><label class="field"><span class="lbl">Saved so far</span><span class="prefix"><span>R</span><input type="number" name="goal_2_saved" id="goal_2_saved"></span></label><label class="field"><span class="lbl">Saving per month</span><span class="prefix"><span>R</span><input type="number" name="goal_2_monthly" id="goal_2_monthly"></span></label>
+<label class="field"><span class="lbl">What is it</span><select name="goal_2_type" id="goal_2_type"><option value="" selected>Select…</option><option value="education">Education</option><option value="holiday">Holiday or travel</option><option value="vehicle">Vehicle</option><option value="property">Property deposit</option><option value="other">Something else</option></select></label><label class="field wide"><span class="lbl">Describe it</span><input type="text" name="goal_2_name" id="goal_2_name" placeholder="e.g. Anke's degree"></label><label class="field"><span class="lbl">Years away</span><input type="number" step="any" name="goal_2_years_to" id="goal_2_years_to" min="0" max="60"></label><label class="field"><span class="lbl">Years of study</span><input type="number" step="any" name="goal_2_duration" id="goal_2_duration" min="0" max="10"></label><label class="field"><span class="lbl">Cost in today's money</span><span class="prefix"><span>R</span><input type="number" step="any" name="goal_2_cost" id="goal_2_cost"></span></label><label class="field"><span class="lbl">Saved so far</span><span class="prefix"><span>R</span><input type="number" step="any" name="goal_2_saved" id="goal_2_saved"></span></label><label class="field"><span class="lbl">Saving per month</span><span class="prefix"><span>R</span><input type="number" step="any" name="goal_2_monthly" id="goal_2_monthly"></span></label>
       </div>
       <div class="rep-row" data-rep="goal" data-i="3" hidden>
         <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
-<label class="field"><span class="lbl">What is it</span><select name="goal_3_type" id="goal_3_type"><option value="" selected>Select…</option><option value="education">Education</option><option value="holiday">Holiday or travel</option><option value="vehicle">Vehicle</option><option value="property">Property deposit</option><option value="other">Something else</option></select></label><label class="field wide"><span class="lbl">Describe it</span><input type="text" name="goal_3_name" id="goal_3_name" placeholder="e.g. Anke's degree"></label><label class="field"><span class="lbl">Years away</span><input type="number" name="goal_3_years_to" id="goal_3_years_to" min="0" max="60"></label><label class="field"><span class="lbl">Years of study</span><input type="number" name="goal_3_duration" id="goal_3_duration" min="0" max="10"></label><label class="field"><span class="lbl">Cost in today's money</span><span class="prefix"><span>R</span><input type="number" name="goal_3_cost" id="goal_3_cost"></span></label><label class="field"><span class="lbl">Saved so far</span><span class="prefix"><span>R</span><input type="number" name="goal_3_saved" id="goal_3_saved"></span></label><label class="field"><span class="lbl">Saving per month</span><span class="prefix"><span>R</span><input type="number" name="goal_3_monthly" id="goal_3_monthly"></span></label>
+<label class="field"><span class="lbl">What is it</span><select name="goal_3_type" id="goal_3_type"><option value="" selected>Select…</option><option value="education">Education</option><option value="holiday">Holiday or travel</option><option value="vehicle">Vehicle</option><option value="property">Property deposit</option><option value="other">Something else</option></select></label><label class="field wide"><span class="lbl">Describe it</span><input type="text" name="goal_3_name" id="goal_3_name" placeholder="e.g. Anke's degree"></label><label class="field"><span class="lbl">Years away</span><input type="number" step="any" name="goal_3_years_to" id="goal_3_years_to" min="0" max="60"></label><label class="field"><span class="lbl">Years of study</span><input type="number" step="any" name="goal_3_duration" id="goal_3_duration" min="0" max="10"></label><label class="field"><span class="lbl">Cost in today's money</span><span class="prefix"><span>R</span><input type="number" step="any" name="goal_3_cost" id="goal_3_cost"></span></label><label class="field"><span class="lbl">Saved so far</span><span class="prefix"><span>R</span><input type="number" step="any" name="goal_3_saved" id="goal_3_saved"></span></label><label class="field"><span class="lbl">Saving per month</span><span class="prefix"><span>R</span><input type="number" step="any" name="goal_3_monthly" id="goal_3_monthly"></span></label>
       </div>
       <div class="rep-row" data-rep="goal" data-i="4" hidden>
         <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
-<label class="field"><span class="lbl">What is it</span><select name="goal_4_type" id="goal_4_type"><option value="" selected>Select…</option><option value="education">Education</option><option value="holiday">Holiday or travel</option><option value="vehicle">Vehicle</option><option value="property">Property deposit</option><option value="other">Something else</option></select></label><label class="field wide"><span class="lbl">Describe it</span><input type="text" name="goal_4_name" id="goal_4_name" placeholder="e.g. Anke's degree"></label><label class="field"><span class="lbl">Years away</span><input type="number" name="goal_4_years_to" id="goal_4_years_to" min="0" max="60"></label><label class="field"><span class="lbl">Years of study</span><input type="number" name="goal_4_duration" id="goal_4_duration" min="0" max="10"></label><label class="field"><span class="lbl">Cost in today's money</span><span class="prefix"><span>R</span><input type="number" name="goal_4_cost" id="goal_4_cost"></span></label><label class="field"><span class="lbl">Saved so far</span><span class="prefix"><span>R</span><input type="number" name="goal_4_saved" id="goal_4_saved"></span></label><label class="field"><span class="lbl">Saving per month</span><span class="prefix"><span>R</span><input type="number" name="goal_4_monthly" id="goal_4_monthly"></span></label>
+<label class="field"><span class="lbl">What is it</span><select name="goal_4_type" id="goal_4_type"><option value="" selected>Select…</option><option value="education">Education</option><option value="holiday">Holiday or travel</option><option value="vehicle">Vehicle</option><option value="property">Property deposit</option><option value="other">Something else</option></select></label><label class="field wide"><span class="lbl">Describe it</span><input type="text" name="goal_4_name" id="goal_4_name" placeholder="e.g. Anke's degree"></label><label class="field"><span class="lbl">Years away</span><input type="number" step="any" name="goal_4_years_to" id="goal_4_years_to" min="0" max="60"></label><label class="field"><span class="lbl">Years of study</span><input type="number" step="any" name="goal_4_duration" id="goal_4_duration" min="0" max="10"></label><label class="field"><span class="lbl">Cost in today's money</span><span class="prefix"><span>R</span><input type="number" step="any" name="goal_4_cost" id="goal_4_cost"></span></label><label class="field"><span class="lbl">Saved so far</span><span class="prefix"><span>R</span><input type="number" step="any" name="goal_4_saved" id="goal_4_saved"></span></label><label class="field"><span class="lbl">Saving per month</span><span class="prefix"><span>R</span><input type="number" step="any" name="goal_4_monthly" id="goal_4_monthly"></span></label>
       </div>
       <div class="rep-row" data-rep="goal" data-i="5" hidden>
         <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
-<label class="field"><span class="lbl">What is it</span><select name="goal_5_type" id="goal_5_type"><option value="" selected>Select…</option><option value="education">Education</option><option value="holiday">Holiday or travel</option><option value="vehicle">Vehicle</option><option value="property">Property deposit</option><option value="other">Something else</option></select></label><label class="field wide"><span class="lbl">Describe it</span><input type="text" name="goal_5_name" id="goal_5_name" placeholder="e.g. Anke's degree"></label><label class="field"><span class="lbl">Years away</span><input type="number" name="goal_5_years_to" id="goal_5_years_to" min="0" max="60"></label><label class="field"><span class="lbl">Years of study</span><input type="number" name="goal_5_duration" id="goal_5_duration" min="0" max="10"></label><label class="field"><span class="lbl">Cost in today's money</span><span class="prefix"><span>R</span><input type="number" name="goal_5_cost" id="goal_5_cost"></span></label><label class="field"><span class="lbl">Saved so far</span><span class="prefix"><span>R</span><input type="number" name="goal_5_saved" id="goal_5_saved"></span></label><label class="field"><span class="lbl">Saving per month</span><span class="prefix"><span>R</span><input type="number" name="goal_5_monthly" id="goal_5_monthly"></span></label>
+<label class="field"><span class="lbl">What is it</span><select name="goal_5_type" id="goal_5_type"><option value="" selected>Select…</option><option value="education">Education</option><option value="holiday">Holiday or travel</option><option value="vehicle">Vehicle</option><option value="property">Property deposit</option><option value="other">Something else</option></select></label><label class="field wide"><span class="lbl">Describe it</span><input type="text" name="goal_5_name" id="goal_5_name" placeholder="e.g. Anke's degree"></label><label class="field"><span class="lbl">Years away</span><input type="number" step="any" name="goal_5_years_to" id="goal_5_years_to" min="0" max="60"></label><label class="field"><span class="lbl">Years of study</span><input type="number" step="any" name="goal_5_duration" id="goal_5_duration" min="0" max="10"></label><label class="field"><span class="lbl">Cost in today's money</span><span class="prefix"><span>R</span><input type="number" step="any" name="goal_5_cost" id="goal_5_cost"></span></label><label class="field"><span class="lbl">Saved so far</span><span class="prefix"><span>R</span><input type="number" step="any" name="goal_5_saved" id="goal_5_saved"></span></label><label class="field"><span class="lbl">Saving per month</span><span class="prefix"><span>R</span><input type="number" step="any" name="goal_5_monthly" id="goal_5_monthly"></span></label>
       </div>
       <div class="rep-row" data-rep="goal" data-i="6" hidden>
         <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
-<label class="field"><span class="lbl">What is it</span><select name="goal_6_type" id="goal_6_type"><option value="" selected>Select…</option><option value="education">Education</option><option value="holiday">Holiday or travel</option><option value="vehicle">Vehicle</option><option value="property">Property deposit</option><option value="other">Something else</option></select></label><label class="field wide"><span class="lbl">Describe it</span><input type="text" name="goal_6_name" id="goal_6_name" placeholder="e.g. Anke's degree"></label><label class="field"><span class="lbl">Years away</span><input type="number" name="goal_6_years_to" id="goal_6_years_to" min="0" max="60"></label><label class="field"><span class="lbl">Years of study</span><input type="number" name="goal_6_duration" id="goal_6_duration" min="0" max="10"></label><label class="field"><span class="lbl">Cost in today's money</span><span class="prefix"><span>R</span><input type="number" name="goal_6_cost" id="goal_6_cost"></span></label><label class="field"><span class="lbl">Saved so far</span><span class="prefix"><span>R</span><input type="number" name="goal_6_saved" id="goal_6_saved"></span></label><label class="field"><span class="lbl">Saving per month</span><span class="prefix"><span>R</span><input type="number" name="goal_6_monthly" id="goal_6_monthly"></span></label>
+<label class="field"><span class="lbl">What is it</span><select name="goal_6_type" id="goal_6_type"><option value="" selected>Select…</option><option value="education">Education</option><option value="holiday">Holiday or travel</option><option value="vehicle">Vehicle</option><option value="property">Property deposit</option><option value="other">Something else</option></select></label><label class="field wide"><span class="lbl">Describe it</span><input type="text" name="goal_6_name" id="goal_6_name" placeholder="e.g. Anke's degree"></label><label class="field"><span class="lbl">Years away</span><input type="number" step="any" name="goal_6_years_to" id="goal_6_years_to" min="0" max="60"></label><label class="field"><span class="lbl">Years of study</span><input type="number" step="any" name="goal_6_duration" id="goal_6_duration" min="0" max="10"></label><label class="field"><span class="lbl">Cost in today's money</span><span class="prefix"><span>R</span><input type="number" step="any" name="goal_6_cost" id="goal_6_cost"></span></label><label class="field"><span class="lbl">Saved so far</span><span class="prefix"><span>R</span><input type="number" step="any" name="goal_6_saved" id="goal_6_saved"></span></label><label class="field"><span class="lbl">Saving per month</span><span class="prefix"><span>R</span><input type="number" step="any" name="goal_6_monthly" id="goal_6_monthly"></span></label>
       </div>
     </div>
     <button type="button" class="btn btn-ghost rep-add" data-add="goal" onclick="addRow('goal')" style="margin-top:var(--space-4)">+ Add another goal</button>
@@ -521,11 +525,17 @@ footer{background:var(--navy-950);color:rgba(255,255,255,0.7)}
       <div class="note soft">If you're not sure of the exact balances, a recent statement or even a close estimate is
         plenty &mdash; we'll firm it up together. Leave anything blank that you'd rather look up.</div>
       <div class="grid">
-        <label class="field"><span class="lbl">Age you'd like to retire</span><input type="number" name="retire_age" id="retire_age" placeholder="65" min="45" max="85"></label>
-        <label class="field"><span class="lbl">Retirement savings today</span><span class="prefix"><span>R</span><input type="number" name="retire_current" id="retire_current"></span><span class="hint">Pension, provident, RA and preservation funds combined.</span></label>
-        <label class="field"><span class="lbl">Your contribution</span><span class="prefix"><span>R</span><input type="number" name="retire_monthly" id="retire_monthly"></span><span class="hint">Per month.</span></label>
-        <label class="field"><span class="lbl">Employer's contribution</span><span class="prefix"><span>R</span><input type="number" name="retire_employer" id="retire_employer"></span><span class="hint">Per month, if any.</span></label>
-        <label class="field"><span class="lbl">Income you'd want in retirement</span><span class="prefix"><span>R</span><input type="number" name="retire_target" id="retire_target"></span><span class="hint">Per month, in today's money. Leave blank and I'll use 75% of what you earn now.</span></label>
+        <label class="field"><span class="lbl">Age you'd like to retire</span><input type="number" step="any" name="retire_age" id="retire_age" placeholder="65" min="45" max="85"></label>
+        <label class="field"><span class="lbl">Retirement savings today</span><span class="prefix"><span>R</span><input type="number" step="any" name="retire_current" id="retire_current"></span><span class="hint">Pension, provident, RA and preservation funds combined.</span></label>
+        <label class="field"><span class="lbl">Employer's contribution</span><span class="prefix"><span>R</span><input type="number" step="any" name="retire_employer" id="retire_employer"></span><span class="hint">Per month, if any.</span></label>
+        <label class="field"><span class="lbl">Income you'd want in retirement</span><span class="prefix"><span>R</span><input type="number" step="any" name="retire_target" id="retire_target"></span><span class="hint">Per month, in today's money. Leave blank and I'll use 75% of what you earn now.</span></label>
+      </div>
+      <div class="sub-h">The two-pot split</div>
+      <p class="hint" style="margin:0 0 var(--space-4)">Only if your latest statement shows it. Leave these blank otherwise and I'll get them from the fund.</p>
+      <div class="grid">
+        <label class="field"><span class="lbl">Vested component</span><span class="prefix"><span>R</span><input type="number" step="any" name="retire_vested" id="retire_vested"></span><span class="hint">Everything saved before 1 September 2024.</span></label>
+        <label class="field"><span class="lbl">Savings component</span><span class="prefix"><span>R</span><input type="number" step="any" name="retire_savings" id="retire_savings"></span><span class="hint">The pot you can withdraw from once a year.</span></label>
+        <label class="field"><span class="lbl">Retirement component</span><span class="prefix"><span>R</span><input type="number" step="any" name="retire_retirement" id="retire_retirement"></span><span class="hint">Locked in until retirement.</span></label>
       </div>
     </div>
   </section>
@@ -548,35 +558,51 @@ footer{background:var(--navy-950);color:rgba(255,255,255,0.7)}
     <div class="rep" id="rep-asset">
       <div class="rep-row" data-rep="asset" data-i="1">
         <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row" hidden>&#10005;</button>
-<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_1_name" id="asset_1_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" name="asset_1_value" id="asset_1_value"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_1_liquid" id="asset_1_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_1_name" id="asset_1_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">Type</span><select name="asset_1_type" id="asset_1_type"><option value="" selected>Select…</option><option value="home">The home you live in</option><option value="property">Other property</option><option value="vehicle">Vehicle</option><option value="cash">Cash, bank or notice account</option><option value="investment">Unit trusts or shares</option><option value="tfsa">Tax-free savings account</option><option value="endowment">Endowment or sinking fund</option><option value="retirement">Retirement fund (pension, provident, RA, preservation)</option><option value="policy">Life policy paying out to a named person</option><option value="trust">Owned by a trust</option><option value="business">Business interest or loan account</option><option value="other">Something else</option></select></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" step="any" name="asset_1_value" id="asset_1_value"></span></label><label class="field"><span class="lbl">What you paid for it</span><span class="prefix"><span>R</span><input type="number" step="any" name="asset_1_base" id="asset_1_base"></span><span class="hint">Property and investments. Leave blank if you&#39;re not sure.</span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_1_liquid" id="asset_1_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
       </div>
       <div class="rep-row" data-rep="asset" data-i="2" hidden>
         <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
-<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_2_name" id="asset_2_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" name="asset_2_value" id="asset_2_value"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_2_liquid" id="asset_2_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_2_name" id="asset_2_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">Type</span><select name="asset_2_type" id="asset_2_type"><option value="" selected>Select…</option><option value="home">The home you live in</option><option value="property">Other property</option><option value="vehicle">Vehicle</option><option value="cash">Cash, bank or notice account</option><option value="investment">Unit trusts or shares</option><option value="tfsa">Tax-free savings account</option><option value="endowment">Endowment or sinking fund</option><option value="retirement">Retirement fund (pension, provident, RA, preservation)</option><option value="policy">Life policy paying out to a named person</option><option value="trust">Owned by a trust</option><option value="business">Business interest or loan account</option><option value="other">Something else</option></select></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" step="any" name="asset_2_value" id="asset_2_value"></span></label><label class="field"><span class="lbl">What you paid for it</span><span class="prefix"><span>R</span><input type="number" step="any" name="asset_2_base" id="asset_2_base"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_2_liquid" id="asset_2_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
       </div>
       <div class="rep-row" data-rep="asset" data-i="3" hidden>
         <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
-<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_3_name" id="asset_3_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" name="asset_3_value" id="asset_3_value"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_3_liquid" id="asset_3_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_3_name" id="asset_3_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">Type</span><select name="asset_3_type" id="asset_3_type"><option value="" selected>Select…</option><option value="home">The home you live in</option><option value="property">Other property</option><option value="vehicle">Vehicle</option><option value="cash">Cash, bank or notice account</option><option value="investment">Unit trusts or shares</option><option value="tfsa">Tax-free savings account</option><option value="endowment">Endowment or sinking fund</option><option value="retirement">Retirement fund (pension, provident, RA, preservation)</option><option value="policy">Life policy paying out to a named person</option><option value="trust">Owned by a trust</option><option value="business">Business interest or loan account</option><option value="other">Something else</option></select></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" step="any" name="asset_3_value" id="asset_3_value"></span></label><label class="field"><span class="lbl">What you paid for it</span><span class="prefix"><span>R</span><input type="number" step="any" name="asset_3_base" id="asset_3_base"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_3_liquid" id="asset_3_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
       </div>
       <div class="rep-row" data-rep="asset" data-i="4" hidden>
         <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
-<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_4_name" id="asset_4_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" name="asset_4_value" id="asset_4_value"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_4_liquid" id="asset_4_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_4_name" id="asset_4_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">Type</span><select name="asset_4_type" id="asset_4_type"><option value="" selected>Select…</option><option value="home">The home you live in</option><option value="property">Other property</option><option value="vehicle">Vehicle</option><option value="cash">Cash, bank or notice account</option><option value="investment">Unit trusts or shares</option><option value="tfsa">Tax-free savings account</option><option value="endowment">Endowment or sinking fund</option><option value="retirement">Retirement fund (pension, provident, RA, preservation)</option><option value="policy">Life policy paying out to a named person</option><option value="trust">Owned by a trust</option><option value="business">Business interest or loan account</option><option value="other">Something else</option></select></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" step="any" name="asset_4_value" id="asset_4_value"></span></label><label class="field"><span class="lbl">What you paid for it</span><span class="prefix"><span>R</span><input type="number" step="any" name="asset_4_base" id="asset_4_base"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_4_liquid" id="asset_4_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
       </div>
       <div class="rep-row" data-rep="asset" data-i="5" hidden>
         <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
-<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_5_name" id="asset_5_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" name="asset_5_value" id="asset_5_value"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_5_liquid" id="asset_5_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_5_name" id="asset_5_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">Type</span><select name="asset_5_type" id="asset_5_type"><option value="" selected>Select…</option><option value="home">The home you live in</option><option value="property">Other property</option><option value="vehicle">Vehicle</option><option value="cash">Cash, bank or notice account</option><option value="investment">Unit trusts or shares</option><option value="tfsa">Tax-free savings account</option><option value="endowment">Endowment or sinking fund</option><option value="retirement">Retirement fund (pension, provident, RA, preservation)</option><option value="policy">Life policy paying out to a named person</option><option value="trust">Owned by a trust</option><option value="business">Business interest or loan account</option><option value="other">Something else</option></select></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" step="any" name="asset_5_value" id="asset_5_value"></span></label><label class="field"><span class="lbl">What you paid for it</span><span class="prefix"><span>R</span><input type="number" step="any" name="asset_5_base" id="asset_5_base"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_5_liquid" id="asset_5_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
       </div>
       <div class="rep-row" data-rep="asset" data-i="6" hidden>
         <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
-<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_6_name" id="asset_6_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" name="asset_6_value" id="asset_6_value"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_6_liquid" id="asset_6_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_6_name" id="asset_6_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">Type</span><select name="asset_6_type" id="asset_6_type"><option value="" selected>Select…</option><option value="home">The home you live in</option><option value="property">Other property</option><option value="vehicle">Vehicle</option><option value="cash">Cash, bank or notice account</option><option value="investment">Unit trusts or shares</option><option value="tfsa">Tax-free savings account</option><option value="endowment">Endowment or sinking fund</option><option value="retirement">Retirement fund (pension, provident, RA, preservation)</option><option value="policy">Life policy paying out to a named person</option><option value="trust">Owned by a trust</option><option value="business">Business interest or loan account</option><option value="other">Something else</option></select></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" step="any" name="asset_6_value" id="asset_6_value"></span></label><label class="field"><span class="lbl">What you paid for it</span><span class="prefix"><span>R</span><input type="number" step="any" name="asset_6_base" id="asset_6_base"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_6_liquid" id="asset_6_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
       </div>
       <div class="rep-row" data-rep="asset" data-i="7" hidden>
         <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
-<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_7_name" id="asset_7_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" name="asset_7_value" id="asset_7_value"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_7_liquid" id="asset_7_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_7_name" id="asset_7_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">Type</span><select name="asset_7_type" id="asset_7_type"><option value="" selected>Select…</option><option value="home">The home you live in</option><option value="property">Other property</option><option value="vehicle">Vehicle</option><option value="cash">Cash, bank or notice account</option><option value="investment">Unit trusts or shares</option><option value="tfsa">Tax-free savings account</option><option value="endowment">Endowment or sinking fund</option><option value="retirement">Retirement fund (pension, provident, RA, preservation)</option><option value="policy">Life policy paying out to a named person</option><option value="trust">Owned by a trust</option><option value="business">Business interest or loan account</option><option value="other">Something else</option></select></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" step="any" name="asset_7_value" id="asset_7_value"></span></label><label class="field"><span class="lbl">What you paid for it</span><span class="prefix"><span>R</span><input type="number" step="any" name="asset_7_base" id="asset_7_base"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_7_liquid" id="asset_7_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
       </div>
       <div class="rep-row" data-rep="asset" data-i="8" hidden>
         <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
-<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_8_name" id="asset_8_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" name="asset_8_value" id="asset_8_value"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_8_liquid" id="asset_8_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_8_name" id="asset_8_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">Type</span><select name="asset_8_type" id="asset_8_type"><option value="" selected>Select…</option><option value="home">The home you live in</option><option value="property">Other property</option><option value="vehicle">Vehicle</option><option value="cash">Cash, bank or notice account</option><option value="investment">Unit trusts or shares</option><option value="tfsa">Tax-free savings account</option><option value="endowment">Endowment or sinking fund</option><option value="retirement">Retirement fund (pension, provident, RA, preservation)</option><option value="policy">Life policy paying out to a named person</option><option value="trust">Owned by a trust</option><option value="business">Business interest or loan account</option><option value="other">Something else</option></select></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" step="any" name="asset_8_value" id="asset_8_value"></span></label><label class="field"><span class="lbl">What you paid for it</span><span class="prefix"><span>R</span><input type="number" step="any" name="asset_8_base" id="asset_8_base"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_8_liquid" id="asset_8_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
+      </div>
+      <div class="rep-row" data-rep="asset" data-i="9" hidden>
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_9_name" id="asset_9_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">Type</span><select name="asset_9_type" id="asset_9_type"><option value="" selected>Select…</option><option value="home">The home you live in</option><option value="property">Other property</option><option value="vehicle">Vehicle</option><option value="cash">Cash, bank or notice account</option><option value="investment">Unit trusts or shares</option><option value="tfsa">Tax-free savings account</option><option value="endowment">Endowment or sinking fund</option><option value="retirement">Retirement fund (pension, provident, RA, preservation)</option><option value="policy">Life policy paying out to a named person</option><option value="trust">Owned by a trust</option><option value="business">Business interest or loan account</option><option value="other">Something else</option></select></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" step="any" name="asset_9_value" id="asset_9_value"></span></label><label class="field"><span class="lbl">What you paid for it</span><span class="prefix"><span>R</span><input type="number" step="any" name="asset_9_base" id="asset_9_base"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_9_liquid" id="asset_9_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
+      </div>
+      <div class="rep-row" data-rep="asset" data-i="10" hidden>
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_10_name" id="asset_10_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">Type</span><select name="asset_10_type" id="asset_10_type"><option value="" selected>Select…</option><option value="home">The home you live in</option><option value="property">Other property</option><option value="vehicle">Vehicle</option><option value="cash">Cash, bank or notice account</option><option value="investment">Unit trusts or shares</option><option value="tfsa">Tax-free savings account</option><option value="endowment">Endowment or sinking fund</option><option value="retirement">Retirement fund (pension, provident, RA, preservation)</option><option value="policy">Life policy paying out to a named person</option><option value="trust">Owned by a trust</option><option value="business">Business interest or loan account</option><option value="other">Something else</option></select></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" step="any" name="asset_10_value" id="asset_10_value"></span></label><label class="field"><span class="lbl">What you paid for it</span><span class="prefix"><span>R</span><input type="number" step="any" name="asset_10_base" id="asset_10_base"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_10_liquid" id="asset_10_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
+      </div>
+      <div class="rep-row" data-rep="asset" data-i="11" hidden>
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_11_name" id="asset_11_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">Type</span><select name="asset_11_type" id="asset_11_type"><option value="" selected>Select…</option><option value="home">The home you live in</option><option value="property">Other property</option><option value="vehicle">Vehicle</option><option value="cash">Cash, bank or notice account</option><option value="investment">Unit trusts or shares</option><option value="tfsa">Tax-free savings account</option><option value="endowment">Endowment or sinking fund</option><option value="retirement">Retirement fund (pension, provident, RA, preservation)</option><option value="policy">Life policy paying out to a named person</option><option value="trust">Owned by a trust</option><option value="business">Business interest or loan account</option><option value="other">Something else</option></select></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" step="any" name="asset_11_value" id="asset_11_value"></span></label><label class="field"><span class="lbl">What you paid for it</span><span class="prefix"><span>R</span><input type="number" step="any" name="asset_11_base" id="asset_11_base"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_11_liquid" id="asset_11_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
+      </div>
+      <div class="rep-row" data-rep="asset" data-i="12" hidden>
+        <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="asset_12_name" id="asset_12_name" placeholder="e.g. Primary residence"></label><label class="field"><span class="lbl">Type</span><select name="asset_12_type" id="asset_12_type"><option value="" selected>Select…</option><option value="home">The home you live in</option><option value="property">Other property</option><option value="vehicle">Vehicle</option><option value="cash">Cash, bank or notice account</option><option value="investment">Unit trusts or shares</option><option value="tfsa">Tax-free savings account</option><option value="endowment">Endowment or sinking fund</option><option value="retirement">Retirement fund (pension, provident, RA, preservation)</option><option value="policy">Life policy paying out to a named person</option><option value="trust">Owned by a trust</option><option value="business">Business interest or loan account</option><option value="other">Something else</option></select></label><label class="field"><span class="lbl">What it's worth</span><span class="prefix"><span>R</span><input type="number" step="any" name="asset_12_value" id="asset_12_value"></span></label><label class="field"><span class="lbl">What you paid for it</span><span class="prefix"><span>R</span><input type="number" step="any" name="asset_12_base" id="asset_12_base"></span></label><label class="field"><span class="lbl">Could you reach it within a month?</span><select name="asset_12_liquid" id="asset_12_liquid"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option></select></label>
       </div>
     </div>
     <button type="button" class="btn btn-ghost rep-add" data-add="asset" onclick="addRow('asset')" style="margin-top:var(--space-4)">+ Add another asset</button>
@@ -584,23 +610,23 @@ footer{background:var(--navy-950);color:rgba(255,255,255,0.7)}
     <div class="rep" id="rep-liab">
       <div class="rep-row" data-rep="liab" data-i="1">
         <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row" hidden>&#10005;</button>
-<label class="field wide"><span class="lbl">What it is</span><input type="text" name="liab_1_name" id="liab_1_name" placeholder="e.g. Bond on the house"></label><label class="field"><span class="lbl">Still outstanding</span><span class="prefix"><span>R</span><input type="number" name="liab_1_value" id="liab_1_value"></span></label>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="liab_1_name" id="liab_1_name" placeholder="e.g. Bond on the house"></label><label class="field"><span class="lbl">Still outstanding</span><span class="prefix"><span>R</span><input type="number" step="any" name="liab_1_value" id="liab_1_value"></span></label><label class="field"><span class="lbl">Years left to pay</span><input type="number" step="any" name="liab_1_term" id="liab_1_term" min="0" max="40"></label><label class="field"><span class="lbl">Secured against</span><select name="liab_1_asset" id="liab_1_asset" class="sec-sel"><option value="" selected>Not secured</option><option value="1">Asset 1</option><option value="2">Asset 2</option><option value="3">Asset 3</option><option value="4">Asset 4</option><option value="5">Asset 5</option><option value="6">Asset 6</option><option value="7">Asset 7</option><option value="8">Asset 8</option><option value="9">Asset 9</option><option value="10">Asset 10</option><option value="11">Asset 11</option><option value="12">Asset 12</option></select><span class="hint">The asset this debt is registered over, like a bond over a house.</span></label>
       </div>
       <div class="rep-row" data-rep="liab" data-i="2" hidden>
         <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
-<label class="field wide"><span class="lbl">What it is</span><input type="text" name="liab_2_name" id="liab_2_name" placeholder="e.g. Bond on the house"></label><label class="field"><span class="lbl">Still outstanding</span><span class="prefix"><span>R</span><input type="number" name="liab_2_value" id="liab_2_value"></span></label>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="liab_2_name" id="liab_2_name" placeholder="e.g. Bond on the house"></label><label class="field"><span class="lbl">Still outstanding</span><span class="prefix"><span>R</span><input type="number" step="any" name="liab_2_value" id="liab_2_value"></span></label><label class="field"><span class="lbl">Years left to pay</span><input type="number" step="any" name="liab_2_term" id="liab_2_term" min="0" max="40"></label><label class="field"><span class="lbl">Secured against</span><select name="liab_2_asset" id="liab_2_asset" class="sec-sel"><option value="" selected>Not secured</option><option value="1">Asset 1</option><option value="2">Asset 2</option><option value="3">Asset 3</option><option value="4">Asset 4</option><option value="5">Asset 5</option><option value="6">Asset 6</option><option value="7">Asset 7</option><option value="8">Asset 8</option><option value="9">Asset 9</option><option value="10">Asset 10</option><option value="11">Asset 11</option><option value="12">Asset 12</option></select></label>
       </div>
       <div class="rep-row" data-rep="liab" data-i="3" hidden>
         <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
-<label class="field wide"><span class="lbl">What it is</span><input type="text" name="liab_3_name" id="liab_3_name" placeholder="e.g. Bond on the house"></label><label class="field"><span class="lbl">Still outstanding</span><span class="prefix"><span>R</span><input type="number" name="liab_3_value" id="liab_3_value"></span></label>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="liab_3_name" id="liab_3_name" placeholder="e.g. Bond on the house"></label><label class="field"><span class="lbl">Still outstanding</span><span class="prefix"><span>R</span><input type="number" step="any" name="liab_3_value" id="liab_3_value"></span></label><label class="field"><span class="lbl">Years left to pay</span><input type="number" step="any" name="liab_3_term" id="liab_3_term" min="0" max="40"></label><label class="field"><span class="lbl">Secured against</span><select name="liab_3_asset" id="liab_3_asset" class="sec-sel"><option value="" selected>Not secured</option><option value="1">Asset 1</option><option value="2">Asset 2</option><option value="3">Asset 3</option><option value="4">Asset 4</option><option value="5">Asset 5</option><option value="6">Asset 6</option><option value="7">Asset 7</option><option value="8">Asset 8</option><option value="9">Asset 9</option><option value="10">Asset 10</option><option value="11">Asset 11</option><option value="12">Asset 12</option></select></label>
       </div>
       <div class="rep-row" data-rep="liab" data-i="4" hidden>
         <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
-<label class="field wide"><span class="lbl">What it is</span><input type="text" name="liab_4_name" id="liab_4_name" placeholder="e.g. Bond on the house"></label><label class="field"><span class="lbl">Still outstanding</span><span class="prefix"><span>R</span><input type="number" name="liab_4_value" id="liab_4_value"></span></label>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="liab_4_name" id="liab_4_name" placeholder="e.g. Bond on the house"></label><label class="field"><span class="lbl">Still outstanding</span><span class="prefix"><span>R</span><input type="number" step="any" name="liab_4_value" id="liab_4_value"></span></label><label class="field"><span class="lbl">Years left to pay</span><input type="number" step="any" name="liab_4_term" id="liab_4_term" min="0" max="40"></label><label class="field"><span class="lbl">Secured against</span><select name="liab_4_asset" id="liab_4_asset" class="sec-sel"><option value="" selected>Not secured</option><option value="1">Asset 1</option><option value="2">Asset 2</option><option value="3">Asset 3</option><option value="4">Asset 4</option><option value="5">Asset 5</option><option value="6">Asset 6</option><option value="7">Asset 7</option><option value="8">Asset 8</option><option value="9">Asset 9</option><option value="10">Asset 10</option><option value="11">Asset 11</option><option value="12">Asset 12</option></select></label>
       </div>
       <div class="rep-row" data-rep="liab" data-i="5" hidden>
         <button type="button" class="rep-drop" onclick="dropRow(this)" aria-label="Remove this row">&#10005;</button>
-<label class="field wide"><span class="lbl">What it is</span><input type="text" name="liab_5_name" id="liab_5_name" placeholder="e.g. Bond on the house"></label><label class="field"><span class="lbl">Still outstanding</span><span class="prefix"><span>R</span><input type="number" name="liab_5_value" id="liab_5_value"></span></label>
+<label class="field wide"><span class="lbl">What it is</span><input type="text" name="liab_5_name" id="liab_5_name" placeholder="e.g. Bond on the house"></label><label class="field"><span class="lbl">Still outstanding</span><span class="prefix"><span>R</span><input type="number" step="any" name="liab_5_value" id="liab_5_value"></span></label><label class="field"><span class="lbl">Years left to pay</span><input type="number" step="any" name="liab_5_term" id="liab_5_term" min="0" max="40"></label><label class="field"><span class="lbl">Secured against</span><select name="liab_5_asset" id="liab_5_asset" class="sec-sel"><option value="" selected>Not secured</option><option value="1">Asset 1</option><option value="2">Asset 2</option><option value="3">Asset 3</option><option value="4">Asset 4</option><option value="5">Asset 5</option><option value="6">Asset 6</option><option value="7">Asset 7</option><option value="8">Asset 8</option><option value="9">Asset 9</option><option value="10">Asset 10</option><option value="11">Asset 11</option><option value="12">Asset 12</option></select></label>
       </div>
     </div>
     <button type="button" class="btn btn-ghost rep-add" data-add="liab" onclick="addRow('liab')" style="margin-top:var(--space-4)">+ Add another debt</button>
@@ -624,17 +650,17 @@ footer{background:var(--navy-950);color:rgba(255,255,255,0.7)}
         these analyses go wrong. If you're not sure what you have, skip this and I'll pull your portfolio report.</div>
       <div class="sub-h">Your own policies</div>
       <div class="grid">
-        <label class="field"><span class="lbl">Life cover</span><span class="prefix"><span>R</span><input type="number" name="cover_life" id="cover_life"></span><span class="hint">Total amount payable on death.</span></label>
-        <label class="field"><span class="lbl">Disability lump sum</span><span class="prefix"><span>R</span><input type="number" name="cover_disability" id="cover_disability"></span></label>
-        <label class="field"><span class="lbl">Severe illness or dread disease</span><span class="prefix"><span>R</span><input type="number" name="cover_dread" id="cover_dread"></span></label>
-        <label class="field"><span class="lbl">Income protection</span><span class="prefix"><span>R</span><input type="number" name="cover_ip" id="cover_ip"></span><span class="hint">The monthly benefit, not the lump sum.</span></label>
-        <label class="field"><span class="lbl">Total monthly premium</span><span class="prefix"><span>R</span><input type="number" name="cover_premium" id="cover_premium"></span><span class="hint">Across all your policies.</span></label>
+        <label class="field"><span class="lbl">Life cover</span><span class="prefix"><span>R</span><input type="number" step="any" name="cover_life" id="cover_life"></span><span class="hint">Total amount payable on death.</span></label>
+        <label class="field"><span class="lbl">Disability lump sum</span><span class="prefix"><span>R</span><input type="number" step="any" name="cover_disability" id="cover_disability"></span></label>
+        <label class="field"><span class="lbl">Severe illness or dread disease</span><span class="prefix"><span>R</span><input type="number" step="any" name="cover_dread" id="cover_dread"></span></label>
+        <label class="field"><span class="lbl">Income protection</span><span class="prefix"><span>R</span><input type="number" step="any" name="cover_ip" id="cover_ip"></span><span class="hint">The monthly benefit, not the lump sum.</span></label>
+        <label class="field"><span class="lbl">Total monthly premium</span><span class="prefix"><span>R</span><input type="number" step="any" name="cover_premium" id="cover_premium"></span><span class="hint">Across all your policies.</span></label>
       </div>
       <div class="sub-h">Cover through your employer</div>
       <div class="grid">
-        <label class="field"><span class="lbl">Group life</span><span class="prefix"><span>R</span><input type="number" name="cover_group_life" id="cover_group_life"></span></label>
-        <label class="field"><span class="lbl">Group disability lump sum</span><span class="prefix"><span>R</span><input type="number" name="cover_group_disability" id="cover_group_disability"></span></label>
-        <label class="field"><span class="lbl">Group income protection</span><span class="prefix"><span>R</span><input type="number" name="cover_group_ip" id="cover_group_ip"></span><span class="hint">Monthly benefit.</span></label>
+        <label class="field"><span class="lbl">Group life</span><span class="prefix"><span>R</span><input type="number" step="any" name="cover_group_life" id="cover_group_life"></span></label>
+        <label class="field"><span class="lbl">Group disability lump sum</span><span class="prefix"><span>R</span><input type="number" step="any" name="cover_group_disability" id="cover_group_disability"></span></label>
+        <label class="field"><span class="lbl">Group income protection</span><span class="prefix"><span>R</span><input type="number" step="any" name="cover_group_ip" id="cover_group_ip"></span><span class="hint">Monthly benefit.</span></label>
       </div>
       <p class="hint" style="margin-top:var(--space-4)">Employer cover almost always falls away when you leave the
         job, so I treat it differently from cover you own yourself.</p>
@@ -655,7 +681,8 @@ footer{background:var(--navy-950);color:rgba(255,255,255,0.7)}
 
       <div class="grid">
         <label class="field wide"><span class="lbl">Medical scheme and plan</span><input type="text" name="medical_scheme" id="medical_scheme" placeholder="e.g. Discovery Classic Saver"></label>
-        <label class="field"><span class="lbl">Beneficiaries on the plan</span><input type="number" name="medical_members" id="medical_members" min="0" max="20"><span class="hint">Including you — so a family of four is 4.</span></label>
+        <label class="field"><span class="lbl">Beneficiaries on the plan</span><input type="number" step="any" name="medical_members" id="medical_members" min="0" max="20"><span class="hint">Including you — so a family of four is 4.</span></label>
+        <label class="field"><span class="lbl">Monthly contribution</span><span class="prefix"><span>R</span><input type="number" step="any" name="medical_contrib" id="medical_contrib"></span><span class="hint">The total paid to the scheme, including anything your employer pays.</span></label>
         <label class="field"><span class="lbl">Gap cover in place</span><select name="gap_cover" id="gap_cover"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option><option value="unsure">I'm not sure</option></select></label>
         <label class="field"><span class="lbl">Short-term insurance reviewed in the last year</span><select name="short_term" id="short_term"><option value="" selected>Select…</option><option value="Y">Yes</option><option value="N">No</option><option value="unsure">I'm not sure</option></select><span class="hint">Car, home, contents, personal liability.</span></label>
         <label class="field wide"><span class="lbl">Short-term insurer</span><input type="text" name="short_term_insurer" id="short_term_insurer" placeholder="Who it's with"></label>
@@ -679,11 +706,11 @@ footer{background:var(--navy-950);color:rgba(255,255,255,0.7)}
         separately and it never counts towards your personal needs.</div>
       <div class="grid">
         <label class="field wide"><span class="lbl">Business name</span><input type="text" name="business_name" id="business_name"></label>
-        <label class="field"><span class="lbl">What the business is worth</span><span class="prefix"><span>R</span><input type="number" name="business_value" id="business_value"></span></label>
-        <label class="field"><span class="lbl">Your shareholding</span><input type="number" name="business_share" id="business_share" min="0" max="100"><span class="hint">As a percentage.</span></label>
-        <label class="field"><span class="lbl">Buy-and-sell cover in place</span><span class="prefix"><span>R</span><input type="number" name="business_buysell" id="business_buysell"></span></label>
-        <label class="field"><span class="lbl">Key person cover in place</span><span class="prefix"><span>R</span><input type="number" name="business_keyperson" id="business_keyperson"></span></label>
-        <label class="field"><span class="lbl">Surety you've signed personally</span><span class="prefix"><span>R</span><input type="number" name="business_surety" id="business_surety"></span><span class="hint">Sureties follow you into your estate — worth capturing even when the business is healthy.</span></label>
+        <label class="field"><span class="lbl">What the business is worth</span><span class="prefix"><span>R</span><input type="number" step="any" name="business_value" id="business_value"></span></label>
+        <label class="field"><span class="lbl">Your shareholding</span><input type="number" step="any" name="business_share" id="business_share" min="0" max="100"><span class="hint">As a percentage.</span></label>
+        <label class="field"><span class="lbl">Buy-and-sell cover in place</span><span class="prefix"><span>R</span><input type="number" step="any" name="business_buysell" id="business_buysell"></span></label>
+        <label class="field"><span class="lbl">Key person cover in place</span><span class="prefix"><span>R</span><input type="number" step="any" name="business_keyperson" id="business_keyperson"></span></label>
+        <label class="field"><span class="lbl">Surety you've signed personally</span><span class="prefix"><span>R</span><input type="number" step="any" name="business_surety" id="business_surety"></span><span class="hint">Sureties follow you into your estate — worth capturing even when the business is healthy.</span></label>
       </div>
     </div>
   </section>
@@ -704,8 +731,10 @@ footer{background:var(--navy-950);color:rgba(255,255,255,0.7)}
         <b>cash</b> to settle it &mdash; because if there isn't, something gets sold, usually in a hurry and usually at
         the wrong price.</div>
       <div class="grid">
-        <label class="field"><span class="lbl">Value of fixed property</span><span class="prefix"><span>R</span><input type="number" name="estate_property" id="estate_property"></span><span class="hint">Your home and any other property.</span></label>
-        <label class="field"><span class="lbl">Cash bequests in your will</span><span class="prefix"><span>R</span><input type="number" name="estate_bequests" id="estate_bequests"></span><span class="hint">Specific cash amounts left to anyone.</span></label>
+        <label class="field"><span class="lbl">Value of fixed property</span><span class="prefix"><span>R</span><input type="number" step="any" name="estate_property" id="estate_property"></span><span class="hint">Your home and any other property.</span></label>
+        <label class="field"><span class="lbl">Cash bequests in your will</span><span class="prefix"><span>R</span><input type="number" step="any" name="estate_bequests" id="estate_bequests"></span><span class="hint">Specific cash amounts left to anyone.</span></label>
+        <label class="field"><span class="lbl">Who inherits under your will</span><select name="estate_heir" id="estate_heir"><option value="" selected>Select…</option><option value="spouse_all">My spouse inherits everything</option><option value="spouse_home">My spouse inherits the home; the rest goes elsewhere</option><option value="other">Not my spouse</option><option value="unsure">I'm not sure</option></select><span class="hint">What passes to a surviving spouse is treated very differently for estate duty and tax.</span></label>
+        <label class="field"><span class="lbl">Funeral costs to provide for</span><span class="prefix"><span>R</span><input type="number" step="any" name="estate_funeral" id="estate_funeral"></span><span class="hint">Leave blank if a funeral policy already covers it.</span></label>
         <label class="field"><span class="lbl">When your will was last reviewed</span><input type="date" name="will_date" id="will_date"></label>
         <label class="field wide"><span class="lbl">Executor named in your will</span><input type="text" name="estate_executor" id="estate_executor" placeholder="If you know who it is"></label>
       </div>
@@ -852,7 +881,7 @@ function dropRow(btn){
   var kind = row.getAttribute('data-rep');
   var add = document.querySelector('[data-add="'+kind+'"]');
   if(add) add.hidden = false;
-  updateProgress(); saveProgress(false);
+  updateProgress(); refreshSecured(); saveProgress(false);
 }
 
 /* ---------- Progress ----------
@@ -889,6 +918,7 @@ function restoreProgress(){
   try{
     var raw = localStorage.getItem(KEY); if(!raw) return;
     var data = JSON.parse(raw);
+    if(data.retirement_contrib && !data.retire_monthly) data.retire_monthly = data.retirement_contrib;
     Object.keys(data._shown||{}).forEach(function(k){
       var p=k.split('-'), row=document.querySelector('[data-rep="'+p[0]+'"][data-i="'+p[1]+'"]');
       if(row) row.hidden=false;
@@ -916,8 +946,11 @@ function toast(msg){
 
 /* =====================================================================
    Build the client file the FNA Calculation tool loads directly.
-   Shape must match the tool's state schema — see DEFAULTS in that file.
+   Shape matches the tool's v2 state schema (DEFAULTS in FNA Calculation).
+   meta.formVer tells the calculator this is a v2 payload, so it is loaded
+   as is and never put through the v1 migration.
    ===================================================================== */
+var FORM_VER = 2;
 function ageFrom(dob){
   if(!dob) return 0;
   var d=new Date(dob); if(isNaN(d)) return 0;
@@ -929,15 +962,47 @@ function ageFrom(dob){
 /* mirrors defaultGoalReturn() in the calculator */
 function goalReturn(y){ y=+y||0; return y<=3 ? 1.0 : (y<=7 ? 4.0 : 7.0); }
 function goalInfl(type){ return type==='education' ? 3.0 : (type==='property' ? 1.0 : 0); }
+var has = function(n){ return val(n) !== ''; };
+
+/* What each asset type means to the calculator.
+   kind: estate | retirement | policy | trust   (ASSET_KINDS in the calculator)
+   cgt:  a capital gain would be triggered on death. Vehicles are personal-use assets
+         (para 53), endowments are taxed inside the policy (para 55), and cash, TFSAs,
+         retirement funds and policies carry no gain on death.
+   liq:  default when the client leaves "reach it within a month" blank. */
+var ASSET_TYPES = {
+  home:       {kind:'estate',     cgt:true,  liq:false, home:true},
+  property:   {kind:'estate',     cgt:true,  liq:false, prop:true},
+  vehicle:    {kind:'estate',     cgt:false, liq:false},
+  cash:       {kind:'estate',     cgt:false, liq:true},
+  investment: {kind:'estate',     cgt:true,  liq:true},
+  tfsa:       {kind:'estate',     cgt:false, liq:true,  tfsa:true},
+  endowment:  {kind:'estate',     cgt:false, liq:false},
+  retirement: {kind:'retirement', cgt:false, liq:false},
+  policy:     {kind:'policy',     cgt:false, liq:false},
+  trust:      {kind:'trust',      cgt:false, liq:false},
+  business:   {kind:'estate',     cgt:true,  liq:false},
+  other:      {kind:'estate',     cgt:true,  liq:false}
+};
 
 function buildPayload(){
-  var deps=[], goals=[], assets=[], liabs=[];
+  var review=[], deps=[], goals=[], assets=[], liabs=[], rowToAsset={};
+  var marital=val('marital')||'single';
+  var married = marital==='married' || marital==='partner';
+
+  /* --- dependants --- */
   document.querySelectorAll('[data-rep="dep"]').forEach(function(r){
     if(r.hidden) return; var i=r.getAttribute('data-i');
     var n=val('dep_'+i+'_name');
-    if(n || numv('dep_'+i+'_support'))
-      deps.push({name:n, age:numv('dep_'+i+'_age'), support:numv('dep_'+i+'_support'), years:numv('dep_'+i+'_years')});
+    if(!(n || numv('dep_'+i+'_support') || has('dep_'+i+'_age'))) return;
+    var life = val('dep_'+i+'_lifelong')==='Y';
+    var d={name:n, age:numv('dep_'+i+'_age'), support:numv('dep_'+i+'_support'),
+           toAge:numv('dep_'+i+'_to_age'), lifelong:life};
+    if(!life && !d.toAge && d.support>0) review.push('How long '+(n||'dependant '+i)+' needs support was not given.');
+    deps.push(d);
   });
+
+  /* --- goals --- */
   document.querySelectorAll('[data-rep="goal"]').forEach(function(r){
     if(r.hidden) return; var i=r.getAttribute('data-i');
     var t=val('goal_'+i+'_type'); if(!t) return;
@@ -948,46 +1013,120 @@ function buildPayload(){
       saved:numv('goal_'+i+'_saved'), monthly:numv('goal_'+i+'_monthly'),
       infl:goalInfl(t), ret:goalReturn(yrsTo), pri:2});
   });
+
+  /* --- assets --- */
+  var heir=val('estate_heir'), noBase=[], noType=[], propSum=0, retOnSheet=0;
   document.querySelectorAll('[data-rep="asset"]').forEach(function(r){
     if(r.hidden) return; var i=r.getAttribute('data-i');
     var n=val('asset_'+i+'_name'), v=numv('asset_'+i+'_value');
-    if(n||v) assets.push({n:n, v:v, base:0, liquid: val('asset_'+i+'_liquid')==='Y', cgt:true});
+    if(!(n||v)) return;
+    var type=val('asset_'+i+'_type'), T=ASSET_TYPES[type]||ASSET_TYPES.other;
+    if(!type) noType.push(n||('asset '+i));
+    var liq=val('asset_'+i+'_liquid');
+    var a={n:n, kind:T.kind, v:v, liquid: liq ? liq==='Y' : T.liq, cgt:T.cgt, base:0};
+    if(T.tfsa) a.tfsa=true;
+    if(T.cgt){
+      if(has('asset_'+i+'_base')) a.base=numv('asset_'+i+'_base');
+      else { a.baseUnknown=true; noBase.push(n||('asset '+i)); }
+    }
+    if(T.kind==='estate'){
+      if(T.home) a.estTreat = married && (heir==='spouse_all'||heir==='spouse_home') ? 'prSpouse' : 'pr';
+      else if(married && heir==='spouse_all') a.estTreat='spouse';
+    }
+    if(T.home||T.prop) propSum+=v;
+    if(T.kind==='retirement') retOnSheet+=v;
+    rowToAsset[i]=assets.length;
+    assets.push(a);
   });
+  if(noType.length) review.push('Asset type not given for '+noType.join(', ')+' — treated as an estate asset subject to CGT.');
+  if(noBase.length) review.push('Base cost not given for '+noBase.join(', ')+' — 20% of value assumed.');
+
+  /* --- liabilities --- */
   document.querySelectorAll('[data-rep="liab"]').forEach(function(r){
     if(r.hidden) return; var i=r.getAttribute('data-i');
     var n=val('liab_'+i+'_name'), v=numv('liab_'+i+'_value');
-    if(n||v) liabs.push({n:n, v:v});
+    if(!(n||v)) return;
+    var l={n:n, v:v};
+    if(has('liab_'+i+'_term')) l.term=numv('liab_'+i+'_term');
+    var sec=val('liab_'+i+'_asset');
+    /* only an asset that passes through the executor can secure a debt (s37A PFA) */
+    if(sec && rowToAsset[sec]!==undefined && assets[rowToAsset[sec]].kind==='estate') l.asset=String(rowToAsset[sec]);
+    liabs.push(l);
   });
+
+  /* --- retirement: one capital figure, consistent with the balance sheet --- */
+  var vest=numv('retire_vested'), sav=numv('retire_savings'), rtr=numv('retire_retirement');
+  var retCur=numv('retire_current') || retOnSheet || (vest+sav+rtr);
+  if(retCur>0 && !retOnSheet){
+    assets.push({n:'Retirement funds', kind:'retirement', v:retCur, liquid:false, cgt:false, base:0});
+  }
+  if(retCur>0 && !(vest||sav||rtr)) review.push('Two-pot split not given — request it from the fund.');
+
+  /* --- income --- */
+  var gie=val('gross_includes_employer');
+  if(gie==='unsure' || (gie==='' && numv('retire_employer')>0))
+    review.push('Confirm whether the gross package includes the employer\'s retirement contribution (taken as cost to company).');
+
+  /* --- the client --- */
+  var age=ageFrom(val('dob'));
+  if(!age) review.push('Date of birth not given — capture the client\'s age.');
+  var will=val('will')||'unsure';
+  if(will!=='Y') review.push('Will status: '+(will==='N'?'no valid will.':'client is not sure.'));
+  if(married && (heir==='' || heir==='unsure')) review.push('Who inherits under the will was not confirmed — no spouse treatment applied.');
+
+  var scheme=val('medical_scheme'), members=numv('medical_members');
+  if(scheme && !numv('medical_contrib')) review.push('Medical scheme contribution not given — no s6B credit calculated.');
+
+  var c={ name:val('full_name'), gender:val('gender')||'F', smoker:val('smoker')||'N',
+          occupation:val('occupation'), marital:marital, regime:val('regime')||'n/a',
+          will:will, willDate:val('will_date'),
+          couple: married && !!val('partner_name'), p2name:val('partner_name'), p2age:numv('partner_age'),
+          deps:deps };
+  if(age) c.age=age;
+
   var bizVal=numv('business_value');
   return {
-    meta:{adviser:"Juan Lindeque", fsp:"43870", date:new Date().toISOString().slice(0,10),
-          ref:"", ver:"2.0", source:"fna-info web form"},
-    c:{ name:val('full_name'), age:ageFrom(val('dob')), gender:val('gender')||"F",
-        smoker:val('smoker')||"N", occupation:val('occupation'),
-        marital:val('marital')||"single", regime:val('regime')||"n/a",
-        will:val('will')||"unsure", willDate:val('will_date'),
-        couple: !!val('partner_name'), p2name:val('partner_name'), p2age:numv('partner_age'), deps:deps },
-    inc:{ gross:numv('gross_income'), other:numv('other_income'), expEss:numv('exp_essential'),
-          expDisc:numv('exp_discretionary'), premiums:numv('premiums'), contrib:numv('retirement_contrib') },
+    meta:{ adviser:"Juan Lindeque", fsp:"43870", date:new Date().toISOString().slice(0,10),
+           ref:"", ver:"2.0", source:"fna-info web form", formVer:FORM_VER,
+           intake:{ submitted:new Date().toISOString(), email:val('email'), mobile:val('mobile'),
+                    dob:val('dob'), executor:val('estate_executor'), stInsurer:val('short_term_insurer'),
+                    notes:val('other_notes'), review:review } },
+    c:c,
+    inc:{ gross:numv('gross_income'), ctcInclEmployer: gie!=='N',
+          rental:numv('rental_income'), interest:numv('interest_income'), dividends:numv('dividend_income'),
+          other:numv('other_income'), expEss:numv('exp_essential'), expDisc:numv('exp_discretionary'),
+          premiums:numv('premiums') },
     bal:{ assets:assets, liabs:liabs },
     cov:{ life:numv('cover_life'), disLump:numv('cover_disability'), dread:numv('cover_dread'),
           ipMonthly:numv('cover_ip'), premium:numv('cover_premium'),
           grpLife:numv('cover_group_life'), grpDis:numv('cover_group_disability'), grpIp:numv('cover_group_ip') },
     biz:{ has: bizVal>0 || !!val('business_name'), value:bizVal, share:numv('business_share'),
-          buysell:0, keyPerson:0, contingent:numv('business_surety'),
+          contingent:numv('business_surety'),
           bsCover:numv('business_buysell'), kpCover:numv('business_keyperson') },
-    est:{ propValue:numv('estate_property'), cashBequests:numv('estate_bequests'),
-          taxDue:0, spouseAccrual:0, abatementCarried:0 },
-    ret:{ age:numv('retire_age')||65, current:numv('retire_current'), monthly:numv('retire_monthly'),
-          employer:numv('retire_employer'), targetIncome:numv('retire_target'), priorLump:0 },
+    est:{ propValue:numv('estate_property')||propSum, cashBequests:numv('estate_bequests'),
+          funeral:numv('estate_funeral') },
+    ret:{ age:numv('retire_age')||65, current:retCur, monthly:numv('retire_monthly'),
+          employer:numv('retire_employer'), targetIncome:numv('retire_target'),
+          vested:vest, savings:sav, retire:rtr },
     goals:goals,
-    oth:{ medScheme:val('medical_scheme'), medMembers:numv('medical_members')||1, medDeps:0,
+    oth:{ medScheme:scheme, medMembers: members || (scheme?1:0), medContrib:numv('medical_contrib'),
           gapCover: val('gap_cover')==='Y', sti: val('short_term')==='Y',
-          stiNotes:val('short_term_insurer'), emergency:numv('emergency_fund') },
-    _review:["Asset CGT flags default to yes — untick cash and retirement funds.",
-             "Asset base costs are not collected on the form; capture before relying on the estate CGT figure.",
-             "Confirm dependant support years and the client's will status."]
+          stiNotes:val('short_term_insurer'), emergency:numv('emergency_fund') }
   };
+}
+
+/* "Secured against" lists the assets by the names the client typed. */
+function refreshSecured(){
+  var rows={};
+  document.querySelectorAll('[data-rep="asset"]').forEach(function(r){ rows[r.getAttribute('data-i')]=r; });
+  document.querySelectorAll('.sec-sel').forEach(function(sel){
+    for(var k=0;k<sel.options.length;k++){
+      var o=sel.options[k]; if(!o.value) continue;
+      var r=rows[o.value], nm=val('asset_'+o.value+'_name');
+      o.textContent = nm || ('Asset '+o.value);
+      o.hidden = !r || r.hidden;
+    }
+  });
 }
 
 /* ---------- Submit (Netlify Forms, AJAX) ---------- */
@@ -1045,9 +1184,10 @@ form.addEventListener('submit', function(e){
   var dob = document.getElementById('dob');
   if(dob) dob.max = new Date().toISOString().split('T')[0];
   restoreProgress();
+  refreshSecured();
   updateProgress();
-  form.addEventListener('input',  function(){ updateProgress(); });
-  form.addEventListener('change', function(){ updateProgress(); saveProgress(false); });
+  form.addEventListener('input',  function(){ updateProgress(); refreshSecured(); });
+  form.addEventListener('change', function(){ updateProgress(); refreshSecured(); saveProgress(false); });
 })();
 </script>
 </body>
